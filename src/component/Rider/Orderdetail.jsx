@@ -1,0 +1,83 @@
+import React, { useEffect } from 'react';
+import Metatitle from '../title/title';
+import { Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useAlert } from 'react-alert';
+import { getsingleorder, pickorder } from '../../actions/OrderAction';
+import './orderdetail.css'
+function OrderDetail() {
+    const alert = useAlert();
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const { order ,totalprice} = useSelector((state) => state.singleorder);
+    const { message} = useSelector((state) => state.pickorder);
+    console.log(useSelector((state) => state.pickorder));
+   
+    useEffect(() => {
+        dispatch(getsingleorder(id));
+    }, [dispatch, id]);
+    const pickorderr =() =>{
+        console.log('hello',id)
+        dispatch(pickorder(id))
+        alert.success(message)
+    }
+    return (
+        <>
+            <Metatitle title="Order Details" />
+            <div className="orderr-page">
+                <div>
+                    <div className="orderr-area">
+                        <Typography>Shipping Info</Typography>
+                    </div>
+                    <div className="confirmmitem">
+                        <div className="confirmm-container">
+                            <h2>Customer Infomartion</h2>
+                            {order && order.length > 0 && (
+                                <div>
+                                    <div className='cutom'>
+                                        <p>User Name: {order[0].user.name}</p>
+                                        <p>Address: {order[0].shippingInfo.address}</p>
+                                        <p>Phone No: {order[0].shippingInfo.phoneNo}</p>
+                                    </div>
+                                    <div className='orderrdetail'>
+                                    <h2>Order Infomartion</h2>
+                                    {order.map((orderItem) => (
+                      <div key={orderItem._id}>
+                        <h4>Order ID: {orderItem._id}</h4>
+                        {orderItem.orderItem.map((item) => (
+                          <div key={item._id} className='orderr'>
+                            <p>Order Name: {item.name}</p>
+                            <p>Order Quantity: {item.quantity}</p>
+                            <p>Order Instruction: {item.special_ins}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div className="orderr-summary">
+                        <Typography>Order Summary</Typography>
+                        <div>
+                            <div className="totall-price">
+                                <p>Total</p>
+                            <span>PKR{totalprice}</span>
+                            
+                            </div>
+                            <button onClick={pickorderr}>Proceed to payment</button>
+                            {/* <button onClick={paymentprocess}>Proceed to payment</button> */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export default OrderDetail;

@@ -1,0 +1,169 @@
+
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+}
+.logo{
+    display: flex;
+    justify-content: space-around;
+}
+.location{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 45px;
+    background-color: #e6e6e6;
+    max-height: 47px;
+}
+.location > i {
+    padding: 10px;
+}
+.logo > h2 >span {
+    font: 900 3vmax 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.logo > h2{
+    font: 500 3vmax "Roboto";
+}
+.searchbar{
+    width: 40%;
+}
+.searchbar > input{
+    position: relative;
+    top: 10px;
+    background-color: #e6e6e6;
+    border-radius: 12px;
+    outline: none;
+    width: 97%;
+    height: 39px;
+    text-align: center;
+}
+.searchbar > input::placeholder{
+   text-align: center;
+   font: 300 1vmax "Roboto";
+}
+.searchbar > i {
+    position: relative;
+    right: 96%;
+    top: 11px;
+    font-size: 1vmax;
+    color: rgba(0,0,0,0.690);
+    }
+.button > button{
+    border-radius: 40px;
+    margin: 10px;
+}
+.button >button > i{
+    margin: 6px;
+}
+
+.add-to-cart{
+    border-radius: 10px;
+    background-color: white;
+    padding-bottom: 24px;
+    position: absolute;
+    top: 66px;
+    right: 1%;
+    width: 22%;
+    border-bottom: solid 1px lightgray;
+}
+.add-to-cart > button:active{
+    border: none;
+}
+.add-to-cart > button> i{
+    font-size: 2vmax;
+    position: relative;
+    right: 131px;
+    top: 10px;
+}
+.add-to-cart > h2{
+    right: 78px;
+    position: relative;
+    top: 10px;
+    margin-bottom: 60px;
+    font: 900 2vmax Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/* DropDwon */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+.drop{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.add-extra >input {
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    width: 100%;
+    margin-top: 10px;
+    background-color: lightgray;
+}
+.add-extra > i{
+    position: absolute;
+    right: 31px;
+    top: 202px;
+}
+.banner{
+    height: 180px;
+    background-image: url("../../image/115.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.icon{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.icon-1{
+    margin: 10px;
+    border-radius: 50px;
+    background-color: white;
+}
+.icon-1  > i {
+    font: 300 2vmax;
+    margin: 10px;
+}
+.icon-2{
+    margin: 10px;
+    border-radius: 50px;
+    background-color: white;
+}
+.icon-2  > i {
+    margin: 10px;
+}
+.data{
+    display: flex;
+    justify-content: space-evenly;
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.speedDial{
+  position: fixed;
+  top: 3vmax;
+  right: 3vmax;
+}
+.speedDialIcon{
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+.buttonn > button {
+    width: 100px;
+    height: 41px;
+    position: relative;
+    top: 10px;
+    border-radius: 40px;
+    margin: 20px;
+  }
+
+  .buttonn > .buttoon {
+    width: 100px;
+    height: 41px;
+    position: relative;
+    top: 10px;
+    border-radius: 40px;
+    background-color: #d5d5d5;
+  }

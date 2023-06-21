@@ -1,0 +1,231 @@
+.productCard {
+  /* display: flex; */
+  text-decoration: none;
+   margin: 2vmax;  
+   /* LAPTOP KI SCREEN K LEYE KRNA HAII */ 
+  padding-bottom: 0.5vmax;
+  color: rgb(48, 48, 48);
+  transition: all 0.3s ease-in-out;
+}
+.description{
+  background-color: #ce1710;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 30px;
+  flex-wrap: wrap;
+}
+.description > strong{
+  font: 600 2vmax 'Dancing Script';
+  line-height: normal;
+ line-height: 2;
+ color: white;
+}
+.itemss{
+  display: flex;
+  margin: 10px;
+}
+.productCard > .image > img {
+  width: 20vmax;
+}
+/* .image{
+  width: 100%;
+} */
+.productCard > .description > div {
+  margin: 0.7vmax 3.7vmax;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.productCard > .description > div > span {
+  margin: 0.5vmax;
+  font: 300 2vmax "Dancing Script";
+  color: white;
+}
+
+.productCard > .description > span {
+  font:300 1.5vmax 'Dancing Script';
+  color: white;
+}
+.productCard > .description > p {
+  font-family: 'Montserrat';
+  font-size: 1vmax;
+  margin-bottom: 0;
+  color: white;
+  line-height: 2;
+}
+
+.productCard > span {
+  margin: 0.5vmax 0.5vmax;
+  color: tomato;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1vmax;
+}
+
+.productCard:hover {
+  box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+  transform: translateY(-1vmax);
+}
+
+.productCard:hover .text-cont {
+  opacity: 1;
+  top: 30%;
+  display: block;
+  height: 37px;
+}
+.instruction{
+    border-bottom: solid 1px lightgray;
+    margin-bottom: 5%;
+}
+.text-cont {
+  height: 19%;
+  background-color: tomato;
+  color: white;
+  position: absolute;
+  opacity: 0;
+  z-index: 0;
+  top: 100%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  text-align: center;
+  transition: all 0.1s ease-out;
+  text-decoration: none;
+  border-radius: 15px;
+  display: none;
+}
+
+.dialogContentRow {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.MuiDialog-paperWidthSm {
+    max-width: 92% !important ;
+    max-height: 100% !important;
+  }
+.MuiDialog{
+    width: 92% !important ;
+    height: 100% !important;
+  }
+.dialogContentRow .image {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.dialogContentRow .description {
+  flex: 1 1 auto;
+}
+.img{
+    width: 50%;
+}
+.img >img{
+    width: 70%;
+    height: 100%;
+}
+.descriptionn{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+.cont{
+    border-bottom: solid 1px lightgray;
+}
+.descriptionn> button {
+    border: none;
+    padding: 0.5vmax;
+    color: rgba(0, 0, 0, 0.74);
+    cursor: pointer;
+    color: white;
+    transition:all 0.5s ease-in-out;
+    width: 30%;
+}
+.descriptionn> button:hover{
+    background-color: rgba(0, 0, 0, 0.74);
+
+}
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.quantity-input {
+    border: none;
+    padding: 0.5vmax;
+    width: 2vmax;
+    text-align: center;
+    outline: none;
+    color: rgba(0, 0, 0, 0.74);
+    font: 400 0.8vmax "Roboto";
+    -moz-appearance: textfield;
+}
+@media (max-width: 600px) {
+  .productCard > p {
+    font-size: 1.7vmax;
+  }
+  .productCard > div {
+    margin: 0vmax 3vamx;
+    display: block;
+  }
+  .productCard > span {
+    font-size: 1.5vmax;
+  }
+  .productCard > div > span {
+    margin: 0 0.5vmax;
+    font: 300 1vmax "Roboto";
+  }
+}
+@media screen and (max-width:991px) {
+  .description {
+    background-color: #ce1710;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 15px;
+    flex-wrap: wrap;
+  }
+  .description > strong {
+    font: 600 2.9vmax 'Dancing Script';
+      line-height: normal;
+    line-height: normal;
+    line-height: 2;
+    color: white;
+  }
+  .productCard > .description > p {
+    font-family: 'Montserrat';
+    font-size: 2vmax;
+    margin-bottom: 0;
+    color: white;
+    line-height: 2;
+  }
+  .productCard > .description > span {
+    font: 300 2.5vmax 'Dancing Script';
+    color: white;
+  }
+}
+@media screen and (max-width:800px) {
+  .description {
+    background-color: #ce1710;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 15px;
+    flex-wrap: wrap;
+  }
+  .description > strong {
+    font: 600 2.9vmax 'Dancing Script';
+      line-height: normal;
+    line-height: normal;
+    line-height: 2;
+    color: white;
+  }
+  .productCard > .description > p {
+    font-family: 'Montserrat';
+    font-size: 2vmax;
+    margin-bottom: 0;
+    color: white;
+    line-height: 2;
+  }
+   .productCard > .description > span {
+    font: 300 2.5vmax 'Dancing Script';
+    color: white;
+  }
+}
