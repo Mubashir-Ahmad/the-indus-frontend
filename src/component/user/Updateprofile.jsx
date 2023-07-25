@@ -16,17 +16,19 @@ function Updateprofile() {
     
     const dispatch = useDispatch();
     const {user}=useSelector((state)=>state.user)
+    
     const {error,isUpdated,loading} = useSelector((state)=>state.profile)
     const [avatar, setAvatar] = useState("");
     const[avatarPreview,setAvatarPreview]=useState(Profile)
     const [name,setName]=useState("")
     const[email,setEmail]=useState("")
+    const [filedata, setFileData] = useState();
     useEffect(()=>{
         if(user){
             console.log(user)
             setName(user.user.name);
             setEmail(user.user.email);
-            setAvatarPreview(user.user.avatar.url);
+            setAvatarPreview(user.user.avatar);
         }
         if(error){
             alert.error(error);
@@ -46,21 +48,16 @@ function Updateprofile() {
     const updateprofilesubmit = (e)=>{
         e.preventDefault() 
         const myform = new FormData()
-        myform.set('name',name);
-        myform.set('email',email);
-        myform.set('avatar',avatar)
+        myform.append('name',name);
+        myform.append('email',email);
+        myform.append('avatar',filedata)
+        console.log('Form Data:', myform);
+        console.log('File Data:', filedata);
         dispatch(update_profile(myform));
     }
     const updateprofiledatechange = (e) => {
-          const reader = new FileReader();
-          reader.onload = () => {
-            if (reader.readyState === 2) {
-              setAvatarPreview(reader.result);
-              setAvatar(reader.result);
-            }
-          };
-          reader.readAsDataURL(e.target.files[0]);
-
+        console.log('sdsdsdsdsdasaeer',e.target.files[0])
+        setFileData(e.target.files[0]);
       };
   return (
     <>

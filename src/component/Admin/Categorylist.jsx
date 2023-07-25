@@ -41,9 +41,9 @@ const NewProduct = ({ history }) => {
         const myForm = new FormData();
 
       
-        myForm.set("sorting", sorting);
-        myForm.set("active", active);
-        myForm.set("category", category);
+        myForm.append("sorting", sorting);
+        myForm.append("active", active);
+        myForm.append("category", category);
 
 
         dispatch(createcategory(myForm));

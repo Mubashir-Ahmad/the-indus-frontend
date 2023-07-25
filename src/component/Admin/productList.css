@@ -21,7 +21,7 @@
 .productListTable {
   background-color: white;
   border: none !important;
-  
+  overflow-x: auto; /* Add horizontal scroll for smaller screens */
 }
 
 .productListTable div {
@@ -48,8 +48,36 @@
   color: rgb(255, 255, 255);
 }
 
+@media screen and (max-width: 1500px) {
+  .productListTable div {
+    font-size: 1.5vmax;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .productListTable div {
+    font-size: 1.2vmax;
+  }
+  .productListContainer {
+    height: 50vh;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .productListTable div {
+    font-size: 1vmax;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .productListTable div {
+    font-size: 0.8vmax;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .productListTable div {
-    font: 300 4vw "Roboto";
+    font-size: 4vw;
   }
 }

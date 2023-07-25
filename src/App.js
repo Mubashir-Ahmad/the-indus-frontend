@@ -53,7 +53,9 @@ import Allcategorylistt from "./component/Manager/Allcategorylistt"
 import Categorylistt from "./component/Manager/Categorylistt"
 import UsersListt from "./component/Manager/UsersListt"
 import UpdateUserr from "./component/Manager/UpdateUserr" 
-
+import Homeproduct from "./component/home/Homeproduct" 
+import MyOrders from './component/user/Myorders';
+import NewUser from './component/Manager/Newuser';
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   // console.log('appp',user)
@@ -97,12 +99,14 @@ function App() {
               <Route path="/login" element={<Login />} exact />
               <Route path="/password/forget" element={<Forgetpassword />} exact />
               <Route path='/password/reset/:token' element={<Resetpassword/>} />
-              <Route path='/admindashbord' element={<Dashbord/>} />
+              {/* {isAuthenticated && <Route path='/admindashbord' element={<Dashbord/>} /> : navigate('/login') } */}
+              <Route path='/admindashbord' element={<Dashbord />} exact/>
               <Route path='/admin/orders' element={<OrderList/>} />
               <Route path='/admin/products' element={<ProductList/>} />
               <Route path='/admin/users' element={<UserList/>} />
               <Route path="/riderdash" element={<Dashhbord />} exact />
               <Route path='/mangerdashbord' element={<Managerdasboard />} />
+              <Route path="/products/:keyword" element={<Homeproduct />} />
               {isAuthenticated && <Route path='/cart' element={<Cart/>} /> }
               {/* {isAuthenticated &&<Route path='/shipping' element={<Shipping/>} />} */}
               {isAuthenticated &&<Route path='/order/confirm' element={<OrderConfirm/>} />}
@@ -115,6 +119,8 @@ function App() {
               {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
               {/* Manager links */}
               {isAuthenticated &&<Route path="/manager/product" element={<ProductListt/>} />}
+              {isAuthenticated &&<Route path="/manager/user/create" element={<NewUser/>} />}
+              {isAuthenticated &&<Route path="/myorders" element={<MyOrders/>} />}
               {isAuthenticated &&<Route path="/manger/create/product" element={<NewProductt/>} />}
               {isAuthenticated &&<Route path="/manger/order" element={<OrderListt/>} />}
               {isAuthenticated &&<Route path="/manager/user" element={<UsersListt/>} />}

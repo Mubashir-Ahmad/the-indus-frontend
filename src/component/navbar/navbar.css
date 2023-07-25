@@ -14,6 +14,17 @@
     background-color: #e6e6e6;
     max-height: 47px;
 }
+.pppp{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.314);
+  width: 100%;
+  height: 100%;
+  top: -2px;
+  right: 0px;
+  display: block;
+  transition: all 0.6s ease-in-out 0s;
+  z-index: 999;
+}
 .location > i {
     padding: 10px;
 }
@@ -25,28 +36,46 @@
 }
 .searchbar{
     width: 40%;
+    display: flex;
+    align-items: center;
+    background: white;
+    justify-content: space-evenly;
+    border-radius: 16px;
 }
-.searchbar > input{
-    position: relative;
-    top: 10px;
-    background-color: #e6e6e6;
+.inputt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88%;
+  padding-left: 38px;
+}
+.searchbar .inputt > input{
+    background-color: white;
     border-radius: 12px;
     outline: none;
     width: 97%;
     height: 39px;
     text-align: center;
+    border: none;
 }
-.searchbar > input::placeholder{
-   text-align: center;
+.searchbar .inputt > input::placeholder{
+   text-align: left;
    font: 300 1vmax "Roboto";
 }
-.searchbar > i {
-    position: relative;
+.searchbar .inputt > i {
+    /* position: relative;
     right: 96%;
-    top: 11px;
+    top: 11px; */
     font-size: 1vmax;
     color: rgba(0,0,0,0.690);
     }
+.searchbar >button{
+    /* position: relative;
+    left: 244px;
+    bottom: 30%; */
+    /* border: none; */
+    
+}    
 .button > button{
     border-radius: 40px;
     margin: 10px;
@@ -167,3 +196,212 @@
     border-radius: 40px;
     background-color: #d5d5d5;
   }
+  .buttonn {
+    display: flex;
+    align-items: center;
+    width: 16%;
+    justify-content: space-evenly;
+  }
+.linkk{
+    background-color: black;
+    width: 12%;
+    height: 39px;
+    padding: 7px;
+    border-radius: 0px 16px 16px 0px;
+}
+.linnk {
+    background: white;
+    width: 31%;
+    height: 32px;
+    border-radius: 11px;
+    color: black;
+    text-decoration: none;
+  }
+.main-container{
+  width: 100%;
+}
+@media screen and (max-width: 1537px) {
+  .popupStyle  {
+    overflow: scroll;
+    };
+    .searchbar {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        background: white;
+        justify-content: space-evenly;
+        border-radius: 16px;
+      }
+      .inputt {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 88%;
+        padding-left: 19px;
+      }
+      .linkk{
+        background-color: black;
+        width: 12%;
+        height: 39px;
+        padding: 7px;
+        border-radius: 0px 16px 16px 0px;
+    }
+    .linnk{
+        background: white;
+        width: 31%;
+        height: 32px;
+        border-radius: 11px;
+        color: black;
+        text-decoration: none;
+    }
+    .buttonn {
+        display: flex;
+        align-items: center;
+        width: 16%;
+        justify-content: space-evenly;
+      }
+      
+}
+@media screen and (max-width:1170px) {
+    .logo > img {
+        width: 85%;
+      }
+      .searchbar {
+        width: 35%;
+        display: flex;
+        align-items: center;
+        background: white;
+        justify-content: space-evenly;
+        border-radius: 16px;
+      }
+      .linnk {
+        background: white;
+        width: 31%;
+        height: 32px;
+        border-radius: 11px;
+        color: black;
+        text-decoration: none;
+      }
+      .buttonn {
+        display: flex;
+        align-items: center;
+        width: 20%;
+        justify-content: space-evenly;
+      }
+      .speedDial {
+        position: fixed;
+        top: 2vmax;
+        right: 2vmax;
+      }
+}
+@media screen and (max-width:950px) {
+  .pppp  {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.314);
+    width: 100% !important;
+    height: 100%;
+    top: -2px;
+    right: 0px;
+    transform: translateX(0%);
+    transition: all 0.6s ease-in-out 0s;
+    z-index: 999;
+    overflow: scroll;
+  }
+    .speedDial {
+        position: fixed;
+        top: 2vmax;
+        right: 1vmax;
+      }
+      .logo > img {
+        width: 80%;
+      }
+      .linnk{
+            background: white;
+            width: 39%;
+            height: 32px;
+            border-radius: 11px;
+            color: black;
+            text-decoration: none;
+            margin: 8px;
+          
+      }
+}
+@media screen and (max-width: 770px){
+    .linnk {
+        background: white;
+        width: 39%;
+        height: 32px;
+        border-radius: 11px;
+        color: black;
+        text-decoration: none;
+        margin: 8px;
+      }
+      .speedDial {
+        position: fixed;
+        top: 2vmax;
+        right: 0vmax;
+      }
+      .logo > img {
+        width: 75%;
+      }
+      .searchbar {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        background: white;
+        justify-content: space-evenly;
+        border-radius: 16px;
+      }
+}
+@media screen and (max-width:600px){
+  .navbar{
+    display: flex;
+}
+  .pppp  {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.314);
+    width: 100% !important;
+    height: 100%;
+    top: -2px;
+    right: 0px;
+    transform: translateX(0%);
+    transition: all 0.6s ease-in-out 0s;
+    z-index: 999;
+    overflow: scroll;
+  }  
+  .linnk {
+    background: white;
+    width: 85%;
+    height: 32px;
+    border-radius: 11px;
+    color: black;
+    text-decoration: none;
+    margin: 8px;
+  }
+  .logo{
+        width: 75%;
+    }
+    .logo > img {
+        width: 96px;
+      }
+      .buttonn {
+        display: flex;
+        align-items: flex-start;
+        width: 18%;
+        justify-content: space-evenly;
+        flex-direction: column;
+      }
+      .searchbar {
+        width: 52%;
+        display: flex;
+        align-items: center;
+        background: white;
+        justify-content: space-evenly;
+        border-radius: 16px;
+      }
+      .speedDial {
+        position: fixed;
+        top: 4vmax;
+        right: 0vmax;
+      }
+}

@@ -50,10 +50,10 @@ const Updatecategory = () => {
 
         const myForm = new FormData();
 
-        myForm.set("id", productId.id);
-        myForm.set("sorting", sorting);
-        myForm.set("active", active);
-        myForm.set("category", category);
+        myForm.append("id", productId.id);
+        myForm.append("sorting", sorting);
+        myForm.append("active", active);
+        myForm.append("category", category);
         dispatch(updatetcategory(productId.id, myForm));
     };
     return (

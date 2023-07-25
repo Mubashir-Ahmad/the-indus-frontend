@@ -44,7 +44,7 @@ const Sidebar = () => {
           <PeopleIcon /> Users
         </p>
       </Link>
-      <Link to="/user/create">
+      <Link to="/manager/user/create">
         <p>
           <PostAddIcon />
           Create User

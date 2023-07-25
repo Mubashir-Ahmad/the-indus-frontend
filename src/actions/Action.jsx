@@ -32,7 +32,7 @@ const getproducts = () => async (dispatch) => {
     dispatch({ type: 'products_request' });
     try {
         // console.log('dddd',price,currentpage,keyword)
-        let link = 'http://localhost:4000/api/v1/products'
+        let link = 'https://the-indus-beckend.vercel.app/api/v1/products'
         
         const { data } = await axios.get(link)
         dispatch({

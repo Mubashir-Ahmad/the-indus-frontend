@@ -39,3 +39,28 @@
 .MuiTypography-root {
   background-color: #fff !important;
 }
+@media (max-width:1220px){
+  .sidebar a:not(:first-child) {
+    padding: 0rem 1rem;
+    border-bottom: 1px solid #5555;
+    display: block;
+  }
+  .sidebar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    overflow: hidden;
+    width: 225px;
+  }
+}
+@media (max-width:690px){
+  .sidebar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    overflow: hidden;
+    width: 207px;
+  }
+}

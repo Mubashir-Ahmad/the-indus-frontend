@@ -3,7 +3,7 @@ import { cartReducer } from '../reducer/CartReducer';
 import { AdminproductReducer, productReducer } from '../reducer/product';
 import { allUsersReducer, userReducer } from '../reducer/UserReducer';
 import { ProfileReducer , ForgetPasswordReducer } from '../reducer/profileReducer';
-import { OrderReducer, MyOrderReducer, allOrdersReducer, SingleOrderReducer, PickOrderReducer, RiderearnReducer, UpdateorderReducer } from '../reducer/OrderReducer';
+import { OrderReducer, MyOrderReducer, allOrdersReducer, SingleOrderReducer, PickOrderReducer, RiderearnReducer, UpdateorderReducer, SaleOrderReducer } from '../reducer/OrderReducer';
 import { UpdateProductReducer, categoryReducer, newProductReducer, productDetailReducer ,productsReducer } from '../reducer/productReducer';
 import { createcategoryReducer } from '../reducer/CategoryReducer';
 import {updatecategoryReducer} from '../reducer/CategoryReducer';
@@ -40,6 +40,7 @@ const store = configureStore({
       getcategory:createcategoryReducer,   // For get all category
       updatecategory:updatecategoryReducer, // For update category
       deletecategory:updatecategoryReducer, // For delete category
+      sales:SaleOrderReducer, // For Sales
     },
     preloadedState: initialState, // pass initialState here
   });

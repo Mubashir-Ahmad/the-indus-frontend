@@ -40,7 +40,7 @@ const userReducer = createReducer(initialState, {
     register_success: (state, action) => {
         return {
             loading: false,        
-            isAuthenticated:true,
+            isAuthenticated:false,
             user:action.payload,
             iscreated:true,
         };

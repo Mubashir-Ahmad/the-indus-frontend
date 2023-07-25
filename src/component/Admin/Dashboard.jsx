@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // import { Doughnut, Line, CategoryScale } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction.jsx";
-import { getAllOrders, getadminAllOrders } from "../../actions/OrderAction.jsx";
+import { getAllOrders, getadminAllOrders, salesOrder } from "../../actions/OrderAction.jsx";
 import { getAllUsers } from "../../actions/UserAction.jsx";
 import Metatitle from "../title/title.jsx";
 import { getproduct, clearError, getproducts } from '../../actions/Action';
@@ -16,13 +16,17 @@ const Dashboard = () => {
 
   const dispatch = useDispatch();
 
-  const { loading, error, products, productCount } = useSelector(
+  const { loading, error, products } = useSelector(
     (state) => state.products
   )
-  // console.log(useSelector((state) => state.getcategory))
+  const { productCount } = useSelector(
+    (state) => state.productts
+  )
+  const {Todaysale,Weeklysale,Monthlysale,Yearlysale,LifetimeSale}= useSelector((state)=>state.sales)
+  console.log('lloo',useSelector((state)=>state.sales))
   const { orders} = useSelector((state) => state.allOrders);
   const { oorders , order ,dorders, porder } = useSelector((state) => state.myorders);
-  console.log(useSelector((state) => state.myorders))
+  console.log('as',useSelector((state) => state.myorders))
   const { users } = useSelector((state) => state.alluser);
   const { data } = useSelector((state) => state.getcategory);
   let outOfStock = 0;
@@ -35,8 +39,9 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-
+    dispatch(salesOrder());
     dispatch(getproduct());
+    dispatch(getproducts());
     dispatch(getcategory());
     dispatch(getAllOrders());
     dispatch(getAllUsers());
@@ -59,11 +64,11 @@ const Dashboard = () => {
         <Typography component="h1">Dashboard</Typography>
 
         <div className="dashboardSummary">
-          <div>
+          {/* <div>
             <p>
               Total Amount <br />{totalAmount}
             </p>
-          </div>
+          </div> */}
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
               <p>Product</p>
@@ -83,6 +88,34 @@ const Dashboard = () => {
             </Link>
           </div>
         </div>
+        <div className="productListContainner">
+      <h1 id="productListHeadingg">Sales</h1>
+      <div className="dataa">
+        <div className="box-01">
+          <h5 className="headerr" style={{ paddingLeft: '4px' }}>
+            Our Sales
+          </h5>
+          <div className="orderRoww">
+            <div className="linee">
+              <span className="labell">Today Sale:</span>
+              <span className="valuee">{Todaysale}</span>
+            </div>
+            <div className="linee">
+              <span className="labell">Weekly Sale:</span>
+              <span className="valuee">{Weeklysale}</span>
+            </div>
+            <div className="linee">
+              <span className="labell">Monthly Sale:</span>
+              <span className="valuee">{Monthlysale}</span>
+            </div>
+            <div className="linee">
+              <span className="labell">Yearly Sale:</span>
+              <span className="valuee">{Yearlysale}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
         <div className="productListContainer">
           <h1 id="productListHeading">ALL ORDERS</h1>
           <div className="dataa">
@@ -91,7 +124,7 @@ const Dashboard = () => {
               <div className="orderRow headerRow">
                 <span className="header">Order ID</span>
                 <span className="header">User</span>
-                <span className="header">Status</span>
+                <span className="header">Amount</span>
               </div>
               {oorders &&
                 oorders.map((item) =>

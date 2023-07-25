@@ -6,6 +6,37 @@ const initialState = {
   dorders:[],
 };
 
+const SaleOrderReducer = createReducer(initialState, {
+  SALE_ORDER_REQUEST: (state, action) => {
+    return {
+      ...state,
+      loading: true,
+    };
+  },
+  SALE_ORDER_SUCCESS: (state, action) => {
+    console.log('sdddddddddddddd',action.payload)
+    return {
+      loading: false,
+      Todaysale: action.payload.todaySales.totalSales,
+      Weeklysale: action.payload.weeklySales.totalSales,
+      Monthlysale: action.payload.monthlySales.totalSales,
+      Yearlysale: action.payload.yearlySales.totalSales,
+      Lifetimesale: action.payload.yearlySales.totalSales,
+    };
+  },
+  SALE_ORDER_FAIL: (state, action) => {
+    return {
+      loading: true,
+      error: action.payload,
+    };
+  },
+  CLEAN_ERROR: (state, action) => {
+    return {
+      ...state,
+      error: null,
+    };
+  },
+});
 const OrderReducer = createReducer(initialState, {
   CREATE_ORDER_REQUEST: (state, action) => {
     return {
@@ -257,4 +288,4 @@ const UpdateorderReducer =createReducer (initialState, {
       };
     } 
 });
-export { OrderReducer, RiderearnReducer,UpdateorderReducer ,MyOrderReducer, allOrdersReducer,SingleOrderReducer,PickOrderReducer};
+export { OrderReducer, RiderearnReducer,UpdateorderReducer ,MyOrderReducer, allOrdersReducer,SingleOrderReducer,PickOrderReducer,SaleOrderReducer};

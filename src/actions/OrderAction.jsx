@@ -4,10 +4,12 @@ import Cookies from 'js-cookie';
 
 const createorder =(order)=>async(dispatch,getState)=>{
     try{
+        console.log(order)
         const token = Cookies.get('token');
         dispatch({type:'CREATE_ORDER_REQUEST'})
         const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
         const data = await axios.post(`http://localhost:4000/api/v1/order/new`,order,config)
+        console.log(data)
         dispatch({type:'CREATE_ORDER_SUCCESS',payload:data})
     }
     catch(error){
@@ -23,7 +25,7 @@ const myorders =(order)=>async(dispatch,getState)=>{
         dispatch({type:'MY_ORDER_REQUEST'})
         const config = { headers: { Authorization: `${token}`} };
         const data = await axios.get(`http://localhost:4000/api/v1/orders/me`,config)
-        console.log('data',data,data.data.order)
+        console.log('dataaaa',data,data.data.order)
         dispatch({type:'MY_ORDER_SUCCESS',payload:data.data.order})
     }
     catch(error){
@@ -159,10 +161,26 @@ const riderearn = (id) => async (dispatch) => {
     });
   }
 };
+// Delete Order
+ const salesOrder = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: 'SALE_ORDER_REQUEST' });
+    const token = Cookies.get('token');
+    const config = { headers: { Authorization: `${token}`, "Content-Type": "application/json" } };
+    const { data } = await axios.get('http://localhost:4000/api/v1/admin/sale/order',config);
+    console.log('dataa',data)
+    dispatch({ type: 'SALE_ORDER_SUCCESS', payload: data });
+  } catch (error) {
+    dispatch({
+      type: 'SALE_ORDER_FAIL',
+      // payload: error.response.data.message,
+    });
+  }
+};
 const clearError = () => async (dispatch) => {
     dispatch({
         type: 'CLEAN_ERROR',
     });
 };
 
-export{clearError,createorder,myorders,getAllOrders,getsingleorder,pickorder,riderearn,updateOrder,deleteOrder,getadminAllOrders}
+export{clearError,createorder,myorders,getAllOrders,getsingleorder,pickorder,riderearn,updateOrder,deleteOrder,getadminAllOrders,salesOrder}

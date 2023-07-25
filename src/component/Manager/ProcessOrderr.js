@@ -21,7 +21,7 @@ const ProcessOrder = ({ history, match }) => {
   const { order, error, loading, shippingInfo } = useSelector(
     (state) => state.singleorder
   );
-  console.log(useSelector((state) => state.singleorder));
+  console.log('ooooo',useSelector((state) => state.singleorder));
   const { error: updateError, isUpdated } = useSelector(
     (state) => state.updateorder
   );

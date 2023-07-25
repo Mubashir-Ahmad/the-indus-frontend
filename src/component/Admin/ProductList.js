@@ -100,14 +100,7 @@ console.log(useSelector((state) => state.adminproduct))
   ];
 
   const rows = [];
-  // products &&
-  // Object.keys(products).forEach((category) => {
-  //   products[category].forEach((item) => {
-  //     if (item.stock === 0) {
-  //       // outOfStock += 1;
-  //     }
-  //   });
-  // });
+
   products &&
     products.forEach((item) => {
       rows.push({

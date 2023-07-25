@@ -1,14 +1,14 @@
 .update-container{
     width: 100vw;
-    height: 100vh;
+    height: 100vw;
     max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(231, 231, 231);
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    left: 0;
+    left: 0; */
 }
 .update-box{
     background-color: white;
@@ -143,4 +143,23 @@
     .updatebtn:hover{
         color: red;
     }
+}
+@media (max-width:980px) {
+    .update-box {
+        background-color: white;
+        width: 61vw;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .updateform {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 2vmax;
+        justify-content: space-evenly;
+        height: 87%;
+        transition: all 0.5s ease-in-out;
+      }
 }

@@ -26,7 +26,7 @@ const NewProduct = ({ history }) => {
   const [discount_price, setdiscount_price] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const [category, setcategory] = useState("");
-
+  const [filedata, setFileData] = useState();
   const [imagesPreview, setImagesPreview] = useState([]);
   const [avatar, setAvatar] = useState('');
   const [avatarPreview, setAvatarPreview] = useState()
@@ -49,13 +49,13 @@ const NewProduct = ({ history }) => {
 
     const myForm = new FormData();
 
-    myForm.set("name", name);
-    myForm.set("price", price);
-    myForm.set("description", description);
-    myForm.set("discount_price", discount_price);
-    myForm.set("active", checkbox);
-    myForm.set("category", category);
-    myForm.set("avatar", avatar);
+    myForm.append("name", name);
+    myForm.append("price", price);
+    myForm.append("description", description);
+    myForm.append("discount_price", discount_price);
+    myForm.append("active", checkbox);
+    myForm.append("category", category);
+    myForm.append("avatar", filedata);
 
     // images.forEach((image) => {
     //   myForm.append("avatar", image);
@@ -66,16 +66,7 @@ const NewProduct = ({ history }) => {
     setCheckbox((prevCheckbox) => !prevCheckbox);
   };
   const registerdatechange = (e) => {
-    if (e.target.name === "avatar") {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
-        }
-      };
-      reader.readAsDataURL(e.target.files[0]);
-    }
+    setFileData(e.target.files[0]);
   };
   const categories = [
     "Chicken",

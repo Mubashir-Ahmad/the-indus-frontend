@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './cartitem.css'
+import './cartitemm.css'
 import {removeitemfromcart } from '../../actions/CartAction'
 import {useSelector , useDispatch} from 'react-redux'
 function Cartitem({item}) {
-  // console.log(item)
   const dispatch = useDispatch();
   const {cartitems} = useSelector((state) => state.cart)
 
@@ -14,8 +13,8 @@ function Cartitem({item}) {
   }
   return (
         <>
-        <div className="cartitem">
-            <img src={item.image} alt='saa/' />
+        <div className="cartitemm">
+            <img src={item.image} alt='saa/'/>
             <div>
             <Link to={`/product/${item.product}`}>{item.name}</Link>
             <span>{`Price: PKR ${item.price}`}</span>

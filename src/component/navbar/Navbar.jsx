@@ -7,92 +7,98 @@ import { useSelector, useDispatch } from 'react-redux';
 import Popup from './Popup';
 import { addItem_tocart, removeitemfromcart } from '../../actions/CartAction';
 import Cart from '../cart/Cart';
-import { NavLink } from 'react-router-dom';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import { Link, NavLink } from 'react-router-dom';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useNavigate } from 'react-router-dom';
+import Cartt from '../cart/Cartt';
+
 function Navbar() {
-  const [showInfo, setShowInfo] = useState(false);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const { cartitems } = useSelector((state) => state.cart);
-  const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
+  const [isActive, setIsActive] = useState(false);
+  const history = useNavigate();
 
-  const incresequality = (id, quantity, stock) => {
-    const newQty = quantity + 1;
-    if (stock <= quantity) {
-      return;
+  const togglePopupp = () => {
+    setIsActive(!isActive);
+  };
+
+  const submithandler = (e) => {
+    e.preventDefault();
+    if (keywords.trim()) {
+      history(`/products/${keywords}`);
+    } else {
+      history('/products');
     }
-    dispatch(addItem_tocart(id, newQty));
   };
-
-  const decresequality = (id, quantity, stock) => {
-    const newQty = quantity - 1;
-    if (1 >= quantity) {
-      return;
-    }
-    dispatch(addItem_tocart(id, newQty));
+  const popupStyle = {
+    position: "fixed",
+    width: "45vw",
+    margin: "auto",
+    marginTop: "auto",
+    height: "100%",
+    maxHeight: "100%",
+    marginTop: "calc(86vh - 85vh - 20px)",
+    background: "#fff",
+    borderRadius: "4px",
+    padding: "20px",
+    border: "1px solid #999",
+    overflow: "auto",
+    transform: `translateX(${isActive ? "0%" : "100%"})`, // Apply the transform style based on isActive
+    right: 0,
+    transition: "transform 0.6s ease", // Add transition property for smooth transformation
   };
-
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleClick = () => {
-    setShowInfo(!showInfo); // Toggle the state value
-  };
-
-  const selectItem = (event) => {
-    const selectedValue = event.target.textContent.trim();
-    const dropdownButton = document.querySelector('.btn.dropdown-toggle');
-    dropdownButton.textContent = selectedValue;
-  };
+  const [keywords, setkeywords] = useState('');
 
   return (
     <>
-      <div
-        className='container-fluid '
-        style={{ backgroundColor: '#ce1710' }}
-      >
-        <div className="navbar">
-          <div className="logo">
-            <img src={pic2} alt="" />
-          </div>
-          <div className="searchbar">
-            <input type="text" placeholder="Search in the Indus" />
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div className="buttonn">
-            {/* <ShoppingCartIcon style={{color:cartitems.length>0 ?'tomato' : 'unset'}}/>,name :`Cart(${cartitems.length})`,function:cart */}
-            <button onClick={togglePopup}>
-              <ShoppingCartIcon style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }} />
-              <span>{`Cart (${cartitems.length})`}</span>
-            </button>
-            {isOpen && (
-              <Popup
-                content={
-                  <>
-                    <b>The Indus</b>
-                    <Cart />
-                  </>
-                }
-                handleClose={togglePopup}
+      <div className='main-container' style={{ backgroundColor: '#ce1710' }}>
+        <div className='navbar'>
+          <Link to='/'>
+            <div className='logo'>
+              <img src={pic2} alt='' />
+            </div>
+          </Link>
+          <div className='searchbar'>
+            <div className='inputt'>
+              <input
+                type='text'
+                placeholder='Search in the Indus'
+                onChange={(e) => setkeywords(e.target.value)}
               />
+            </div>
+            <Link onClick={submithandler} className='linkk'>
+              <i className='fa-solid fa-magnifying-glass' style={{ color: 'white' }}></i>
+            </Link>
+          </div>
+          <div className='buttonn'>
+            <Link className='linnk' onClick={togglePopupp}>
+              <ShoppingCartIcon style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }} />
+              <span>{`(${cartitems.length})`}</span>
+            </Link>
+            {isActive && (
+              <div className='pppp' onClick={togglePopupp} >
+                <div className='boxxx ' style={popupStyle}>
+                  <i className='fa-solid fa-xmark close-icon' onClick={togglePopupp}></i>
+                  <b className='pop-heading'>THE INDUS</b>
+                  <Cartt />
+                </div>
+              </div>
             )}
-            <NavLink to='/login'
-              type="button"
-              className="btn buttoon"
-              style={{ width: '100px' }}
-            >
-              Sign in
-            </NavLink>
+            {isAuthenticated ? null : (
+              <Link to='/login' className='linnk'>
+                Sign in
+              </Link>
+            )}
           </div>
         </div>
       </div>
       <div className='banner'>
-        <div className="icon">
-          <div className="icon-1">
-            <i className="fa-solid fa-ellipsis"></i>
+        <div className='icon'>
+          <div className='icon-1'>
+            <i className='fa-solid fa-ellipsis'></i>
           </div>
-          <div className="icon-2">
-            <i className="fa-regular fa-heart"></i>
+          <div className='icon-2'>
+            <i className='fa-regular fa-heart'></i>
           </div>
         </div>
       </div>

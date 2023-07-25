@@ -82,26 +82,39 @@ const OrderList = ({ history }) => {
       <div className="productListContainer">
         <h1 id="productListHeading">ALL ORDERS</h1>
 
-        {orders && orders.map((item) => (
-          <Link to={`/orderdetail/${item._id}`} key={item._id}>
-            <DataGrid
-              rows={[
-                {
-                  id: item._id,
-                  user: item.user,
-                  itemsQty: item.orderItem.length,
-                  amount: item.totalPrice,
-                  status: item.orderStatus,
-                },
-              ]}
-              columns={columns}
-              pageSize={10}
-              disableSelectionOnClick
-              className="productListTable"
-              autoHeight
-            />
-          </Link>
-        ))}
+         
+        {orders && orders.length > 0 && (
+  <table className="productListTable" style={{ width: '90%' }}>
+    <thead>
+      <tr className="tableheading">
+        <td style={{ width: '26%' }}><h5>Order Id</h5></td>
+        <td><h5>User</h5></td>
+        <td><h5>Status</h5></td>
+        <td><h5>Item Qty</h5></td>
+        <td><h5>Amount</h5></td>
+        <td><h5>Action</h5></td>
+      </tr>
+    </thead>
+    <tbody>
+      {orders.map((item) => (
+        <tr key={item._id}>
+          <td className="tablecell">{item._id}</td>
+          <td className="tablecell">{item.user.name}</td>
+          <td className="tablecell">{item.orderStatus}</td>
+          <td className="tablecell">{item.orderItem.length}</td>
+          <td className="tablecell">{item.totalPrice}</td>
+          <td className="tablecell">
+            <Link to={`/orderdetail/${item._id}`}>
+              <EditIcon />
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+
+
       </div>
     </div>
   </Fragment>

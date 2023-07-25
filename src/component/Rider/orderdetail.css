@@ -1,13 +1,22 @@
-.cutom{
-
-    height: 500px;
+.cutom {
+    height: 100%;
     width: 100%;
-}
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+  }
 .cutom > p{
-    font: 400 1.8vmax "Roboto";
+    font: 400 1.5vmax "Roboto";
+}
+h2{
+    margin: 20px;
+}
+.all-order{
+    display: flex;
+    justify-content: space-evenly;
 }
 .orderr{
-    border-bottom: solid 1px lightgray;
+    /* border-bottom: solid 1px lightgray; */
     padding: 15px;
    height: 100%;
 }
@@ -47,8 +56,7 @@
     color: #575757;
 }
 .confirmmitem{
-    position: relative;
-    top: -11%;
+
     min-height: 10vh;
 }
 .confirmmitem > p{
@@ -64,10 +72,10 @@
     overflow: hidden;
 }
 .confirmm-container > div{
-    display: flex;
+    /* display: flex; */
     font: 400 1vmax "Roboto";
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center; */
+    /* justify-content: space-between; */
     margin: 2vmax 0;
 }
 .confirmm-container > div > img{
@@ -128,6 +136,77 @@
     transform: scale(1.1);
     background-color: red;
 }
+@media (max-width:1500px) {
+    .orderr-summary{
+        padding: 5vmax;
+    }
+}
+@media (max-width:1300px) {
+    .orderr-summary{
+        padding: 2vmax;
+    }
+    .cutom > p {
+        font: 400 1.2vmax "Roboto";
+      }
+}
+@media (max-width:1024px) {
+    .orderr-summary{
+        padding: 2vmax;
+    }
+    .cutom > p {
+        font: 400 1vmax "Roboto";
+      }
+      .orderr-summary > p {
+        text-align: center;
+        font: 500 1.3vmax "Roboto";
+        border-bottom: 1px solid rgba(0, 0, 0, 0.247);
+        box-sizing: border-box;
+        padding: 1vmax;
+        margin: auto;
+        width: 100%;
+      }
+}
+@media (max-width:980px) {
+    .orderr-summary{
+        padding: 1vmax;
+    }
+    .cutom > p {
+        font: 400 1.2vmax "Roboto";
+      }
+      .orderr-summary > p {
+        text-align: center;
+        font: 489 1.2vmax "Roboto";
+        border-bottom: 1px solid rgba(0, 0, 0, 0.247);
+        box-sizing: border-box;
+        padding: 1vmax;
+        margin: auto;
+        width: 100%;
+      }
+}
+@media (max-width:800px){
+    .cutom > p {
+        font: 400 1vmax "Roboto" !important;
+      }                                   
+      .orderr-page {
+        height: 100%;
+        background-color: white;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: end;
+      }       
+      .all-order {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+      .orderr {
+        border-bottom: solid 1px lightgray;
+        padding: 15px;
+        height: 100%;
+        border: solid 1px lightgray;
+        margin: 4px;
+      }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+}
 @media(max-width:600px){
     .orderr-page{
         grid-template-columns: 1fr;
@@ -153,9 +232,7 @@
     .confirmmitem > p{
         font: 400 6vw "Roboto";
     }
-    .confirmm-container{
-        max-height:50vw ;
-    }
+    
     .confirmm-container > div {
         font: 400 4vw "Roboto";
         margin: 4vw 0;
@@ -181,9 +258,13 @@
         font: 300 4vw "Roboto";
         padding: 5vw 0;
     }
-    .orderr-summary >div >button{
-        padding: 4vw;
+    .orderr-summary > div > button {
+        padding: 15px;
         margin: 4vw auto;
         font: 400 4vw "Roboto";
+        width: 80%;
     }
+    .cutom > p {
+        font: 400 0.9vmax "Roboto" !important;
+      }
 }

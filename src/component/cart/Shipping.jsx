@@ -32,6 +32,7 @@ function Shipping() {
     const navigate = useNavigate();
     const {shippinginfo, cartitems}= useSelector((state)=>state.cart)
     const [orderinfo, setOrderInfo] = useState(""); 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [address , setAddress]= useState(shippinginfo.address)
     console.log( useState(shippinginfo.address));
     const {user} =useSelector((state)=>state.user)
@@ -157,51 +158,70 @@ function Shipping() {
                 <h2 className="shippingheading">Shipping Details</h2>
                 <form className='shippingform'
                 encType='multipart/form-data'
-                onSubmit={shippingsubmit}>
+                onSubmit={submithandler}>
                     <div>
                         <HomeIcon />
                         <input type='text' placeholder='Address' required value={address} onChange={(e)=> setAddress(e.target.value)} />
                     </div>
                     <div>
                         <PinDropIcon />
-                        <input type='number' placeholder='Pincode' required value={pincode} onChange={(e)=> setPinCode(e.target.value)} />
+                        <input type='number' placeholder='Postal code' required value={pincode} onChange={(e)=> setPinCode(e.target.value)} />
                     </div>
                     <div>
                         <PhoneIcon />
                         <input type='number' placeholder='Phone Number' required value={phoneNo} onChange={(e)=> setPhoneNo(e.target.value)} size="10" />
-                    </div>
-                    <div>
-                        <LocationCityIcon />
-                        <input type='text' placeholder='Phone Number' required value={city} onChange={(e)=> setCity(e.target.value)} size="10" />
-                    </div>            
+                    </div>                  
+                <Typography>CardInfo</Typography>
+                <div>
+                    <CreditCardIcon />
+                    <CardNumberElement className='paymentinput'/>
+                </div>
+                <div>
+                    <VpnKeyIcon/>
+                    <CardExpiryElement className='paymentinput'/>
+                </div>
+                <div>
+                    <VpnKeyIcon />
+                    <CardCvcElement className='paymentinput' />
+                </div>
+                {tre && <input type='submit' value={`Pay - PKR ${TotalPrice && TotalPrice}`} ref={payBtn} className='paymentbtn' />}
+                     
                 </form>
             </div>
         </div>
         <div className="order-confrim">
         <div className="order-page">
             <div className="order-area">
-        <Typography>Shipping Info</Typography>
+            <Typography>Order Summary</Typography>
         </div>
-        <div className='confirmitem'>
-    <div className='confirm-container'>
-        {cartitems && cartitems.map((item)=>(
-            <div key={item.product}>
-                <img src={item.image} alt='Product'/>
-                <Link to={`/product/${item.product}`}>
-                    {item.name}
-                </Link>{" "}
-                <span>
-                    {item.quantity} X PKR{item.price}={" "}
-                    <b>PKR{item.price * item.quantity}</b>
-                </span>
-             </div>
+        <div className="dropdown-container">
+  <button
+    className="dropdown-button"
+    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+  >
+    Cart Items <i className={`fas fa-chevron-${isDropdownOpen ? 'up' : 'down'}`}></i>
+  </button>
+  {isDropdownOpen && (
+    <div className="dropdown-content">
+      <div className="conrfirm-contaiiner">
+        {cartitems && cartitems.map((item) => (
+          <div key={item.product}>
+            <img src={item.image} alt="Product" />
+            <Link to={`/product/${item.product}`}>{item.name}</Link>{" "}
+            <span>
+              {item.quantity} X PKR{item.price} ={" "}
+              <b>PKR{item.price * item.quantity}</b>
+            </span>
+          </div>
         ))}
+      </div>
     </div>
-    </div>
+  )}
+</div>
 
         <div>
-         <div className='order-summary'>
-            <Typography>Order Summary</Typography>
+         <div className='order-suummary'>
+         
             <div>
             <div>
                 <p>Subtotal</p>
@@ -223,24 +243,6 @@ function Shipping() {
             </div>
             </div>
     </div>
-    <div className='payment-container'>
-        <form className='paymentform' onSubmit={submithandler}>
-                <Typography>CardInfo</Typography>
-                <div>
-                    <CreditCardIcon />
-                    <CardNumberElement className='paymentinput'/>
-                </div>
-                <div>
-                    <VpnKeyIcon/>
-                    <CardExpiryElement className='paymentinput'/>
-                </div>
-                <div>
-                    <VpnKeyIcon />
-                    <CardCvcElement className='paymentinput' />
-                </div>
-                {tre && <input type='submit' value={`Pay - PKR ${TotalPrice && TotalPrice}`} ref={payBtn} className='paymentbtn' />}
-            </form>
-        </div>
     </div>
         </div>
             </div>

@@ -63,13 +63,13 @@ const UpdateProduct = ({ history, match }) => {
 
     const myForm = new FormData();
 
-    myForm.set("name", name);
-    myForm.set("price", price);
-    myForm.set("description", description);
-    myForm.set("category", category);
-    myForm.set("stock", Stock);
-    myForm.set("discount_price", discount_price);
-    myForm.set("avatar", avatar);
+    myForm.append("name", name);
+    myForm.append("price", price);
+    myForm.append("description", description);
+    myForm.append("category", category);
+    myForm.append("stock", Stock);
+    myForm.append("discount_price", discount_price);
+    myForm.append("avatar", avatar);
     dispatch(updateProduct(productId.id, myForm));
   };
 

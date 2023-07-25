@@ -103,13 +103,6 @@ console.log(userName);
             <Link to={`/manager/order/${params.getValue(params.id, "id")}`}>
               <EditIcon />
             </Link>
-            {/* <Button
-              onClick={() =>
-                deleteProductHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <DeleteIcon />
-            </Button> */}
           </Fragment>
         );
       },
@@ -124,7 +117,7 @@ console.log(userName);
       rows.push({
         
         id: item._id,
-        user:item.user.namess,
+        user:item.user.names,
         itemsQty: item.orderItem.length,
         amount: item.totalPrice,
         status: item.orderStatus,
@@ -139,15 +132,34 @@ console.log(userName);
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL ORDERS</h1>
-
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="productListTable"
-            autoHeight
-          />
+          {orders && (
+  <table className="productListTable" style={({width:'90%'})}>
+    <tbody>
+      <tr className="tableheading">
+        <td style={({width:'26%'})}><h5>Order Id</h5></td>
+        <td><h5>User</h5></td>
+        <td><h5>Status</h5></td>
+        <td><h5>Item Qty</h5></td>
+        <td><h5>Amount</h5></td>
+        <td><h5>Action</h5></td>
+      </tr>
+      {orders.map((item) => (
+        <tr key={item._id}>
+          <td className="tablecell">{item._id}</td>
+          <td className="tablecell">{item.user.name}</td>
+          <td className="tablecell">{item.orderStatus}</td>
+          <td className="tablecell">{item.orderItem.length}</td>
+          <td className="tablecell">{item.totalPrice}</td>
+          <td className="tablecell">
+            <Link to={`/manager/order/${item._id}`}>
+              <EditIcon />
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
         </div>
       </div>
     </Fragment>

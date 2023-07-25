@@ -30,7 +30,7 @@
     /* margin-top: 9px; */
 }
 .section-tittle{
-    color: white;
+    color: white !important;
     margin-right: 17%;
     margin-bottom: 30px;
 }
@@ -42,20 +42,25 @@
     padding: 20px 40px;
     width: 100%;
 }
+iframe {
+    border: 0;
+    height: 198px;
+    width: 100%;
+  }
 h4{
     margin: 0px;
 }
-.ulfooter{
+.ulfooter {
     line-height: 32px;
-    text-align: left;
-    margin-left: 14%;
-}
-li{
+    text-align: start;
+    margin-left: 20%;
+  }
+li {
     color: white;
     list-style: none;
     margin-left: 22px;
-    line-height: 32px;
-}
+    line-height: 25px;
+  }
 .paragraph{
     padding: 36px;
 } .navlink{

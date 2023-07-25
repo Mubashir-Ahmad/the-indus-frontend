@@ -1,26 +1,20 @@
-.boxx{
+.boxx {
     display: flex;
-    width: 99vw;
-    align-items: center;
+    width: 99%;
     overflow: hidden;
-    margin: 2px
-}
+    margin: 2px;
+    justify-content: space-evenly;
+  }
 .box{
     /* display: flex; */
     width: 99vw;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 2px
 }
-.shippingcontainer{
-    width: 30%;
+.shippingcontainer {
+    width: 40%;
     max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    top: -290px;
 }
 .shippingbox{
     background-color: white;
@@ -38,15 +32,15 @@
     width: 104%;
     margin: auto;
 }
-.shippingform{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    padding: 2vmax;
-    justify-content: space-evenly;
-    height: 80%;
-    transition: all 0.5s ease-in-out;
+.shippingform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 2vmax;
+  justify-content: space-evenly;
+  height: 80%;
+  transition: all 0.5s ease-in-out;
 }
 .shippingform >div{
     display: flex;
@@ -87,18 +81,47 @@
     transform: scale(1.1);
 }
 
-
-@media(max-width:600px){
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+@media (max-width:600px){
+    .shippingcontainer {
+        width: 100% !important ; 
+        max-width: 100%;
+      }
+    .boxx {
+        flex-direction: column;
+      }
     .shippingbox{
-        width: 100vw;
-        height: 95vh;
+        background-color: white;
+        width: 100%;
+        height: 130% !important; 
+        box-sizing: border-box;
+        overflow: hidden;
     }
     .shippingheading{
         font: 400 6vw "Roboto";
-        padding: 5vw;
+        /* padding: 5vw; */
     }
+    .shippingform > div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 9px;
+      }
     .shippingform{
-        padding: 11vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        justify-content: space-evenly;
+        height: 100%;
+        transition: all 0.5s ease-in-out;
     }
     .shippingform > div >input,
     .shippingform > div >select{
@@ -113,4 +136,63 @@
     font: 300 4vw "Roboto";
     padding: 4vw;
 }
+}
+@media  (max-width:1200px) {
+    .boxx {
+        display: flex;
+        width: 97%;
+        overflow: hidden;
+        margin: 2px;
+        justify-content: space-evenly;
+        flex-direction: ;
+      }
+    .shippingform {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        padding: 2vmax;
+        justify-content: space-evenly;
+        height: 45%;
+        transition: all 0.5s ease-in-out;
+      }
+      .shippingbox {
+        background-color: white;
+        width: 100%;
+        height: 70vh;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .shippingform > div > input, .shippingform > div > select {
+        padding: 13px 4vmax;
+          padding-right: 4vmax;
+        padding-right: 1vmax;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.267);
+        border-radius: 10px;
+        font: 300 0.9vmax cursive;
+        outline: none;
+      }
+      .dropdown-container{
+        margin: 13px;
+      }
+}
+@media (max-width:920px) {
+    .boxx{
+        flex-wrap: wrap;
+    }
+    .shippingcontainer {
+        width: 68%;
+        max-width: 100%;
+      }
+    .shippingform {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        justify-content: space-evenly;
+        height: 45%;
+        transition: all 0.5s ease-in-out;
+      }
 }

@@ -11,9 +11,9 @@ function OrderDetail() {
     const alert = useAlert();
     const { id } = useParams();
     const dispatch = useDispatch();
-    const { order ,totalprice} = useSelector((state) => state.singleorder);
+    const { order ,totalPrice} = useSelector((state) => state.singleorder);
     const { message} = useSelector((state) => state.pickorder);
-    console.log(useSelector((state) => state.pickorder));
+    console.log(useSelector((state) => state.singleorder));
    
     useEffect(() => {
         dispatch(getsingleorder(id));
@@ -29,7 +29,7 @@ function OrderDetail() {
             <div className="orderr-page">
                 <div>
                     <div className="orderr-area">
-                        <Typography>Shipping Info</Typography>
+                        {/* <Typography>Shipping Info</Typography> */}
                     </div>
                     <div className="confirmmitem">
                         <div className="confirmm-container">
@@ -44,8 +44,10 @@ function OrderDetail() {
                                     <div className='orderrdetail'>
                                     <h2>Order Infomartion</h2>
                                     {order.map((orderItem) => (
-                      <div key={orderItem._id}>
-                        <h4>Order ID: {orderItem._id}</h4>
+                                        <div>
+                                            <h4>Order ID: {orderItem._id}</h4>
+                      <div key={orderItem._id} 
+                      className='all-order'>  
                         {orderItem.orderItem.map((item) => (
                           <div key={item._id} className='orderr'>
                             <p>Order Name: {item.name}</p>
@@ -53,6 +55,7 @@ function OrderDetail() {
                             <p>Order Instruction: {item.special_ins}</p>
                           </div>
                         ))}
+                      </div>
                       </div>
                     ))}
                                     </div>
@@ -67,10 +70,13 @@ function OrderDetail() {
                         <div>
                             <div className="totall-price">
                                 <p>Total</p>
-                            <span>PKR{totalprice}</span>
+                                {order && order.length > 0 && (
+                                    <span>PKR{order[0].totalPrice}</span>
+                                )}
+                            
                             
                             </div>
-                            <button onClick={pickorderr}>Proceed to payment</button>
+                            <button onClick={pickorderr}>Pick Up</button>
                             {/* <button onClick={paymentprocess}>Proceed to payment</button> */}
                         </div>
                     </div>

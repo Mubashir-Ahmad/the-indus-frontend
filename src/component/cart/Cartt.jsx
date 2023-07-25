@@ -1,17 +1,17 @@
 import React from 'react'
-import './cart.css'
+import './cartt.css'
 import { addItem_tocart,removeitemfromcart } from '../../actions/CartAction'
-import Cartitem from './Cartitem'
+import Cartitemm from './Cartitemm'
 import {useSelector , useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
 import {Typography} from '@material-ui/core'
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
 import { useNavigate } from 'react-router-dom'
-function Cart() {
+function Cartt() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {cartitems} = useSelector((state) => state.cart)
-  console.log('id',cartitems)
+  // console.log('id',cartitems)
   const incresequality = (id, quantity, stock) => {
     const newQty = quantity + 1;
     console.log(stock,quantity)
@@ -46,15 +46,15 @@ function Cart() {
         </div>
       ): (
         <div className="cartpage">
-        <div className="cartheaderr">
+        <div className="cartheader">
           <p>Product</p>
           <p>Quality</p>
           <p>Subtotal</p>
         </div>
         {cartitems && cartitems.map((item) => (
-          <div className="cart-containerr" key={item.product}>
-            <Cartitem item={item} />
-            <div className="cartInputt">
+          <div className="cart-container" key={item.product}>
+            <Cartitemm item={item} />
+            <div className="cartInput">
               <button onClick={() => decresequality(item.product, item.quantity, item.stock)}> - </button>
               <input readOnly  value={item.quantity} />
               <button onClick={() => incresequality(item.product, item.quantity, item.stock)}> + </button>
@@ -83,4 +83,4 @@ function Cart() {
   )
 }
 
-export default Cart
+export default Cartt

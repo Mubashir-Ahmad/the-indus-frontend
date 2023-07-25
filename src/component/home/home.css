@@ -6,6 +6,25 @@
     width: 100%;
     margin-right: 10px;
 }
+.hotel-name >h2{
+     display: block;
+    font-family: 'Dancing Script';
+    font-weight: bold;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: #4b4b4b;
+    line-height: 1;
+}
+.homeheading {
+    font-family: 'Pacifico';
+    font-weight: normal;
+    font-style: italic;
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 2rem;
+    color: #ce1710;
+    text-align: center;
+}
 .names{
     position: relative;
     top: 46px;
@@ -70,26 +89,29 @@
 .link:hover .quick-vieww{
     opacity: 1;
 }
-.container{
+.containeer {
     display: flex;
-    margin: 2vmax auto;
-    width: 50%;
+    margin: 0 auto;
+    width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
-    
+    max-width: 1200px;
+  }
+.hotel-name >h5 {
+    font: 300 3vmax "Roboto";
 }
-@media screen and (max-width:1200px) {
-    .container {
+@media screen and (max-width:1100px) {
+    .containeer {
         display: flex;
         margin: 2vmax auto;
-        width: 55%;
-        /* flex-wrap: wrap; */
+        width: 100%;
+        flex-wrap: wrap;
         justify-content: space-between;
+        max-width: 1200px;
       }
      
 }
 @media screen and (max-width:800px) {
-    .container {
+    .containeer {
         display: flex;
         margin: 2vmax auto;
         width: 75%;
@@ -98,3 +120,29 @@
       }
      
 }
+@media screen and (max-width: 880px){
+    .containeer {
+        display: flex;
+        margin: 2vmax auto;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+}
+@media screen and (max-width: 720px){
+    .containeer {
+      display: flex;
+      margin: 2vmax auto;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+   
+    }
+    @media screen and (max-width: 480px){
+        
+          .itemss {
+            display: flex;
+            flex-wrap: wrap;
+          }
+    }

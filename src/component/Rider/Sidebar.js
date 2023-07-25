@@ -18,27 +18,18 @@ const Sidebar = () => {
       <Link to="/">
         {/* <img src={logo} alt="Ecommerce" /> */}
       </Link>
-      <Link to="/admindashbord">
+      <Link to="/riderdash">
         <p>
           <DashboardIcon /> Dashboard
         </p>
       </Link>
-      <Link to="/admin/products">
-        <p>
-        <PostAddIcon />Products
-        </p>
-      </Link>
-      <Link to="/admin/orders">
+      <Link to="/rider/orders">
         <p>
           <ListAltIcon />
           Orders
         </p>
       </Link>
-      <Link to="/admin/users">
-        <p>
-          <PeopleIcon /> Users
-        </p>
-      </Link>
+      
     </div>
   );
 };

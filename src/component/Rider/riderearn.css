@@ -1,11 +1,11 @@
-.orderr-page{
-    height: 1500px;
+.orderr-page {
+    height: 100%;
     background-color: white;
     display: grid;
     grid-template-columns: 6fr 3fr;
-}
+  }
 .order-page >div:last-child{
-    border-left: 1px solid rgba(0, 0, 0, 0.247);
+    /* border-left: 1px solid rgba(0, 0, 0, 0.247); */
 }
 .order-area{
     padding: 5vmax;
@@ -90,6 +90,9 @@
     border-top: 1px solid rgba(0, 0, 0, 0.347);
     padding: 2vmax 0;
 }
+.confirmm-container >h2 {
+    margin: 20px;
+}
 .order-summary >div > button{
     background-color: tomato;
     color: white;
@@ -124,6 +127,92 @@
     justify-content: space-evenly;
     align-items: center;
 }
+.rider-earn {
+    display: flex;
+    justify-content: space-around;
+    margin: 43px;
+  }
+  .rider-earn > div {
+    border: solid 1px lightgray;
+    width: 40%;
+    height: 100%;
+    background: #faf8f8;
+    padding: 10px;
+    box-shadow: -1px 1px 18px -1px rgba(0,0,0,0.22);
+-webkit-box-shadow: -1px 1px 18px -1px rgba(0,0,0,0.22);
+-moz-box-shadow: -1px 1px 18px -1px rgba(0,0,0,0.22);
+  }
+  .rider-earn > div  > p{
+    font: 400 1.7vmax "Roboto";
+  }
+  .rider-earn > div  > i{
+
+    font-size: 1.5vmax;
+  }
+.graph{
+    /* display: flex;
+    justify-content: space-around; */
+
+}
+.graph-1 {
+    border: solid 1px lightgray;
+    height: 100%;
+    margin-top: 123px;
+    width: 83%;
+    margin-right: 14px;
+    box-shadow: -1px 1px 18px -1px rgba(0,0,0,0.22);
+    -webkit-box-shadow: -1px 1px 18px -1px rgba(0,0,0,0.22);
+    -moz-box-shadow: -1px 1px 18px -1px rgba(0,0,0,0.22);
+  }
+.graph-1 > p {
+    font: 400 2.3vmax "Roboto";
+}
+  .lineChart {
+    width: 100% !important;
+    display: flex;
+    margin: 0px !important;
+  }
+  .doughnutChart{
+    width: 100 !important;
+  }
+.dashboard > div >p{
+    font: 400 2.5vmax "Roboto";
+}
+.earnn{
+    width: 100%;
+}
+@media (max-width:1180px) {
+    .graph-01{
+        width: 100% !important;
+    }
+    .rider-earn > div > i {
+        font-size: 1vmax;
+      }   
+      .rider-earn > div > p {
+        font: 400 1.3vmax "Roboto";
+      }
+      .graph-1 > p {
+        font: 400 1.3vmax "Roboto";
+      }
+}
+@media (max-width:920px) {
+    .rider-earn > div > p {
+        font: 400 1vmax "Roboto";
+      }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width:600px){
     .order-page{
         grid-template-columns: 1fr;

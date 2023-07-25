@@ -17,10 +17,10 @@ top: -160px;
     padding-bottom: 0%;
 }
 .order-area >p {
-    padding: 6vmax;
+    padding-top: 9vmax;
     font: 400 1.8vmax "Roboto";
 }
-.order-box , .confirm-container{
+.order-box , .conrfirm-contaiiner{
     margin: 2vmax;
 }
 .order-box > div {
@@ -41,40 +41,44 @@ top: -160px;
 }
 .confirmitem{
     padding: 5vmax;
-    padding-top: 2vmax;
+    /* padding-top: 2vmax; */
 }
-.confirm-container{
-    min-height: 20vmax;
-    overflow-y: auto;
+.conrfirm-contaiiner{
+    /* min-height: 20vmax;
+    overflow-y: auto; */
 }
-.confirm-container > div{
+.conrfirm-contaiiner > div{
     display: flex;
     font: 400 1vmax "Roboto";
     align-items: center;
     justify-content: space-between;
     margin: 2vmax 0;
+    width: 112%;
 }
-.confirm-container > div > img{
+.dropdown-content{
+    width: 100%;
+}
+.conrfirm-contaiiner > div > img{
     width: 7vmax;
 }
-.confirm-container > div > a {
+.conrfirm-contaiiner > div > a {
     width: 60%;
     margin: 0 2vmax;
     color: #575757;
     text-decoration: none;
 }
-.confirm-container > div > span{
+.conrfirm-contaiiner > div > span{
     font: 100 1vmax "Roboto";
     color: #5e5e5e;
-    width: 30%;
+    width: 95%;
 }
-.order-summary {
-    padding: 7vmax;
+.order-suummary {
+    /* padding: 7vmax;
     position: relative;
-    top: -335px;
+    top: -233px; */
 
   }
-.order-summary > p {
+.order-suummary > p {
     text-align: center;
     font: 400 1.8vmax "Roboto";
     border-bottom: 1px solid rgba(0, 0, 0, 0.247);
@@ -83,13 +87,13 @@ top: -160px;
     margin: auto;
     width: 100%;
 }
-.order-summary >div >div{
+.order-suummary >div >div{
     display: flex;
     font: 300 1vmax "Roboto";
     justify-content: space-between;
     margin: 2vmax 0;
 }
-.order-summary >div >div > span{
+.order-suummary >div >div > span{
     color: rgba(0, 0, 0, 0.692);
 }
 .total-price{
@@ -99,7 +103,7 @@ top: -160px;
     border-top: 1px solid rgba(0, 0, 0, 0.347);
     padding: 2vmax 0;
 }
-.order-summary >div > button{
+.order-suummary >div > button{
     background-color: tomato;
     color: white;
     width: 100%;
@@ -111,14 +115,30 @@ top: -160px;
     border-radius: 10px;
     transition: all 0.5s ease-in-out;
 }
-.order-summary >div > button:hover{
+.order-suummary >div > button:hover{
+    transform: scale(1.1);
+    background-color: red;
+}
+.dropdown-button{
+    background-color: tomato;
+    color: white;
+    width: 50%;
+    padding: 0.5vmax;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+    transition: all 0;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+}
+.dropdown-button:hover{
     transform: scale(1.1);
     background-color: red;
 }
 @media(max-width:600px){
     .order-page{
-        grid-template-columns: 1fr;
-        height: unset;
+        /* grid-template-columns: 1fr; */
+        /* height: unset; */
     }
     .order-page> div:last-child{
         border-left: 0;
@@ -126,6 +146,7 @@ top: -160px;
     }
     .order-area > p{
         font: 400 4vw "Roboto";
+        padding-top: 0px;
     }
     .order-box >div{
         display: flex;
@@ -140,35 +161,35 @@ top: -160px;
     .confirmitem > p{
         font: 400 6vw "Roboto";
     }
-    .confirm-container{
+    .conrfirm-contaiiner{
         max-height:50vw ;
     }
-    .confirm-container > div {
+    .conrfirm-contaiiner > div {
         font: 400 4vw "Roboto";
         margin: 4vw 0;
     }
-    .confirm-container > div >img{
+    .conrfirm-contaiiner > div >img{
         width: 10vw;
     }
-    .confirm-container>div >a {
+    .conrfirm-contaiiner>div >a {
         margin: 0;
         width: 30%;
     }
-    .confirm-container >div >span{
+    .conrfirm-contaiiner >div >span{
         font: 100 4vw "Roboto";
     } 
-    .order-summary>p{
+    .order-suummary>p{
         font: 400 6vw "Roboto";
         padding: 4vw;
     }
-    .order-summary>div>div{
+    .order-suummary>div>div{
         font: 300 4vw "Roboto";
     }
     .total-price{
         font: 300 4vw "Roboto";
         padding: 5vw 0;
     }
-    .order-summary >div >button{
+    .order-suummary >div >button{
         padding: 4vw;
         margin: 4vw auto;
         font: 400 4vw "Roboto";
