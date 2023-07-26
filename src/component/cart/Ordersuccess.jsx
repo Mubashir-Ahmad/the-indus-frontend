@@ -1,7 +1,7 @@
 import React from 'react'
 import './Ordersuccess.css'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/styles'
 import { Link } from 'react-router-dom'
 function Ordersuccess() {
   return (

@@ -1,4 +1,4 @@
-import { Step, StepLabel, Stepper, Typography } from '@material-ui/core'
+import { Step, StepLabel, Stepper, Typography } from '@mui/styles'
 import React from 'react'
 import  LocalShippingIcon from "@material-ui/icons/LocalShipping"
 import LibraryAddCheckIcon from '@material-ui/icons/LibraryAdd'

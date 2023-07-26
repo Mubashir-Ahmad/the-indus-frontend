@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/styles";
 import Metatitle from "../title/title";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import PersonIcon from "@material-ui/icons/Person";

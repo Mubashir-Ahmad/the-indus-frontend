@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Metatitle from '../title/title';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/styles';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';

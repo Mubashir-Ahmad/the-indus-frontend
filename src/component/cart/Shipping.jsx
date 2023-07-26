@@ -18,7 +18,7 @@ import OrderConfirm from './OrderConfirm'
 
 
 import './orderconfirm.css'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/styles'
 import {Link} from 'react-router-dom'
 import Payment from './Payment'
 import Cookies from 'js-cookie';

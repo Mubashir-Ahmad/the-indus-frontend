@@ -4,7 +4,7 @@ import { addItem_tocart,removeitemfromcart } from '../../actions/CartAction'
 import Cartitemm from './Cartitemm'
 import {useSelector , useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Typography} from '@material-ui/core'
+import {Typography} from '@mui/styles'
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
 import { useNavigate } from 'react-router-dom'
 function Cartt() {

@@ -7,7 +7,7 @@ import {
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
+import { Button } from "@mui/styles";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";

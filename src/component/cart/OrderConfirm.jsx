@@ -1,6 +1,6 @@
 import React,{useState , useEffect ,useRef} from 'react'
 import './orderconfirm.css'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/styles'
 import {Link} from 'react-router-dom'
 import Metatitle from "../title/title"
 import { useSelector ,useDispatch } from 'react-redux'

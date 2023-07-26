@@ -7,7 +7,7 @@ import { myorders , getAllOrders } from "../../actions/OrderAction";
 import Loading from "../loading/Loading";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/styles/Typography";
 import Metatitle from "../title/title";
 import LaunchIcon from "@material-ui/icons/Launch";
 
