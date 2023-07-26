@@ -82,7 +82,7 @@ console.log(useSelector((state) => state.adminproduct))
         return (
           <Fragment>
             <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
-              <EditIcon />
+            <i class="fa-solid fa-gears"></i>
             </Link>
 
             <Button

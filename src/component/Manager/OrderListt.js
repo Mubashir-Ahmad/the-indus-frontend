@@ -4,7 +4,7 @@ import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
+import { Button } from "@material-ui/core";
 import Metatitle from "../title/title";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -101,7 +101,7 @@ console.log(userName);
         return (
           <Fragment>
             <Link to={`/manager/order/${params.getValue(params.id, "id")}`}>
-              <EditIcon />
+            <i class="fa-solid fa-gears"></i>
             </Link>
           </Fragment>
         );
@@ -152,7 +152,7 @@ console.log(userName);
           <td className="tablecell">{item.totalPrice}</td>
           <td className="tablecell">
             <Link to={`/manager/order/${item._id}`}>
-              <EditIcon />
+            <i class="fa-solid fa-gears"></i>
             </Link>
           </td>
         </tr>
