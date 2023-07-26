@@ -118,14 +118,40 @@ const OrderList = ({ history }) => {
         <div className="productListContainer">
           <h1 id="productListHeading">ALL CATEGORY</h1>
 
-          <DataGrid
+          { data&& (
+  <table className="productListTable" style={({width:'90%'})}>
+    <tbody>
+      <tr className="tableheading">
+        <th style={({width:'26%'})}><h5>Product Id</h5></th>
+        <td><h5>Name</h5></td>
+        <td><h5>Active</h5></td>
+        <td><h5>Sorting</h5></td>
+        <td><h5>Action</h5></td>
+      </tr>
+      { data.map((item) => (
+        <tr key={item._id}>
+          <td className="tablecell">{item._id}</td>
+          <td className="tablecell">{item.name}</td>
+          <td className="tablecell">{item.active ? 'Active' : 'Inactive'}</td>
+          <td className="tablecell">{item.sorting}</td>
+          <td className="tablecell">
+            <Link to={`/manager/product/${item._id}`}>
+              <EditIcon />
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+          {/* <DataGrid
             rows={rows}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             className="productListTable"
             autoHeight
-          />
+          /> */}
         </div>
       </div>
     </Fragment>

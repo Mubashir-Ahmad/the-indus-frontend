@@ -119,15 +119,41 @@ console.log(useSelector((state) => state.adminproduct))
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL PRODUCTS</h1>
-
-          <DataGrid
+          { products&& (
+  <table className="productListTable" style={({width:'90%'})}>
+    <tbody>
+      <tr className="tableheading">
+        <th style={({width:'26%'})}><h5>Product Id</h5></th>
+        <td><h5>Name</h5></td>
+        <td><h5>active</h5></td>
+        <td><h5>Status</h5></td>
+        <td><h5>Price</h5></td>
+        <td><h5>Action</h5></td>
+      </tr>
+      { products.map((item) => (
+        <tr key={item._id}>
+          <td className="tablecell">{item._id}</td>
+          <td className="tablecell">{item.name}</td>
+          <td className="tablecell">{item.active}</td>
+          <td className="tablecell">{item.price}</td>
+          <td className="tablecell">
+            <Link to={`/manager/product/${item._id}`}>
+              <EditIcon />
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+          {/* <DataGrid
             rows={rows}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             className="productListTable"
             autoHeight
-          />
+          /> */}
         </div>
       </div>
     </Fragment>

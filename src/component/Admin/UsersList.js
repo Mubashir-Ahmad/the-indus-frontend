@@ -125,15 +125,41 @@ const UsersList = ({ history }) => {
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL USERS</h1>
-
-          <DataGrid
+          {  users&& (
+  <table className="productListTable" style={({width:'90%'})}>
+    <tbody>
+      <tr className="tableheading">
+        <th style={({width:'26%'})}><h5>Product Id</h5></th>
+        <td><h5>User Id</h5></td>
+        <td><h5>Name</h5></td>
+        <td><h5>email</h5></td>
+        <td><h5>Role</h5></td>
+        <td><h5>Action</h5></td>
+      </tr>
+      {  users.map((item) => (
+        <tr key={item._id}>
+          <td className="tablecell">{item._id}</td>
+          <td className="tablecell">{item.name}</td>
+          <td className="tablecell">{item.email}</td>
+          <td className="tablecell">{item.role}</td>
+          <td className="tablecell">
+            <Link to={`/manager/product/${item._id}`}>
+              <EditIcon />
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
+          {/* <DataGrid
             rows={rows}
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
             className="productListTable"
             autoHeight
-          />
+          /> */}
         </div>
       </div>
     </Fragment>
