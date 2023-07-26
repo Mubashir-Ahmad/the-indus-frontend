@@ -144,7 +144,7 @@ const UsersList = ({ history }) => {
           <td className="tablecell">{item.role}</td>
           <td className="tablecell">
             <Link to={`/manager/product/${item._id}`}>
-              <EditIcon />
+            <i class="fa-solid fa-gears"></i>
             </Link>
           </td>
         </tr>
