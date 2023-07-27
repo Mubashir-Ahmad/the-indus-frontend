@@ -1,16 +1,16 @@
-import React ,{useState} from 'react'
-import './navbar.css'
-import { useNavigate } from 'react-router-dom'
-import {SpeedDial , SpeedDialAction} from '@material-ui/lab'
-import DasboardIcon from "@material-ui/icons/Dashboard"
-import PersonIcon from "@material-ui/icons/Person"
-import ExitToAppIcon from "@material-ui/icons/ExitToApp"
-import ListAltIcon from "@material-ui/icons/ListAlt"
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
-import { useAlert } from 'react-alert'
-import { useDispatch , Selector, useSelector} from 'react-redux'
-import { logout_user } from '../../actions/UserAction'
-import  Backdrop  from '@mui/styles/Backdrop'
+import React, { useState } from 'react';
+import './navbar.css';
+import { useNavigate } from 'react-router-dom';
+import { SpeedDial, SpeedDialAction } from '@mui/material'; // Import from @mui/material
+import DasboardIcon from '@mui/icons-material/Dashboard'; // Import from @mui/icons-material
+import PersonIcon from '@mui/icons-material/Person'; // Import from @mui/icons-material
+import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import from @mui/icons-material
+import ListAltIcon from '@mui/icons-material/ListAlt'; // Import from @mui/icons-material
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Import from @mui/icons-material
+import { useAlert } from 'react-alert';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout_user } from '../../actions/UserAction';
+import Backdrop from '@mui/material/Backdrop'; // Import from @mui/material
 function Useroption({user}) {
     console.log('user',user)
     const navigate =useNavigate();
