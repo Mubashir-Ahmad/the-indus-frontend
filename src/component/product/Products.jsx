@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './product.css';
-import Dialog from '@mui/styles/Dialog';
-import DialogContent from '@mui/styles/DialogContent';
-import DialogActions from '@mui/styles/DialogActions';
-import Button from '@mui/styles/Button';
 import { useAlert } from 'react-alert';
 import { useDispatch } from 'react-redux';
 import { addItem_tocart } from '../../actions/CartAction';
@@ -78,8 +74,7 @@ function Product({ product }) {
         </div>
       </div>
       {selectedProduct && (
-        <Dialog open={isOpen} onClose={closePopup} className="MuiDialog">
-          <DialogContent>
+        <div open={isOpen} onClose={closePopup} className="MuiDialog">
             <div className="dialogContentRow">
               <div className="img">
                 <img src={selectedProduct.imageUrl} alt="Product" style={({borderRadius:'15px'})} />
@@ -100,13 +95,11 @@ function Product({ product }) {
                 </div>
               </div>
             </div>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={closePopup} color="primary">
+    
+            <button onClick={closePopup} color="primary">
               Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+            </button>
+        </div>
       )}
     </>
   );

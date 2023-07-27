@@ -7,14 +7,9 @@ import {
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
-import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
-// import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
 import { updatetcategory } from "../../actions/categoryAction";
@@ -101,13 +96,13 @@ const Updatecategory = () => {
                                 Active
                             </label>
                         </div>
-                        <Button
+                        <button
                             id="createProductBtn"
                             type="submit"
                         // disabled={loading ? true : false}
                         >
                             Update
-                        </Button>
+                        </button>
                     </form>
                 </div>
             </div>

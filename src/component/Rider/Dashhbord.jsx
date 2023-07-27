@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar.js";
 import "./dashbord.css";
-import { Typography } from "@mui/styles";
 import { Link } from "react-router-dom"; 
 // import { Doughnut, Line, CategoryScale } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
@@ -73,7 +72,7 @@ const Dashboard = () => {
       <Sidebar />
 
       <div className="dashboardContainer">
-        <Typography component="h1">Rider Dashboard</Typography>
+        <h6 component="h1">Rider Dashboard</h6>
 
         <div className="dashboardSummary">
           <div>

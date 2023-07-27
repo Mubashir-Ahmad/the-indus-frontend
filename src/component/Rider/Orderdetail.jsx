@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Metatitle from '../title/title';
-import { Typography } from '@mui/styles';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -29,7 +28,6 @@ function OrderDetail() {
             <div className="orderr-page">
                 <div>
                     <div className="orderr-area">
-                        {/* <Typography>Shipping Info</Typography> */}
                     </div>
                     <div className="confirmmitem">
                         <div className="confirmm-container">
@@ -66,7 +64,7 @@ function OrderDetail() {
                 </div>
                 <div>
                     <div className="orderr-summary">
-                        <Typography>Order Summary</Typography>
+                        <h6>Order Summary</h6>
                         <div>
                             <div className="totall-price">
                                 <p>Total</p>

@@ -3,8 +3,6 @@ import "./orderDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
-
-// import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 
@@ -14,14 +12,6 @@ const OrderDetails = ({ match }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
-//   useEffect(() => {
-//     if (error) {
-//       alert.error(error);
-//       dispatch(clearErrors());
-//     }
-
-//     dispatch(getOrderDetails(match.params.id));
-//   }, [dispatch, alert, error, match.params.id]);
   return (
     <Fragment>
       {loading ? (
@@ -34,7 +24,7 @@ const OrderDetails = ({ match }) => {
               <h5 component="h1">
                 Order #{order && order._id}
               </h5>
-              <Typography>Shipping Info</Typography>
+              <h6>Shipping Info</h6>
               <div className="orderDetailsContainerBox">
                 <div>
                   <p>Name:</p>
@@ -54,7 +44,7 @@ const OrderDetails = ({ match }) => {
                   </span>
                 </div>
               </div>
-              <Typography>Payment</Typography>
+              <h6>Payment</h6>
               <div className="orderDetailsContainerBox">
                 <div>
                   <p
@@ -78,7 +68,7 @@ const OrderDetails = ({ match }) => {
                 </div>
               </div>
 
-              <Typography>Order Status</Typography>
+              <h6>Order Status</h6>
               <div className="orderDetailsContainerBox">
                 <div>
                   <p
@@ -95,7 +85,7 @@ const OrderDetails = ({ match }) => {
             </div>
 
             <div className="orderDetailsCartItems">
-              <Typography>Order Items:</Typography>
+              <h6>Order Items:</h6>
               <div className="orderDetailsCartItemsContainer">
                 {order.orderItems &&
                   order.orderItems.map((item) => (
