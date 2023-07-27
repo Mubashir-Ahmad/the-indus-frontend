@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './navbar.css';
 import { useNavigate } from 'react-router-dom';
 import { SpeedDial, SpeedDialAction } from '@mui/material'; // Import from @mui/material
-import DasboardIcon from '@mui/icons-material/Dashboard'; // Import from @mui/icons-material
-import PersonIcon from '@mui/icons-material/Person'; // Import from @mui/icons-material
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import from @mui/icons-material
-import ListAltIcon from '@mui/icons-material/ListAlt'; // Import from @mui/icons-material
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Import from @mui/icons-material
+// import DasboardIcon from '@mui/icons-material/Dashboard'; // Import from @mui/icons-material
+// import PersonIcon from '@mui/icons-material/Person'; // Import from @mui/icons-material
+// import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import from @mui/icons-material
+// import ListAltIcon from '@mui/icons-material/ListAlt'; // Import from @mui/icons-material
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Import from @mui/icons-material
 import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from '../../actions/UserAction';
@@ -23,24 +23,32 @@ function Useroption({user}) {
     const option =[
         // {icon: <ListAltIcon/>,name :"Orders",function:order},
         user.user.role=== 'admin' ?
-            {icon: <ListAltIcon/>,name :"Orders",function:account} : null
+            { 
+            // <ListAltIcon/>
+            name :"Orders",function:account} : null
         , 
-        {icon: <PersonIcon/>,name :"Profile",function:account},
+        {
+          // icon: <PersonIcon/>,
+        name :"Profile",function:account},
         user.user.role=== 'rider' ?
          null :
-        {icon: <ShoppingCartIcon style={{color:cartitems.length>0 ?'tomato' : 'unset'}}/>,name :`Cart(${cartitems.length})`,function:cart},
-        {icon: <ExitToAppIcon/>,name :"Logout",function:logoutUser},
+        {
+          // icon: <ShoppingCartIcon style={{color:cartitems.length>0 ?'tomato' : 'unset'}}/>,
+        name :`Cart(${cartitems.length})`,function:cart},
+        {
+          // icon: <ExitToAppIcon/>,
+        name :"Logout",function:logoutUser},
     ];
     if(user.user.role=== 'admin'){
         option.unshift({
-            icon:<DasboardIcon/>,
+            // icon:<DasboardIcon/>,
             name:"Dashboad",
             function:dashboard
         })
     }
     if(user.user.role=== 'manger'){
         option.unshift({
-            icon:<DasboardIcon/>,
+            // icon:<DasboardIcon/>,
             name:"Dashboad",
             function:dashboardd
         })
