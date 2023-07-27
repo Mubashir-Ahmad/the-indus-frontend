@@ -1,121 +1,101 @@
+
+
 import React, { useEffect, useRef, useState } from 'react';
-import './login.css';
-import { Link, useNavigate, useLocation } from 'react-router-dom';;
+import ReactDOM from 'react-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearError, login, register } from '../../actions/UserAction';
 import { useAlert } from 'react-alert';
+import './login.css';
 
 function Login({ location }) {
-    const navigate = useNavigate();
-    const alert = useAlert();
-    const dispatch = useDispatch();
-    const { isAuthenticated, error, loading, user } = useSelector((state) => state.user);
-    console.log(useSelector((state) => state.user));
-    const loginTab = useRef(null);
-    const registerTab = useRef(null);
-    const switchTab = useRef(null);
-    const id = useLocation();
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [avatar, setAvatar] = useState('');
-    const [filedata, setFileData] = useState();
+  const navigate = useNavigate();
+  const alert = useAlert();
+  const dispatch = useDispatch();
+  const { isAuthenticated, error, loading, user } = useSelector((state) => state.user);
 
-    const [avatarPreview, setAvatarPreview] = useState(Profile);
-    const redirect = id.state ? '/shipping' : '/';
+  const loginTab = useRef(null);
+  const registerTab = useRef(null);
+  const switchTab = useRef(null);
+  const id = useLocation();
 
-    useEffect(() => {
-        console.log(user);
-        
-        if (error) {
-            alert.error(error);
-            dispatch(clearError());
-        }
-        if (isAuthenticated && user.user.role === 'admin') {
-            console.log(user.user);
-            navigate('/admindashbord');
-        }
-        if (isAuthenticated && user.user.role === 'manger') {
-            console.log(user.user);
-            navigate('/mangerdashbord');
-        }
-        if (isAuthenticated && user.user.role === 'user') {
-            console.log(user.user);
-            navigate('/');
-        }
-        if (isAuthenticated && user.user.role === 'rider') {
-            console.log(user.user);
-            navigate('/riderdash');
-        }
-    }, [dispatch, error, alert, isAuthenticated, navigate]);
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [filedata, setFileData] = useState();
+  const [avatarPreview, setAvatarPreview] = useState('');
 
-    const switchtab = (e, tab) => {
-        if (tab === 'login') {
-            switchTab.current.classList.add('shifttoNeutral');
-            switchTab.current.classList.remove('shifttoRight');
+  const redirect = id.state ? '/shipping' : '/';
 
-            registerTab.current.classList.remove('shifttoNeutralForm');
-            loginTab.current.classList.remove('shifttoLeft');
-        }
-        if (tab === 'register') {
-            switchTab.current.classList.add('shifttoRight');
-            switchTab.current.classList.remove('shifttoNeutral');
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearError());
+    }
 
-            registerTab.current.classList.add('shifttoNeutralForm');
-            loginTab.current.classList.add('shifttoLeft');
-        }
-    };
+    if (isAuthenticated) {
+      if (user.user.role === 'admin') {
+        navigate('/admindashbord');
+      } else if (user.user.role === 'manger') {
+        navigate('/mangerdashbord');
+      } else if (user.user.role === 'user') {
+        navigate('/');
+      } else if (user.user.role === 'rider') {
+        navigate('/riderdash');
+      }
+    }
+  }, [dispatch, error, alert, isAuthenticated, navigate, user]);
 
-    const loginSubmit = (e) => {
-        e.preventDefault();
-        console.log('wertyuioiuytr', user);
-        dispatch(login(loginEmail, loginPassword));
-        if (isAuthenticated) {
-            if (user.user.role === 'admin' || user.user.role === 'user') {
-                console.log(user.user);
-                navigate('/');
-            } else if (user.user.role === 'rider') {
-                navigate('/riderdash');
-            } else if (user.user.role === 'manger') {
-                navigate('/mangerdashbord');
-            }
-        } else {
-            console.log(isAuthenticated);
-        }
-    };
+  const switchtab = (e, tab) => {
+    if (tab === 'login') {
+      switchTab.current.classList.add('shifttoNeutral');
+      switchTab.current.classList.remove('shifttoRight');
 
-    const registerSubmit = (e) => {
+      registerTab.current.classList.remove('shifttoNeutralForm');
+      loginTab.current.classList.remove('shifttoLeft');
+    } else if (tab === 'register') {
+      switchTab.current.classList.add('shifttoRight');
+      switchTab.current.classList.remove('shifttoNeutral');
 
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('password', password);
-        formData.append('avatar', avatar);
-        dispatch(register(formData));
-    };
+      registerTab.current.classList.add('shifttoNeutralForm');
+      loginTab.current.classList.add('shifttoLeft');
+    }
+  };
 
-    const registerDateChange = (e) => {
+  const loginSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginEmail, loginPassword));
+  };
 
-        setFileData(e.target.files[0]);
-    };
+  const registerSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('avatar', avatar);
+    dispatch(register(formData));
+  };
 
+  const registerDateChange = (e) => {
+    setFileData(e.target.files[0]);
+  };
 
-
-    return (
-        <>
-            <div className="Login-container">
-                <div className="Login-box">
-                    <div>
-                        <div className="login-toggle">
-                            <p onClick={(e) => switchtab(e, 'login')}>LOGIN</p>
-                            <p onClick={(e) => switchtab(e, 'register')}>REGISTER</p>
-                        </div>
-                        <button ref={switchTab}></button>
-                    </div>
-                    <form className="loginform" ref={loginTab} onSubmit={loginSubmit}>
+  return (
+    <>
+      <div className="Login-container">
+        <div className="Login-box">
+          <div>
+            <div className="login-toggle">
+              <p onClick={(e) => switchtab(e, 'login')}>LOGIN</p>
+              <p onClick={(e) => switchtab(e, 'register')}>REGISTER</p>
+            </div>
+            <button ref={switchTab}></button>
+          </div>
+          <form className="loginform" ref={loginTab} onSubmit={loginSubmit}>
                         <div className="loginEmail">
                             {/* <MailOutlineIcon /> */}
                             <input
@@ -139,7 +119,7 @@ function Login({ location }) {
                         <Link to="/password/forget">Forget Password</Link>
                         <input type="submit" value="Login" className="loginbtn" />
                     </form>
-                    <form className="signupform" ref={registerTab} onSubmit={registerSubmit} enctype="multipart/form-data">
+          <form className="signupform" ref={registerTab} onSubmit={registerSubmit} enctype="multipart/form-data">
                         <div className="signupname">
                             {/* <FaceIcon /> */}
                             <input
@@ -179,11 +159,10 @@ function Login({ location }) {
                         </div>
                         <input type="submit" value="register" className="siginbtn" />
                     </form>
-                </div>
-            </div>
-        </>
-    );
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Login;
-
