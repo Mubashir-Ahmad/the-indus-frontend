@@ -1,7 +1,4 @@
-
-
 import React, { useEffect, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearError, login, register } from '../../actions/UserAction';
