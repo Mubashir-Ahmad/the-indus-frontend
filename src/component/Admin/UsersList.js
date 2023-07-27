@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import <i class="fa-sharp fa-regular fa-trash"></i>from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearError, deleteUser } from "../../actions/UserAction";
 import { useNavigate } from "react-router-dom";
@@ -94,7 +93,7 @@ const UsersList = ({ history }) => {
                 deleteUserHandler(params.getValue(params.id, "id"))
               }
             >
-              <<i class="fa-sharp fa-regular fa-trash"></i>/>
+              <i class="fa-sharp fa-regular fa-trash"></i>
             </button>
           </Fragment>
         );
