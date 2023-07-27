@@ -1,17 +1,12 @@
 import React, { Fragment, useEffect } from "react";
-import { DataGrid } from "@material-ui/data-grid";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link,useNavigate} from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
 import Metatitle from "../title/title";
 import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
-import {clearError,} from "../../actions/OrderAction";
-import {deletecategory, getcategory} from "../../actions/categoryAction"
-// import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
+import {deletecategory, getcategory} from "../../actions/categoryAction";
 
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
@@ -111,14 +106,33 @@ const OrderList = ({ history }) => {
         <div className="productListContainer">
           <h1 id="productListHeading">ALL CATEGORY</h1>
 
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="productListTable"
-            autoHeight
-          />
+          { data && (
+  <table className="productListTable" style={({width:'90%'})}>
+    <tbody>
+      <tr className="tableheading">
+        <td style={({width:'26%'})}><h5>Category Id</h5></td>
+        <td><h5>Name</h5></td>
+        <td><h5>Active</h5></td>
+        <td><h5>Item Qty</h5></td>
+        <td><h5>Sorting</h5></td>
+        <td><h5>Action</h5></td>
+      </tr>
+      { data.map((item) => (
+        <tr key={item._id}>
+          <td className="tablecell">{item._id}</td>
+          <td className="tablecell">{item.Category_name}</td>
+          <td className="tablecell">{item.active}</td>
+          <td className="tablecell">{item.sorting}</td>
+          <td className="tablecell">
+            <Link to={`/manager/order/${item._id}`}>
+            <i class="fa-solid fa-gears"></i>
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+)}
         </div>
       </div>
     </Fragment>

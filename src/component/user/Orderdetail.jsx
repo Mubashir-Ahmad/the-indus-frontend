@@ -3,7 +3,7 @@ import "./orderDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
-import { Typography } from "@mui/styles";
+
 // import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
@@ -31,9 +31,9 @@ const OrderDetails = ({ match }) => {
           <MetaData title="Order Details" />
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
-              <Typography component="h1">
+              <h5 component="h1">
                 Order #{order && order._id}
-              </Typography>
+              </h5>
               <Typography>Shipping Info</Typography>
               <div className="orderDetailsContainerBox">
                 <div>

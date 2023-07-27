@@ -3,7 +3,7 @@ import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearError, createProduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
+
 import Metatitle from "../title/title";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { adminregister } from "../../actions/UserAction";

@@ -2,7 +2,6 @@ import React,{useEffect,useState , useRef} from 'react'
 import {CardNumberElement , CardCvcElement ,CardExpiryElement, useStripe,useElements} from '@stripe/react-stripe-js'
 import CheckoutSteps from './CheckoutStep'
 import Metatitle from '../title/title'
-import { Typography } from '@mui/styles'
 import { useAlert } from 'react-alert'
 import axios from 'axios'
 import './Payment.css'
@@ -96,7 +95,7 @@ function Payment() {
         <CheckoutSteps activestep={2}/>
         <div className='payment-container'>
         <form className='paymentform' onSubmit={submithandler}>
-                <Typography>CardInfo</Typography>
+                <h6>CardInfo</h6>
                 <div>
                     <CreditCardIcon />
                     <CardNumberElement className='paymentinput'/>

@@ -1,12 +1,9 @@
 import React,{useState , useEffect ,useRef} from 'react'
 import './orderconfirm.css'
-import { Typography } from '@mui/styles'
 import {Link} from 'react-router-dom'
 import Metatitle from "../title/title"
 import { useSelector ,useDispatch } from 'react-redux'
-import CheckoutSteps from './CheckoutStep'
 import { useNavigate } from 'react-router-dom'
-import Payment from './Payment'
 import Cookies from 'js-cookie';
 import axios from 'axios'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
@@ -114,7 +111,7 @@ function OrderConfirm() {
     {/* <CheckoutSteps activestep={1}/> */}
     <div className="order-page">
             <div className="order-area">
-        <Typography>Shipping Info</Typography>
+        <h6>Shipping Info</h6>
         </div>
         <div className='confirmitem'>
     <div className='confirm-container'>
@@ -135,7 +132,7 @@ function OrderConfirm() {
 
         <div>
          <div className='order-summary'>
-            <Typography>Order Summary</Typography>
+            <h6>Order Summary</h6>
             <div>
             <div>
                 <p>Subtotal</p>
@@ -159,7 +156,7 @@ function OrderConfirm() {
     </div>
     <div className='payment-container'>
         <form className='paymentform' onSubmit={submithandler}>
-                <Typography>CardInfo</Typography>
+                <h6>CardInfo</h6>
                 <div>
                     <CreditCardIcon />
                     <CardNumberElement className='paymentinput'/>

@@ -1,14 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
 import Metatitle from "../title/title";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import PersonIcon from "@material-ui/icons/Person";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import SideBar from "./Sidebar";
 import { Navigate, useNavigate } from "react-router-dom";
-// import { UPDATE_USER_RESET } from "../../constants/userConstants";
 import {
   getUserDetails,
   updateUser,
@@ -16,7 +14,6 @@ import {
 } from "../../actions/UserAction";
 import Loading from "../loading/Loading";
 import { useParams } from "react-router-dom";
-// import Loader from "../layout/Loader/Loader";
 
 const UpdateUser = ({ history, match }) => {
   const dispatch = useDispatch();
@@ -98,13 +95,13 @@ console.log('saasasas',useSelector((state) => state.profile))
                 </select>
               </div>
 
-              <Button
+              <button
                 id="createProductBtn"
                 type="submit"
                 
               >
                 Update
-              </Button>
+              </button>
             </form>
           )}
         </div>

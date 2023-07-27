@@ -3,24 +3,13 @@ import {useAlert} from 'react-alert'
 import './Shipping.css'
 import { useSelector ,useDispatch } from 'react-redux'
 import Metatitle from "../title/title"
-// import Loading from '../loading/Loading';
 import PinDropIcon from '@material-ui/icons/PinDrop'
 import HomeIcon from '@material-ui/icons/Home'
-import LocationCityIcon from '@material-ui/icons/LocationCity'
-import PublicIcon from '@material-ui/icons/Public'
 import PhoneIcon from '@material-ui/icons/Phone'
-import TranferWithinAStationIcon from '@material-ui/icons/TransferWithinAStation'
-import {Country,State} from 'country-state-city'
-import CheckoutSteps  from './CheckoutStep'
 import { useNavigate } from 'react-router-dom'
 import { shippingInfo } from '../../actions/CartAction'
-import OrderConfirm from './OrderConfirm'
-
-
 import './orderconfirm.css'
-import { Typography } from '@mui/styles'
 import {Link} from 'react-router-dom'
-import Payment from './Payment'
 import Cookies from 'js-cookie';
 import axios from 'axios'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
@@ -146,12 +135,11 @@ function Shipping() {
         dispatch(
             shippingInfo({address,city,pincode,phoneNo})
         )
-        // navigate('/order/confirm')
+        // navigate('/order/confirm')s
     }
   return (
     <>
             <Metatitle title="Shipping Details" />
-            {/* <CheckoutSteps activestep={0}/> */}
             <div className="boxx">
             <div className="shippingcontainer">
             <div className="shippingbox">
@@ -171,7 +159,7 @@ function Shipping() {
                         <PhoneIcon />
                         <input type='number' placeholder='Phone Number' required value={phoneNo} onChange={(e)=> setPhoneNo(e.target.value)} size="10" />
                     </div>                  
-                <Typography>CardInfo</Typography>
+                <h6>CardInfo</h6>
                 <div>
                     <CreditCardIcon />
                     <CardNumberElement className='paymentinput'/>
@@ -192,7 +180,7 @@ function Shipping() {
         <div className="order-confrim">
         <div className="order-page">
             <div className="order-area">
-            <Typography>Order Summary</Typography>
+            <h6>Order Summary</h6>
         </div>
         <div className="dropdown-container">
   <button
@@ -251,38 +239,3 @@ function Shipping() {
 }
 
 export default Shipping
-// import React, { useState } from 'react';
-// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
-
-// const LocationForm = () => {
-//     const [location, setLocation] = useState(null);
-  
-//     const handleLocationSelect = (latLng) => {
-//       setLocation(latLng);
-//     };
-  
-//     return (
-//       <div>
-//         <LoadScript googleMapsApiKey="https://maps.google.com/maps?width=674&amp;height=383&amp;hl=en&amp;q=The university of lahore&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-//           <GoogleMap
-//             mapContainerStyle={{ height: '400px', width: '100%' }}
-//             zoom={8}
-//             center={location}
-//             onClick={(e) => handleLocationSelect(e.latLng)}
-//           >
-//             {location && <Marker position={location} />}
-//           </GoogleMap>
-//         </LoadScript>
-  
-//         {location && (
-//           <div>
-//             Latitude: {location.lat()} <br />
-//             Longitude: {location.lng()}
-//           </div>
-//         )}
-//       </div>
-//     );
-//   };
-  
-//   export default LocationForm;

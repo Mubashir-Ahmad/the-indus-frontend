@@ -3,15 +3,13 @@ import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearError, createProduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
+import { Button } from "@material-ui/core";
 import Metatitle from "../title/title";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
-import { newProductReducer } from "../../reducer/productReducer";
 import { useNavigate } from "react-router-dom";
 const NewProduct = ({ history }) => {
   const dispatch = useDispatch();
@@ -165,13 +163,13 @@ const NewProduct = ({ history }) => {
               ))}
             </div>
 
-            <Button
+            <button
               id="createProductBtn"
               type="submit"
               disabled={loading ? true : false}
             >
               Create
-            </Button>
+            </button>
           </form>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './product.css';
-import Dialog from '@mui/styles/Dialog';
-import DialogContent from '@mui/styles/DialogContent';
-import DialogActions from '@mui/styles/DialogActions';
-import Button from '@mui/styles/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
 import { useAlert } from 'react-alert';
 import { useDispatch } from 'react-redux';
 import { addItem_tocart } from '../../actions/CartAction';

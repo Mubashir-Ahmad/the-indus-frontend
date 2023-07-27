@@ -1,10 +1,8 @@
 import React, { Fragment, useEffect } from "react";
-import { DataGrid } from "@material-ui/data-grid";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
 import Metatitle from "../title/title";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -18,7 +16,6 @@ const UsersList = ({ history }) => {
   const alert = useAlert();
 
   const { error, users } = useSelector((state) => state.alluser);
-// console.log('hello',useSelector((state) => state.alluser))
   const {
     error: deleteError,
     isDeleted,
@@ -92,13 +89,13 @@ const UsersList = ({ history }) => {
               <EditIcon />
             </Link>
 
-            <Button
+            <button
               onClick={() =>
                 deleteUserHandler(params.getValue(params.id, "id"))
               }
             >
               <DeleteIcon />
-            </Button>
+            </button>
           </Fragment>
         );
       },

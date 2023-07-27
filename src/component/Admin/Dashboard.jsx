@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar.js";
 import "./dashboard.css";
-import { Typography } from "@mui/styles";
 import { Link } from "react-router-dom";
 // import { Doughnut, Line, CategoryScale } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,7 +10,6 @@ import { getAllUsers } from "../../actions/UserAction.jsx";
 import Metatitle from "../title/title.jsx";
 import { getproduct, clearError, getproducts } from '../../actions/Action';
 import { getcategory } from "../../actions/categoryAction.jsx";
-import { DataGrid } from "@material-ui/data-grid";
 const Dashboard = () => {
 
   const dispatch = useDispatch();
@@ -61,7 +59,7 @@ const Dashboard = () => {
       <Sidebar />
 
       <div className="dashboardContainer">
-        <Typography component="h1">Dashboard</Typography>
+        <h6 component="h1">Dashboard</h6>
 
         <div className="dashboardSummary">
           {/* <div>

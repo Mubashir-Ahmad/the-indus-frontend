@@ -1,12 +1,9 @@
 import React, { Fragment, useEffect } from "react";
-// import { DataGrid } from "@material-ui/data-grid";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
 import Metatitle from "../title/title";
-import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearError, deleteUser } from "../../actions/UserAction";
@@ -92,13 +89,13 @@ const UsersList = ({ history }) => {
             <i class="fa-solid fa-gears"></i>
             </Link>
 
-            <Button
+            <button
               onClick={() =>
                 deleteUserHandler(params.getValue(params.id, "id"))
               }
             >
               <DeleteIcon />
-            </Button>
+            </button>
           </Fragment>
         );
       },

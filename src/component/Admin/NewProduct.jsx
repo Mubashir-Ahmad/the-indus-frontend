@@ -3,7 +3,6 @@ import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearError, createProduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
 import Metatitle from "../title/title";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
@@ -165,13 +164,13 @@ const NewProduct = ({ history }) => {
               ))}
             </div>
 
-            <Button
+            <button
               id="createProductBtn"
               type="submit"
               disabled={loading ? true : false}
             >
               Create
-            </Button>
+            </button>
           </form>
         </div>
       </div>

@@ -7,14 +7,12 @@ import {
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@mui/styles";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
-// import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
 const UpdateProduct = ({ history, match }) => {
@@ -24,12 +22,6 @@ const UpdateProduct = ({ history, match }) => {
   const { error, product } = useSelector((state) => state.productdetail);
   const { isUpdated, products } = useSelector((state) => state.updateproduct);
   console.log(useSelector((state) => state.updateproduct))
-  // const {
-  //   loading,
-  //   error: updateError,
-  //   isUpdated,
-  // } = useSelector((state) => state.products);
-// console.log(useSelector((state) => state.products))
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
@@ -190,13 +182,13 @@ const UpdateProduct = ({ history, match }) => {
               ))}
             </div>
 
-            <Button
+            <button
               id="createProductBtn"
               type="submit"
               // disabled={loading ? true : false}
             >
               Create
-            </Button>
+            </button>
           </form>
         </div>
       </div>

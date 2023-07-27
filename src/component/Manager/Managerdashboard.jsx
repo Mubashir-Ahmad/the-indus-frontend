@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar.js";
 import "./dashboard.css";
-import { Typography } from "@mui/styles";
 import { Link } from "react-router-dom"; 
-// import { Doughnut, Line, CategoryScale } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction.jsx";
 import { getAllOrders } from "../../actions/OrderAction.jsx";
@@ -74,7 +72,7 @@ const Dashboard = () => {
       <Sidebar />
 
       <div className="dashboardContainer">
-        <Typography component="h1">Manager Dashboard</Typography>
+        <h6 component="h1">Manager Dashboard</h6>
 
         <div className="dashboardSummary">
           
@@ -96,14 +94,6 @@ const Dashboard = () => {
               <p>{data && data.length}</p>
             </Link>
           </div>
-        </div>
-
-        <div className="lineChart">
-          {/* <Line data={lineState} /> */}
-        </div>
-
-        <div className="doughnutChart">
-          {/* <Doughnut data={doughnutState} /> */}
         </div>
       </div>
     </div>

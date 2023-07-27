@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import './navbar.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import pic1 from '../../image/115.jpg';
 import pic2 from '../../image/117.png';
 import { useSelector, useDispatch } from 'react-redux';
-import Popup from './Popup';
-import { addItem_tocart, removeitemfromcart } from '../../actions/CartAction';
-import Cart from '../cart/Cart';
 import { Link, NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useNavigate } from 'react-router-dom';

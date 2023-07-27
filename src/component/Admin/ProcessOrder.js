@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Metatitle from "../title/title";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Typography } from "@mui/styles";
 import SideBar from "./Sidebar";
 import {
   getsingleorder,
@@ -12,7 +11,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from "../loading/Loading";
 import { useAlert } from "react-alert";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import { Button } from "@mui/styles";
 // import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./processOrder.css";
 
@@ -71,7 +69,7 @@ const ProcessOrder = ({ history, match }) => {
             <Loading />
           ) : (
             <>
-              <Typography>Shipping Info</Typography>
+              <h6>Shipping Info</h6>
               <div className="shipingaddress">
                 {shippingInfo &&
                   Object.keys(shippingInfo).map((key) => (
@@ -93,7 +91,7 @@ const ProcessOrder = ({ history, match }) => {
                   >
                     <div>
                       <div className="confirmCartItems">
-                        <Typography> Cart Items:</Typography>
+                        <h6> Cart Items:</h6>
                         <div className="confirmCartItemsContainer">
                           {items.orderItem &&
                             items.orderItem.map((item) => (
@@ -173,7 +171,7 @@ const ProcessOrder = ({ history, match }) => {
                           </select>
                         </div>
 
-                        <Button
+                        <button
                           id="createProductBtn"
                           type="submit"
                           disabled={
@@ -185,7 +183,7 @@ const ProcessOrder = ({ history, match }) => {
                           }
                         >
                           Process
-                        </Button>
+                        </button>
                       </form>
                     </div>
                   </div>

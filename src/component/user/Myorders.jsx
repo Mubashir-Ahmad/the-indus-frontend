@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { DataGrid } from "@material-ui/data-grid";
+
 import "./myorders.css";
 import { useSelector, useDispatch } from "react-redux";
 // import { clearErrors, myOrders } from "../../actions/orderAction";
@@ -7,7 +7,6 @@ import { myorders , getAllOrders } from "../../actions/OrderAction";
 import Loading from "../loading/Loading";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import Typography from "@mui/styles/Typography";
 import Metatitle from "../title/title";
 import LaunchIcon from "@material-ui/icons/Launch";
 
@@ -119,7 +118,7 @@ const MyOrders = () => {
     </tbody>
   </table>
 )}
-          <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
+          <h5 id="myOrdersHeading">{user.name}'s Orders</h5>
         </div>
       {/* )} */}
     </Fragment>
