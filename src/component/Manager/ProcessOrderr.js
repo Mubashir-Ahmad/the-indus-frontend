@@ -10,7 +10,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../loading/Loading";
 import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
+// import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import "./processOrder.css";
 const ProcessOrder = ({ history, match }) => {
   const id = useParams();
@@ -142,7 +142,7 @@ const ProcessOrder = ({ history, match }) => {
                         <h1>Process Order</h1>
 
                         <div>
-                          <AccountTreeIcon />
+                          {/* <AccountTreeIcon /> */}
                           <select onChange={(e) => setStatus(e.target.value)}>
                             <option value="">Choose Category</option>
                             {items.orderStatus === "Placed" && (
