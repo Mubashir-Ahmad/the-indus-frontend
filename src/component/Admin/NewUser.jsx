@@ -5,7 +5,7 @@ import { clearError, createProduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
 
 import Metatitle from "../title/title";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
+// import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { adminregister } from "../../actions/UserAction";
 import SideBar from "./Sidebar";
 import { newProductReducer } from "../../reducer/productReducer";
