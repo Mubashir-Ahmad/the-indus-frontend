@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './login.css';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
-import FaceIcon from '@material-ui/icons/Face';
-import Profile from '../../image/Profile.png';
+import { Link, useNavigate, useLocation } from 'react-router-dom';;
 import { useSelector, useDispatch } from 'react-redux';
 import { clearError, login, register } from '../../actions/UserAction';
 import { useAlert } from 'react-alert';
@@ -121,7 +117,7 @@ function Login({ location }) {
                     </div>
                     <form className="loginform" ref={loginTab} onSubmit={loginSubmit}>
                         <div className="loginEmail">
-                            <MailOutlineIcon />
+                            {/* <MailOutlineIcon /> */}
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -131,7 +127,7 @@ function Login({ location }) {
                             />
                         </div>
                         <div className="loginPassword">
-                            <LockOpenIcon />
+                            {/* <LockOpenIcon /> */}
                             <input
                                 type="password"
                                 placeholder="Password"
@@ -145,7 +141,7 @@ function Login({ location }) {
                     </form>
                     <form className="signupform" ref={registerTab} onSubmit={registerSubmit} enctype="multipart/form-data">
                         <div className="signupname">
-                            <FaceIcon />
+                            {/* <FaceIcon /> */}
                             <input
                                 type="text"
                                 // name="name"
@@ -156,7 +152,7 @@ function Login({ location }) {
                             />
                         </div>
                         <div className="signupemail">
-                            <MailOutlineIcon />
+                            {/* <MailOutlineIcon /> */}
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -167,7 +163,7 @@ function Login({ location }) {
                             />
                         </div>
                         <div className="signupassword">
-                            <LockOpenIcon />
+                            {/* <LockOpenIcon /> */}
                             <input
                                 type="password"
                                 name="password"
@@ -183,16 +179,6 @@ function Login({ location }) {
                         </div>
                         <input type="submit" value="register" className="siginbtn" />
                     </form>
-                    {/* <form enctype="multipart/form-data" action="http://localhost:4000/api/v1/register" method="POST" className="signupform" ref={registerTab}>
-  <label>Select file</label><br />
-  <input type="file" name="file" onChange={(e)=>{console.log(e)}}/>
-  <br />
-  <p></p>
-  <button type="submit">Submit</button>
-</form> */}
-
-
-
                 </div>
             </div>
         </>

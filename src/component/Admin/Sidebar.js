@@ -2,11 +2,6 @@ import React from "react";
 import "./sidebar.css";
 // import logo from "../../image/logo.png";
 import { Link } from "react-router-dom";
-import PostAddIcon from "@material-ui/icons/PostAdd";
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PeopleIcon from "@material-ui/icons/People";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -15,12 +10,12 @@ const Sidebar = () => {
       </Link>
       <Link to="/admindashbord">
         <p>
-          <DashboardIcon /> Dashboard
+       Dashboard
         </p>
       </Link>
       <Link to="/admin/products">
         <p>
-        <PostAddIcon />Products
+       Products
         </p>
       </Link>
       
@@ -28,30 +23,34 @@ const Sidebar = () => {
 
     <Link to="/admin/product">
       <p>
-    <PostAddIcon />Create Product
+    
+    Create Product
     </p>
     </Link>
     
  
       <Link to="/admin/orders">
         <p>
-          <ListAltIcon />
+    
           Orders
         </p>
       </Link>
       <Link to="/admin/users">
         <p>
-          <PeopleIcon /> Users
+          
+           Users
         </p>
       </Link>
       <Link to="/user/create">
       <p>
-    <PostAddIcon />Create User
+    
+    Create User
     </p>
     </Link>
       <Link to="/create/category">
       <p>
-    <AccountTreeIcon />Create Category
+    
+    Create Category
     </p>
     </Link>
     </div>

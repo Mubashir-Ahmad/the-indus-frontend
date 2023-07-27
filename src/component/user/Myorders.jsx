@@ -1,14 +1,12 @@
 import React, { Fragment, useEffect } from "react";
-
 import "./myorders.css";
 import { useSelector, useDispatch } from "react-redux";
-// import { clearErrors, myOrders } from "../../actions/orderAction";
 import { myorders , getAllOrders } from "../../actions/OrderAction";
 import Loading from "../loading/Loading";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import LaunchIcon from "@material-ui/icons/Launch";
+
 
 const MyOrders = () => {
   const dispatch = useDispatch();
@@ -59,7 +57,7 @@ const MyOrders = () => {
       renderCell: (params) => {
         return (
           <Link to={`/order/${params.getValue(params.id, "id")}`}>
-            <LaunchIcon />
+            {/* <LaunchIcon /> */}
           </Link>
         );
       },
@@ -86,18 +84,9 @@ const MyOrders = () => {
     <Fragment>
       <Metatitle title={`${user.name} - Orders`} />
 
-      {/* {loading ? (
-        <Loading />
-      ) : ( */}
+
         <div className="myOrdersPage">
-          {/* <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="myOrdersTable"
-            autoHeight
-          /> */}
+        
  {orders && (
   <table className="productListTable" style={({width:'90%'})}>
     <tbody>

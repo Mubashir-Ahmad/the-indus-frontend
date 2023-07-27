@@ -3,17 +3,17 @@ import {useAlert} from 'react-alert'
 import './Shipping.css'
 import { useSelector ,useDispatch } from 'react-redux'
 import Metatitle from "../title/title"
-import PinDropIcon from '@material-ui/icons/PinDrop'
-import HomeIcon from '@material-ui/icons/Home'
-import PhoneIcon from '@material-ui/icons/Phone'
+// import PinDropIcon from '@material-ui/icons/PinDrop'
+// import HomeIcon from '@material-ui/icons/Home'
+// import PhoneIcon from '@material-ui/icons/Phone'
 import { useNavigate } from 'react-router-dom'
 import { shippingInfo } from '../../actions/CartAction'
 import './orderconfirm.css'
 import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie';
 import axios from 'axios'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
-import CreditCardIcon from '@material-ui/icons/CreditCard'
+// import VpnKeyIcon from '@material-ui/icons/VpnKey'
+// import CreditCardIcon from '@material-ui/icons/CreditCard'
 import './Payment.css'
 import {CardNumberElement , CardCvcElement ,CardExpiryElement, useStripe,useElements} from '@stripe/react-stripe-js'
 import { clearError,createorder } from '../../actions/OrderAction'
@@ -148,28 +148,28 @@ function Shipping() {
                 encType='multipart/form-data'
                 onSubmit={submithandler}>
                     <div>
-                        <HomeIcon />
+                        {/* <HomeIcon /> */}
                         <input type='text' placeholder='Address' required value={address} onChange={(e)=> setAddress(e.target.value)} />
                     </div>
                     <div>
-                        <PinDropIcon />
+                        {/* <PinDropIcon /> */}
                         <input type='number' placeholder='Postal code' required value={pincode} onChange={(e)=> setPinCode(e.target.value)} />
                     </div>
                     <div>
-                        <PhoneIcon />
+                        {/* <PhoneIcon /> */}
                         <input type='number' placeholder='Phone Number' required value={phoneNo} onChange={(e)=> setPhoneNo(e.target.value)} size="10" />
                     </div>                  
                 <h6>CardInfo</h6>
                 <div>
-                    <CreditCardIcon />
+                    {/* <CreditCardIcon /> */}
                     <CardNumberElement className='paymentinput'/>
                 </div>
                 <div>
-                    <VpnKeyIcon/>
+                    {/* <VpnKeyIcon/> */}
                     <CardExpiryElement className='paymentinput'/>
                 </div>
                 <div>
-                    <VpnKeyIcon />
+                    {/* <VpnKeyIcon /> */}
                     <CardCvcElement className='paymentinput' />
                 </div>
                 {tre && <input type='submit' value={`Pay - PKR ${TotalPrice && TotalPrice}`} ref={payBtn} className='paymentbtn' />}

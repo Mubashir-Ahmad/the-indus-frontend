@@ -4,7 +4,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import pic2 from '../../image/117.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
 import Cartt from '../cart/Cartt';
 
@@ -68,7 +67,7 @@ function Navbar() {
           </div>
           <div className='buttonn'>
             <Link className='linnk' onClick={togglePopupp}>
-              <ShoppingCartIcon style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }} />
+              {/* <ShoppingCartIcon style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }} /> */}
               <span>{`(${cartitems.length})`}</span>
             </Link>
             {isActive && (

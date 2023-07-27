@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link,useNavigate} from "react-router-dom";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import EditIcon from "@material-ui/icons/Edit";
 import SideBar from "./Sidebar";
 import {deletecategory, getcategory} from "../../actions/categoryAction";
 
@@ -75,7 +74,7 @@ const OrderList = ({ history }) => {
         return (
           <Fragment>
             <Link to={`/manager/update/category/${params.getValue(params.id, "id")}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
           </Fragment>
         );

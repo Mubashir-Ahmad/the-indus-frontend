@@ -1,14 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-    clearError,
-    updateProduct,
-    productdetail,
-} from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
@@ -65,7 +58,7 @@ const Updatecategory = () => {
                         <h1>Update Category</h1>
 
                         <div>
-                            <AccountTreeIcon />
+                            {/* <AccountTreeIcon /> */}
                             <select
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
@@ -79,7 +72,7 @@ const Updatecategory = () => {
                             </select>
                         </div>
                         <div>
-                            <AttachMoneyIcon />
+                            {/* <AttachMoneyIcon /> */}
                             <input
                                 type="shorting"
                                 placeholder="sorting"

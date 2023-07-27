@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearError, deleteUser } from "../../actions/UserAction";
 import { useNavigate } from "react-router-dom";
@@ -86,7 +84,7 @@ const UsersList = ({ history }) => {
         return (
           <Fragment>
             <Link to={`/manager/update/user/${params.getValue(params.id, "id")}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
 
             <button
@@ -94,7 +92,7 @@ const UsersList = ({ history }) => {
                 deleteUserHandler(params.getValue(params.id, "id"))
               }
             >
-              <DeleteIcon />
+              <i class="fa-sharp fa-regular fa-trash"></i>
             </button>
           </Fragment>
         );
@@ -141,7 +139,7 @@ const UsersList = ({ history }) => {
           <td className="tablecell">{item.role}</td>
           <td className="tablecell">
             <Link to={`/manager/product/${item._id}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
           </td>
         </tr>

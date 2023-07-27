@@ -10,9 +10,9 @@ import { adminregister } from "../../actions/UserAction";
 import SideBar from "./Sidebar";
 import { newProductReducer } from "../../reducer/productReducer";
 import { useNavigate } from "react-router-dom";
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import LockOpenIcon from '@material-ui/icons/LockOpen'
-import FaceIcon from '@material-ui/icons/Face'
+// import MailOutlineIcon from '@material-ui/icons/MailOutline'
+// import LockOpenIcon from '@material-ui/icons/LockOpen'
+// import FaceIcon from '@material-ui/icons/Face'
 const Newuser = ({ history }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -72,20 +72,20 @@ const Newuser = ({ history }) => {
             <h1>Create User</h1>
             {/* <form className='signupform' ref={registerTab} encType='mutipart/form-data' onSubmit={registersubmit}> */}
                 <div className="signupname">
-                    <FaceIcon />
+                    {/* <FaceIcon /> */}
                     <input type='text' name='name' value={name} placeholder='Name' required   onChange={(e) => setName(e.target.value)} />
                     {/* <input type='text' placeholder='Name' required onChange={registerdatechange} /> */}
                 </div>
                 <div className="signupemail">
-                <MailOutlineIcon/>
+                {/* <MailOutlineIcon/> */}
                     <input type='email' placeholder='Email' required name='email' value={email}   onChange={(e) => setemail(e.target.value)} />
                 </div>
                 <div className="signupassword">
-                    <LockOpenIcon/>
+                    {/* <LockOpenIcon/> */}
                     <input type='password' name='password' value={password} placeholder='Password' required   onChange={(e) => setpassword(e.target.value)} />
                 </div>
                 <div>
-              <AccountTreeIcon />
+              {/* <AccountTreeIcon /> */}
               <select
                 value={role}
                 onChange={(e) => setrole(e.target.value)}

@@ -9,7 +9,6 @@ import {
 import { Link ,useNavigate} from "react-router-dom";
 import { useAlert } from "react-alert";
 import Metatitle from '../title/title'
-import EditIcon from "@material-ui/icons/Edit";
 import SideBar from "./Sidebar";
 import { getproducts } from "../../actions/Action";
 import {deleteProduct} from "../../actions/productAction"
@@ -79,7 +78,7 @@ console.log(useSelector((state) => state.adminproduct))
         return (
           <Fragment>
             <Link to={`/manager/product/${params.getValue(params.id, "id")}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
           </Fragment>
         );
@@ -124,7 +123,7 @@ console.log(useSelector((state) => state.adminproduct))
           <td className="tablecell">{item.price}</td>
           <td className="tablecell">
             <Link to={`/manager/product/${item._id}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
           </td>
         </tr>

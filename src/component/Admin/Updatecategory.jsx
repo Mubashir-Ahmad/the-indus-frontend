@@ -7,9 +7,6 @@ import {
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import { Button } from "@material-ui/core";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
@@ -66,7 +63,7 @@ const Updatecategory = () => {
                         <h1>Update Category</h1>
 
                         <div>
-                            <AccountTreeIcon />
+                            {/* <AccountTreeIcon /> */}
                             <select
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
@@ -80,7 +77,7 @@ const Updatecategory = () => {
                             </select>
                         </div>
                         <div>
-                            <AttachMoneyIcon />
+                            {/* <AttachMoneyIcon /> */}
                             <input
                                 type="shorting"
                                 placeholder="sorting"
@@ -97,7 +94,7 @@ const Updatecategory = () => {
                                 Active
                             </label>
                         </div>
-                        <Button
+                        <button
                             id="createProductBtn"
                             type="submit"
                         // disabled={loading ? true : false}

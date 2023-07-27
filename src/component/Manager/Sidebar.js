@@ -1,11 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
-import PostAddIcon from "@material-ui/icons/PostAdd";
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PeopleIcon from "@material-ui/icons/People";
-import RateReviewIcon from "@material-ui/icons/RateReview";
+
 
 const Sidebar = () => {
   return (
@@ -13,41 +9,43 @@ const Sidebar = () => {
       <Link to="/">{/* <img src={logo} alt="Ecommerce" /> */}</Link>
       <Link to="/mangerdashbord">
         <p>
-          <DashboardIcon /> Dashboard
+          {/* <DashboardIcon />  */}
+          Dashboard
         </p>
       </Link>
       <Link to="/manager/product">
         <p>
-          <PostAddIcon />
+          {/* <PostAddIcon /> */}
           Products
         </p>
       </Link>
       <Link to="/manger/create/product">
         <p>
-          <PostAddIcon />
+          {/* <PostAddIcon /> */}
           Create Product
         </p>
       </Link>
       <Link to="/manger/order">
         <p>
-          <ListAltIcon />
+          {/* <ListAltIcon /> */}
           Orders
         </p>
       </Link>
       <Link to="/manager/user">
         <p>
-          <PeopleIcon /> Users
+          {/* <PeopleIcon />  */}
+          Users
         </p>
       </Link>
       <Link to="/manager/user/create">
         <p>
-          <PostAddIcon />
+          {/* <PostAddIcon /> */}
           Create User
         </p>
       </Link>
       <Link to="/manager/create/category">
         <p>
-          <AccountTreeIcon />
+          {/* <AccountTreeIcon /> */}
           Create Category
         </p>
       </Link>

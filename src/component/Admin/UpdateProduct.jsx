@@ -7,13 +7,8 @@ import {
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import DescriptionIcon from "@material-ui/icons/Description";
 import StorageIcon from "@material-ui/icons/Storage";
-import SpellcheckIcon from "@material-ui/icons/Spellcheck";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
-// import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
 const UpdateProduct = ({ history, match }) => {
@@ -23,12 +18,6 @@ const UpdateProduct = ({ history, match }) => {
   const { error, product } = useSelector((state) => state.productdetail);
   const { isUpdated, products } = useSelector((state) => state.updateproduct);
   console.log(useSelector((state) => state.updateproduct))
-  // const {
-  //   loading,
-  //   error: updateError,
-  //   isUpdated,
-  // } = useSelector((state) => state.products);
-// console.log(useSelector((state) => state.products))
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
@@ -99,7 +88,7 @@ const UpdateProduct = ({ history, match }) => {
             <h1>Create Product</h1>
 
             <div>
-              <SpellcheckIcon />
+              {/* <SpellcheckIcon /> */}
               <input
                 type="text"
                 placeholder="Product Name"
@@ -109,7 +98,7 @@ const UpdateProduct = ({ history, match }) => {
               />
             </div>
             <div>
-              <AttachMoneyIcon />
+              {/* <AttachMoneyIcon />/ */}
               <input
                 type="number"
                 placeholder="Price"
@@ -120,7 +109,7 @@ const UpdateProduct = ({ history, match }) => {
             </div>
 
             <div>
-              <DescriptionIcon />
+              {/* <DescriptionIcon /> */}
 
               <textarea
                 placeholder="Product Description"
@@ -132,7 +121,7 @@ const UpdateProduct = ({ history, match }) => {
             </div>
 
             <div>
-              <AccountTreeIcon />
+              {/* <AccountTreeIcon /> */}
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -146,7 +135,7 @@ const UpdateProduct = ({ history, match }) => {
               </select>
             </div>
             <div>
-              <AccountTreeIcon />
+              {/* <AccountTreeIcon /> */}
               <textarea
                 placeholder="discount_price"
                 value={discount_price}
@@ -156,7 +145,7 @@ const UpdateProduct = ({ history, match }) => {
               ></textarea>
             </div>
             <div>
-              <StorageIcon />
+              {/* <StorageIcon /> */}
               <input
                 type="number"
                 placeholder="Stock"

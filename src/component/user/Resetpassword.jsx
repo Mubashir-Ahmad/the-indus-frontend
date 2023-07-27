@@ -6,9 +6,6 @@ import {useSelector , useDispatch} from 'react-redux'
 import { clearError ,load_user,reset_password} from '../../actions/UserAction'
 import {useAlert} from 'react-alert'
 import Loading from '../loading/Loading'
-import LockOpenIcon from '@material-ui/icons/LockOpen'
-import LockIcon from '@material-ui/icons/LockOpen'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import { useParams } from 'react-router-dom';
 function Resetpassword() {
     const navigate=useNavigate();
@@ -48,11 +45,11 @@ function Resetpassword() {
             <form   className='resetpasswordform' onSubmit={reset_passwordsubmit}>
                 <h3 className='resetpasswordheading'>Reset Password</h3>        
                 <div className="loginPassword">
-                <LockOpenIcon/>
+                {/* <LockOpenIcon/> */}
                 <input type='password' placeholder='New Password' required value={password} onChange={(e)=>setpassword(e.target.value)} />
                 </div>
                 <div className="loginPassword">
-                <LockIcon/>
+                {/* <LockIcon/> */}
                 <input type='password' placeholder='Confrim Password' required value={confrimpassword} onChange={(e)=>setconfrimpassword(e.target.value)} />
                 </div>
             <input type='submit' value='change' className='resetpasswordbtn'/>

@@ -2,8 +2,6 @@ import React ,{useEffect,useState,useRef}from 'react'
 import'./update.css'
 import {useNavigate} from 'react-router-dom'
 import Metatitle from '../title/title'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
-import FaceIcon from '@material-ui/icons/Face'
 import Profile from '../../image/Profile.png'
 import {useSelector , useDispatch} from 'react-redux'
 import { clearError ,load_user,update_profile} from '../../actions/UserAction'
@@ -70,11 +68,11 @@ function Updateprofile() {
                 <form   className='updateform' encType='multipart/form-data' onSubmit={updateprofilesubmit}>
                     <h3 className='updateheading'>Update</h3>        
                 <div className="updatename">
-                    <FaceIcon />
+                    {/* <FaceIcon /> */}
                     <input type='text' name='name' value={name} placeholder='Name' required onChange={(e)=>setName(e.target.value)} />
                 </div>
                 <div className="updateemail">
-                <MailOutlineIcon/>
+                {/* <MailOutlineIcon/> */}
                     <input type='email' placeholder='Email' required name='email' value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </div>
                     <div id='updateimage'>

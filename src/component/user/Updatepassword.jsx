@@ -6,9 +6,6 @@ import {useSelector , useDispatch} from 'react-redux'
 import { clearError ,load_user,update_password} from '../../actions/UserAction'
 import {useAlert} from 'react-alert'
 import Loading from '../loading/Loading'
-import LockOpenIcon from '@material-ui/icons/LockOpen'
-import LockIcon from '@material-ui/icons/LockOpen'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
 function Updatepassword() {
     const navigate=useNavigate();
     const alert = useAlert()
@@ -53,15 +50,15 @@ function Updatepassword() {
                 <form   className='updatepasswordform' onSubmit={update_passwordsubmit}>
                     <h3 className='updatepasswordheading'>Update Password</h3>        
                     <div className="loginPassword">
-                    <VpnKeyIcon/>
+                    {/* <VpnKeyIcon/> */}
                     <input type='password' placeholder='Old Password' required value={oldpassword} onChange={(e)=>setoldpassword(e.target.value)} />
                     </div>
                     <div className="loginPassword">
-                    <LockOpenIcon/>
+                    {/* <LockOpenIcon/> */}
                     <input type='password' placeholder='New Password' required value={newpassword} onChange={(e)=>setnewpassword(e.target.value)} />
                     </div>
                     <div className="loginPassword">
-                    <LockIcon/>
+                    {/* <LockIcon/> */}
                     <input type='password' placeholder='Confrim Password' required value={confirmpassword} onChange={(e)=>setconfirmpassword(e.target.value)} />
                     </div>
                 <input type='submit' value='change' className='updatepasswordbtn'/>

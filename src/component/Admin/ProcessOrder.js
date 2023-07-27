@@ -10,7 +10,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../loading/Loading";
 import { useAlert } from "react-alert";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
+// import AccountTreeIcon from "@material-ui/icons/AccountTree";
 // import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 import "./processOrder.css";
 
@@ -42,14 +42,7 @@ const ProcessOrder = ({ history, match }) => {
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    // if (error) {
-    //   alert.error(error);
-    //   dispatch(clearError());
-    // }
-    // if (updateError) {
-    //   alert.error(updateError);
-    //   dispatch(clearError());
-    // }
+  
     if (isUpdated) {
       alert.success("Order Updated Successfully");
       navigate('/manger/order')
@@ -152,7 +145,7 @@ const ProcessOrder = ({ history, match }) => {
                         <h1>Process Order</h1>
 
                         <div>
-                          <AccountTreeIcon />
+                          {/* <AccountTreeIcon /> */}
                           <select onChange={(e) => setStatus(e.target.value)}>
                             <option value="">Choose Status</option>
                             {items.orderStatus === "Placed" && (

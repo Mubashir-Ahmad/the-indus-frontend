@@ -4,7 +4,7 @@ import { addItem_tocart,removeitemfromcart } from '../../actions/CartAction'
 import Cartitem from './Cartitem'
 import {useSelector , useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom'
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
+// import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
 import { useNavigate } from 'react-router-dom'
 function Cart() {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function Cart() {
     <>
       {cartitems.length === 0 ?(
         <div className='emptycart'>
-          <RemoveShoppingCartIcon />
+          {/* <RemoveShoppingCartIcon /> */}
           <h6>No Products in your Cart</h6>
           <Link to='/'>View Products</Link>
         </div>

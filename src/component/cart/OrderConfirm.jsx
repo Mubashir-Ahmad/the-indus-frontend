@@ -6,8 +6,6 @@ import { useSelector ,useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie';
 import axios from 'axios'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
-import CreditCardIcon from '@material-ui/icons/CreditCard'
 import './Payment.css'
 import {CardNumberElement , CardCvcElement ,CardExpiryElement, useStripe,useElements} from '@stripe/react-stripe-js'
 import { clearError,createorder } from '../../actions/OrderAction'
@@ -158,15 +156,15 @@ function OrderConfirm() {
         <form className='paymentform' onSubmit={submithandler}>
                 <h6>CardInfo</h6>
                 <div>
-                    <CreditCardIcon />
+                    {/* <CreditCardIcon /> */}
                     <CardNumberElement className='paymentinput'/>
                 </div>
                 <div>
-                    <VpnKeyIcon/>
+                    {/* <VpnKeyIcon/> */}
                     <CardExpiryElement className='paymentinput'/>
                 </div>
                 <div>
-                    <VpnKeyIcon />
+                    {/* <VpnKeyIcon /> */}
                     <CardCvcElement className='paymentinput' />
                 </div>
                 {tre && <input type='submit' value={`Pay - PKR ${TotalPrice && TotalPrice}`} ref={payBtn} className='paymentbtn' />}

@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
 import { deleteOrder, getAllOrders, clearError } from "../../actions/OrderAction";
 
@@ -103,7 +101,7 @@ const OrderList = ({ history }) => {
           <td className="tablecell">{item.totalPrice}</td>
           <td className="tablecell">
             <Link to={`/orderdetail/${item._id}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
           </td>
         </tr>

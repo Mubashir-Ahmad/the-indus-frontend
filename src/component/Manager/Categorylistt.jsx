@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { createcategory } from "../../actions/categoryAction";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 const NewProduct = ({ history }) => {
@@ -64,7 +62,7 @@ const NewProduct = ({ history }) => {
                     >
                         <h1>Create Category</h1>
                         <div>
-                            <AccountTreeIcon />
+                            {/* <AccountTreeIcon /> */}
                             <select
                                 value={category}
                                 onChange={(e) => setcategory(e.target.value)}
@@ -78,7 +76,7 @@ const NewProduct = ({ history }) => {
                             </select>
                         </div>
                         <div>
-                            <AttachMoneyIcon />
+                            {/* <AttachMoneyIcon /> */}
                             <input
                                 type="shorting"
                                 placeholder="Price"

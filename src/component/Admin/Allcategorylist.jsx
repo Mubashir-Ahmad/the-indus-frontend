@@ -4,10 +4,7 @@ import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link,useNavigate} from "react-router-dom";
 import { useAlert } from "react-alert";
-// import { Button } from "@mui/styles";
 import Metatitle from "../title/title";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import SideBar from "./Sidebar";
 import {clearError,} from "../../actions/OrderAction";
 import {deletecategory, getcategory} from "../../actions/categoryAction"
@@ -87,7 +84,7 @@ const OrderList = ({ history }) => {
                 deleteProductHandler(params.getValue(params.id, "id"))
               }
             >
-              <DeleteIcon />
+              <i class="fa-sharp fa-regular fa-trash"></i>
             </button>
           </Fragment>
         );
@@ -136,7 +133,7 @@ const OrderList = ({ history }) => {
           <td className="tablecell">{item.sorting}</td>
           <td className="tablecell">
             <Link to={`/manager/product/${item._id}`}>
-              <EditIcon />
+              <i class="fas fa-edit"></i>
             </Link>
           </td>
         </tr>

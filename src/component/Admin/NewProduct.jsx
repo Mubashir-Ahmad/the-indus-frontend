@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearError, createProduct } from "../../actions/productAction";
 import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
-import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import DescriptionIcon from "@material-ui/icons/Description";
-import StorageIcon from "@material-ui/icons/Storage";
-import SpellcheckIcon from "@material-ui/icons/Spellcheck";
-import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+// import AccountTreeIcon from "@material-ui/icons/AccountTree";
+// import DescriptionIcon from "@material-ui/icons/Description";
+// import StorageIcon from "@material-ui/icons/Storage";
+// import SpellcheckIcon from "@material-ui/icons/Spellcheck";
+// import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import { newProductReducer } from "../../reducer/productReducer";
 import { useNavigate } from "react-router-dom";
@@ -85,7 +85,7 @@ const NewProduct = ({ history }) => {
             <h1>Create Product</h1>
 
             <div>
-              <SpellcheckIcon />
+              {/* <SpellcheckIcon />/ */}
               <input
                 type="text"
                 placeholder="Product Name"
@@ -95,7 +95,7 @@ const NewProduct = ({ history }) => {
               />
             </div>
             <div>
-              <AttachMoneyIcon />
+              {/* <AttachMoneyIcon /> */}
               <input
                 type="number"
                 placeholder="Price"
@@ -105,7 +105,7 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-              <DescriptionIcon />
+              {/* <DescriptionIcon /> */}
 
               <textarea
                 placeholder="Product Description"
@@ -116,7 +116,7 @@ const NewProduct = ({ history }) => {
               ></textarea>
             </div>
             <div>
-              <AccountTreeIcon />
+              {/* <AccountTreeIcon />/ */}
               <select
                 value={category}
                 onChange={(e) => setcategory(e.target.value)}
@@ -131,7 +131,7 @@ const NewProduct = ({ history }) => {
             </div>
 
             <div>
-              <AccountTreeIcon />
+              {/* <AccountTreeIcon /> */}
               <textarea
                 placeholder="discount_price"
                 value={discount_price}
