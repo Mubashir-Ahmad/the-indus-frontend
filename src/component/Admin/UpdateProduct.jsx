@@ -7,7 +7,7 @@ import {
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
-import StorageIcon from "@material-ui/icons/Storage";
+// import StorageIcon from "@material-ui/icons/Storage";
 import SideBar from "./Sidebar";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
