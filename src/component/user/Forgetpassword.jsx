@@ -2,7 +2,7 @@ import React ,{useEffect,useState}from 'react'
 import'./forgetpassword.css'
 import {useNavigate} from 'react-router-dom'
 import Metatitle from '../title/title'
-import MailOutlineIcon from '@material-ui/icons/MailOutline'
+// import MailOutlineIcon from '@material-ui/icons/MailOutline'
 import {useSelector , useDispatch} from 'react-redux'
 import {clearError,forget_password} from '../../actions/UserAction'
 import {useAlert} from 'react-alert'
@@ -42,7 +42,7 @@ function Updateprofile() {
                 <form   className='forgetform' onSubmit={forgetpasswordsubmit}>
                     <h3 className='forgetheading'>Forget password</h3>        
                 <div className="updateemail">
-                <MailOutlineIcon/>
+                {/* <MailOutlineIcon/> */}
                     <input type='email' placeholder='Email' required name='email' value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </div>
                 <input type='submit' value='send' className='forgetbtn'/>
