@@ -100,7 +100,7 @@ const Updatecategory = () => {
                         // disabled={loading ? true : false}
                         >
                             Update
-                        </Button>
+                        </button>
                     </form>
                 </div>
             </div>
