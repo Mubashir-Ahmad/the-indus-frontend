@@ -8,7 +8,7 @@ import AlertTemplate from 'react-alert-template-basic';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.render(document.getElementById('root'));
 const option = {
   timeout: 5000,
   position: positions.BOTTOM_CENTER,
