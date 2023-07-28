@@ -65,7 +65,7 @@ function App() {
       console.log('hello1')
       const token = Cookies.get('token');
       const config = { headers: { Authorization: `${token}` } };
-      const { data } = await axios.get(`http://localhost:4000/api/v1/stripekey`, config);
+      const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/stripekey`, config);
       console.log(data)
       const apiKey = data.sendstripkey;
       if (apiKey) {
