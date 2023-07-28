@@ -5,7 +5,7 @@ const login = (email, password) => async (dispatch) => {
     dispatch({ type: 'login_request' })
     try {
         const config = { headers: { "Content-Type": "application/json" } }
-        const { data } = await axios.post(`http://localhost:4000/api/v1/login`, { email, password }, config)
+        const { data } = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/login`, { email, password }, config)
             .then((res) => {
                 console.log('ress', res)
                 dispatch({ type: 'login_success', payload: res.data })
