@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearError, login, register } from '../../actions/UserAction';
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import './login.css';
 
 function Login({ location }) {
   const navigate = useNavigate();
-  const alert = useAlert();
+  // const alert = useAlert();
   const dispatch = useDispatch();
   const { isAuthenticated, error, loading, user } = useSelector((state) => state.user);
 
@@ -29,7 +29,7 @@ function Login({ location }) {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch(clearError());
     }
 
@@ -44,7 +44,7 @@ function Login({ location }) {
         navigate('/riderdash');
       }
     }
-  }, [dispatch, error, alert, isAuthenticated, navigate, user]);
+  }, [dispatch, error, isAuthenticated, navigate, user]);
 
   const switchtab = (e, tab) => {
     if (tab === 'login') {

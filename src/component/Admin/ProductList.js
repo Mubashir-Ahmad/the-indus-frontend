@@ -6,14 +6,11 @@ import {
   getAdminProduct,  
 } from "../../actions/productAction";
 import { Link ,useNavigate} from "react-router-dom";
-import { useAlert } from "react-alert";
 import Metatitle from '../title/title'
 import SideBar from "./Sidebar";
 import {deleteProduct} from "../../actions/productAction"
 const ProductList = ({ history }) => {
   const dispatch = useDispatch();
-
-  const alert = useAlert();
  const navigate = useNavigate();
   const { error, products } = useSelector((state) => state.adminproduct);
 console.log(useSelector((state) => state.adminproduct))
@@ -31,12 +28,11 @@ console.log(useSelector((state) => state.adminproduct))
   useEffect(() => {
     console.log(isDeleted)
     if (isDeleted) {
-      alert.success("Product Deleted Successfully");
       navigate("/admindashbord");
       dispatch({ type: 'DELETE_PRODUCT_RESET' });
     }
     dispatch(getAdminProduct());
-  }, [dispatch, alert, error, isDeleted,navigate]);
+  }, [dispatch, error, isDeleted,navigate]);
 
   const columns = [
     { field: "id", headerName: "Product ID", minWidth: 200, 

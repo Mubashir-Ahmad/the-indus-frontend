@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
+
 import Metatitle from "../title/title";
 // import MailOutlineIcon from "@material-ui/icons/MailOutline";
 // import PersonIcon from "@material-ui/icons/Person";
@@ -18,7 +18,7 @@ import { useParams } from "react-router-dom";
 
 const UpdateUser = ({ history, match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
+  
   const navigate =useNavigate()
   const { loading, error, user } = useSelector((state) => state.user);
 console.log('saasasas',useSelector((state) => state.profile))
@@ -33,11 +33,11 @@ console.log('saasasas',useSelector((state) => state.profile))
   useEffect(() => {
    
     if (isUpdated) {
-      alert.success("User Updated Successfully");
+      ;
       navigate("/admin/users");
       dispatch({ type: 'updated_profile_reset' });
     }
-  }, [dispatch, alert, error, history, isUpdated, user, userId]);
+  }, [dispatch, error, history, isUpdated, user, userId]);
 
   const updateUserSubmitHandler = (e) => {
     e.preventDefault();

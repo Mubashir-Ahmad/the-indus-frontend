@@ -7,7 +7,6 @@ import { SpeedDial, SpeedDialAction } from '@mui/material'; // Import from @mui/
 // import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import from @mui/icons-material
 // import ListAltIcon from '@mui/icons-material/ListAlt'; // Import from @mui/icons-material
 // import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Import from @mui/icons-material
-import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout_user } from '../../actions/UserAction';
 import Backdrop from '@mui/material/Backdrop'; // Import from @mui/material
@@ -18,7 +17,6 @@ function Useroption({user}) {
     const {cartitems} = useSelector((state)=>state.cart)
     const {isAuthenticated} = useSelector((state)=>state.user)
     // console.log(useSelector((state)=>state.user))
-    const alert = useAlert();
     const [open, setopen] =useState(false);
     const option =[
         // {icon: <ListAltIcon/>,name :"Orders",function:order},
@@ -63,7 +61,7 @@ function Useroption({user}) {
         // document.cookie = 'token=; Max-Age=-99999999;';
      
         dispatch(logout_user());
-          alert.success("Logout successfully");
+          // alert.success("Logout successfully");
           navigate('/login')
       }
       

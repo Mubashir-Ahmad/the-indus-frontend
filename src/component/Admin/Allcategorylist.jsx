@@ -3,7 +3,6 @@ import React, { Fragment, useEffect } from "react";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link,useNavigate} from "react-router-dom";
-import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 import SideBar from "./Sidebar";
 import {clearError,} from "../../actions/OrderAction";
@@ -13,11 +12,7 @@ import {deletecategory, getcategory} from "../../actions/categoryAction"
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
   const navigate= useNavigate();
-  const alert = useAlert();
-
   const { data } = useSelector((state) => state.getcategory);
- 
-
   const { isdeleted } = useSelector((state) => state.deletecategory);
   console.log(useSelector((state) => state.deletecategory))
   const deleteProductHandler = (id) => {
@@ -27,13 +22,12 @@ const OrderList = ({ history }) => {
   useEffect(() => {
     
     if (isdeleted) {
-      alert.success("Category Deleted Successfully");
       navigate("/admin/category");
       dispatch({ type: 'DELETE_CATEGORY_RESET' });
     }
 
     dispatch(getcategory());
-  }, [dispatch,alert,isdeleted]);
+  }, [dispatch,isdeleted]);
 
   const columns = [
     { field: "id", headerName: "Category ID", minWidth: 300, 

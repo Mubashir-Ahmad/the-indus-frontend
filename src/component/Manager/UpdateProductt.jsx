@@ -6,13 +6,11 @@ import {
   productdetail,
 } from "../../actions/productAction";
 import { useParams } from "react-router-dom";
-import { useAlert } from "react-alert";
 import SideBar from "./Sidebar";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
 const UpdateProduct = ({ history, match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate()
   const { error, product } = useSelector((state) => state.productdetail);
   const { isUpdated, products } = useSelector((state) => state.updateproduct);
@@ -37,13 +35,12 @@ const UpdateProduct = ({ history, match }) => {
   console.log(productId.id)
   useEffect(() => {
     if (isUpdated) {
-      alert.success("Product Updated Successfully");
       navigate("/admin/products");
       dispatch({
         type:'UPDATE_PRODUCT_RESET'
     });
     }
-  }, [dispatch,alert,error,isUpdated,productId,product]);
+  }, [dispatch,error,isUpdated,productId,product]);
 
   const updateProductSubmitHandler = (e) => {
     e.preventDefault();

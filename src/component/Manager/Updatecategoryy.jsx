@@ -1,14 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useAlert } from "react-alert";
 import SideBar from "./Sidebar";
 import Metatitle from "../title/title";
 import { useNavigate } from "react-router-dom";
 import { updatetcategory } from "../../actions/categoryAction";
 const Updatecategory = () => {
     const dispatch = useDispatch();
-    const alert = useAlert();
     const navigate = useNavigate()
     const { error, product } = useSelector((state) => state.productdetail);
     const { isupdated, products } = useSelector((state) => state.updatecategory);
@@ -25,13 +23,13 @@ const Updatecategory = () => {
     console.log(productId.id)
     useEffect(() => {
         if (isupdated) {
-            alert.success("Category Updated Successfully");
+            
             navigate("/admindashbord");
             dispatch({
                 type: 'UPDATE_CATEGORY_RESET'
             });
         }
-    }, [dispatch, alert, error, isupdated, productId, product]);
+    }, [dispatch, error, isupdated, productId, product]);
 
     const updateProductSubmitHandler = (e) => {
         e.preventDefault();

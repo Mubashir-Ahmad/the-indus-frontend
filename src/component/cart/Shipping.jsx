@@ -1,5 +1,4 @@
 import React ,{useState ,useRef} from 'react'
-import {useAlert} from 'react-alert'
 import './Shipping.css'
 import { useSelector ,useDispatch } from 'react-redux'
 import Metatitle from "../title/title"
@@ -28,7 +27,6 @@ function Shipping() {
     const elements = useElements();
     const payBtn = useRef(" ");
     const stripe = useStripe();
-    const alert = useAlert();
     const [tre, setTre] = useState(false);
     const dispatch = useDispatch();
     const subtotal = cartitems.reduce(
@@ -47,7 +45,6 @@ function Shipping() {
         setTre(true);
         e.preventDefault();
         if(phoneNo.length < 10 || phoneNo.length>10){
-            alert.error("Phone Number ust be 10 digits")
             return;
         }
         dispatch(
@@ -98,7 +95,7 @@ function Shipping() {
             if (result.error){
                 // console.log('hello',result)
                 payBtn.current.disabled=false
-                alert.error(result.error.message);
+                // alert.error(result.error.message);
             }
             else{
                 console.log('hello',result.paymentIntent.status)
@@ -108,17 +105,17 @@ function Shipping() {
                         status:result.paymentIntent.status
                     }
                     dispatch(createorder(order))
-                    alert.success("ok ho geya")
+                    // alert.success("ok ho geya")
                     navigate('/success')
                 }
                 else{
-                    alert.error("Thers some issue while processing payment");
+                    // alert.error("Thers some issue while processing payment");
                 }
             }
         }
         catch(error){
             payBtn.current.disabled=false;
-            alert.error(error.response.data.message);
+            // alert.error(error.response.data.message);
         }
     }
     // const {shippinginfo} = useSelector((state)=>state.cart);
@@ -129,7 +126,7 @@ function Shipping() {
     const shippingsubmit=(e)=>{
         e.preventDefault();
         if(phoneNo.length < 10 || phoneNo.length>10){
-            alert.error("Phone Number ust be 10 digits")
+            // alert.error("Phone Number ust be 10 digits")
             return;
         }
         dispatch(

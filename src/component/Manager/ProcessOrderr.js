@@ -9,7 +9,6 @@ import {
 } from "../../actions/OrderAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../loading/Loading";
-import { useAlert } from "react-alert";
 // import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import "./processOrder.css";
 const ProcessOrder = ({ history, match }) => {
@@ -35,13 +34,13 @@ const ProcessOrder = ({ history, match }) => {
   };
 
   const dispatch = useDispatch();
-  const alert = useAlert();
+  
 
   const [status, setStatus] = useState("");
 
   useEffect(() => {
     if (isUpdated) {
-      alert.success("Order Updated Successfully");
+  
       navigate('/manger/order')
       dispatch({ type: 'UPDATE_ORDER_RESET' });
     }

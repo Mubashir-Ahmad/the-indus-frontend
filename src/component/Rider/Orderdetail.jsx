@@ -3,11 +3,11 @@ import Metatitle from '../title/title';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import { getsingleorder, pickorder } from '../../actions/OrderAction';
 import './orderdetail.css'
 function OrderDetail() {
-    const alert = useAlert();
+    // const alert = useAlert();
     const { id } = useParams();
     const dispatch = useDispatch();
     const { order ,totalPrice} = useSelector((state) => state.singleorder);
@@ -20,7 +20,7 @@ function OrderDetail() {
     const pickorderr =() =>{
         console.log('hello',id)
         dispatch(pickorder(id))
-        alert.success(message)
+        // alert.success(message)
     }
     return (
         <>

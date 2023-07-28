@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { myorders , getAllOrders } from "../../actions/OrderAction";
 import Loading from "../loading/Loading";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 
 
 const MyOrders = () => {
   const dispatch = useDispatch();
 
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const { oorders , orders ,dorders, porder } = useSelector((state) => state.myorders);
   console.log('asffffffffffffffffffff',useSelector((state) => state.myorders))

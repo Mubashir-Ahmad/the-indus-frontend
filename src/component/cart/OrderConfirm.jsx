@@ -9,7 +9,6 @@ import axios from 'axios'
 import './Payment.css'
 import {CardNumberElement , CardCvcElement ,CardExpiryElement, useStripe,useElements} from '@stripe/react-stripe-js'
 import { clearError,createorder } from '../../actions/OrderAction'
-import { useAlert } from 'react-alert'
 function OrderConfirm() {
     const navigate = useNavigate();
     const {shippinginfo, cartitems}= useSelector((state)=>state.cart)
@@ -18,7 +17,6 @@ function OrderConfirm() {
     const elements = useElements();
     const payBtn = useRef("");
     const stripe = useStripe();
-    const alert = useAlert();
     const [tre, setTre] = useState(false);
     const dispatch = useDispatch();
     const subtotal = cartitems.reduce(
@@ -80,7 +78,6 @@ function OrderConfirm() {
             if (result.error){
                 // console.log('hello',result)
                 payBtn.current.disabled=false
-                alert.error(result.error.message);
             }
             else{
                 console.log('hello',result.paymentIntent.status)
@@ -90,17 +87,15 @@ function OrderConfirm() {
                         status:result.paymentIntent.status
                     }
                     dispatch(createorder(order))
-                    alert.success("ok ho geya")
                     navigate('/success')
                 }
                 else{
-                    alert.error("Thers some issue while processing payment");
+                    // alert.error("Thers some issue while processing payment");
                 }
             }
         }
         catch(error){
             payBtn.current.disabled=false;
-            alert.error(error.response.data.message);
         }
     }
   return (

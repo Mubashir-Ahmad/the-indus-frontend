@@ -2,16 +2,12 @@ import React, { Fragment, useEffect } from "react";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 import SideBar from "./Sidebar";
 import {deleteOrder,getAllOrders,clearError,} from "../../actions/OrderAction";
 
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
-
-  const alert = useAlert();
-
   const { error, orders ,user } = useSelector((state) => state.allOrders);
   console.log(useSelector((state) => state.allOrders))
 console.log('orrrr',orders)
@@ -28,23 +24,23 @@ console.log(userName);
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+
       dispatch(clearError());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+
       dispatch(clearError());
     }
 
     if (isDeleted) {
-      alert.success("Order Deleted Successfully");
+
       history.push("/admin/orders");
       // dispatch({ type: DELETE_ORDER_RESET });
     }
 
     dispatch(getAllOrders());
-  }, [dispatch, alert, error, deleteError, history, isDeleted]);
+  }, [dispatch, error, deleteError, history, isDeleted]);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, 

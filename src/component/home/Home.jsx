@@ -4,7 +4,6 @@ import { Link, NavLink } from 'react-router-dom'
 import pic1 from '../../image/116.jpg'
 import { getproducts, clearError } from '../../actions/Action';
 import { useSelector, useDispatch } from 'react-redux'
-import { useAlert } from 'react-alert'
 import Product from '../product/Product';
 function Home() {
     const [showInfo, setShowInfo] = useState(false);
@@ -13,7 +12,7 @@ function Home() {
         setShowInfo(!showInfo); // Toggle the state value
     };
 
-    const alert = useAlert();
+
     const dispatch = useDispatch();
     const { loading, error, products, productCount } = useSelector(
         (state) => state.productts
@@ -21,11 +20,10 @@ function Home() {
     console.log(useSelector((state) => state.productts))
     useEffect(() => {
         if (error) {
-            alert.error(error)
             dispatch(clearError)
         }
         dispatch(getproducts());
-    }, [dispatch, error, alert])
+    }, [dispatch, error])
     return (
         <>
             <div className="container-fluid">

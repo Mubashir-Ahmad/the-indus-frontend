@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearError, createProduct } from "../../actions/productAction";
-import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 import { adminregister } from "../../actions/UserAction";
 import SideBar from "./Sidebar";
@@ -10,8 +9,6 @@ import { useNavigate } from "react-router-dom";
 const Newuser = ({ history }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const alert = useAlert();
-
   const { iscreated } = useSelector((state) => state.user);
   console.log( useSelector((state) => state.user));
   const [name, setName] = useState("");
@@ -26,11 +23,10 @@ const Newuser = ({ history }) => {
   useEffect(() => {
 
     if (iscreated) {
-      alert.success("User Created Successfully");
       navigate("/admindashbord");
       dispatch({ type:'admin_register_reset' });
     }
-  }, [dispatch, alert, iscreated]);
+  }, [dispatch, iscreated]);
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();

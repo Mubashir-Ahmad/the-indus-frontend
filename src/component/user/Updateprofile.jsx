@@ -5,11 +5,11 @@ import Metatitle from '../title/title'
 import Profile from '../../image/Profile.png'
 import {useSelector , useDispatch} from 'react-redux'
 import { clearError ,load_user,update_profile} from '../../actions/UserAction'
-import {useAlert} from 'react-alert'
+// import {useAlert} from 'react-alert'
 import Loading from '../loading/Loading'
 function Updateprofile() {
     const navigate=useNavigate();
-    const alert = useAlert()
+    // const alert = useAlert()
     // const updateFormRef = useRef(null);
     
     const dispatch = useDispatch();
@@ -29,18 +29,18 @@ function Updateprofile() {
             setAvatarPreview(user.user.avatar);
         }
         if(error){
-            alert.error(error);
+            // alert.error(error);
             dispatch(clearError());
         }
         if(isUpdated){
-            alert.success("Profile updated successfully");
+            // alert.success("Profile updated successfully");
             dispatch(load_user());
             navigate('/account')
             dispatch({
                 type:'updated_profile_reset'
             });
         }
-    },[dispatch ,error,alert,user,isUpdated])
+    },[dispatch ,error,user,isUpdated])
     
    
     const updateprofilesubmit = (e)=>{

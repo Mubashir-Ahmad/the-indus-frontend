@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from "react";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 import SideBar from "./Sidebar";
 import { getAllUsers, clearError, deleteUser } from "../../actions/UserAction";
@@ -11,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 const UsersList = ({ history }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const alert = useAlert();
-
   const { error, users } = useSelector((state) => state.alluser);
   const {
     error: deleteError,
@@ -26,23 +23,20 @@ const UsersList = ({ history }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
       dispatch(clearError());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
       dispatch(clearError());
     }
 
     if (isDeleted) {
-      alert.success("Delete user successfully");
       navigate("/admin/users");
       dispatch({ type: 'delete_user_reset'});
     }
 
     dispatch(getAllUsers());
-  }, [dispatch, alert, error, deleteError, history, isDeleted, message]);
+  }, [dispatch, error, deleteError, history, isDeleted, message]);
 
   const columns = [
     { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },

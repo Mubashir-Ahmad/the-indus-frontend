@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
 import { Link } from "react-router-dom";
 import Loader from "../layout/Loader/Loader";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 
 const OrderDetails = ({ match }) => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
 
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
 
   return (
     <Fragment>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './product.css';
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import { useDispatch } from 'react-redux';
 import { addItem_tocart } from '../../actions/CartAction';
 
 function Product({ product }) {
-  const alert = useAlert();
+  // const alert = useAlert();
   const [quantities, setQuantities] = useState(product.products ? Array(product.products.length).fill(1) : []);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ function Product({ product }) {
 
   const addToCart = (id, quantity) => {
     dispatch(addItem_tocart(id, quantity));
-    alert.success('Item Added to cart');
+    // alert.success('Item Added to cart');
   };
 
   const openPopup = (product, index) => {

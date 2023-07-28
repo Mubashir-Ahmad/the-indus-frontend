@@ -4,12 +4,12 @@ import {useNavigate} from 'react-router-dom'
 import Metatitle from '../title/title'
 import {useSelector , useDispatch} from 'react-redux'
 import { clearError ,load_user,reset_password} from '../../actions/UserAction'
-import {useAlert} from 'react-alert'
+// import {useAlert} from 'react-alert'
 import Loading from '../loading/Loading'
 import { useParams } from 'react-router-dom';
 function Resetpassword() {
     const navigate=useNavigate();
-    const alert = useAlert()
+    // const alert = useAlert()
     const { token } = useParams();
     const dispatch = useDispatch();
     const {error,success,loading} = useSelector((state)=>state.forgetPassword)
@@ -17,14 +17,14 @@ function Resetpassword() {
     const [confrimpassword ,setconfrimpassword]=useState("");
     useEffect(()=>{
         if(error){
-            alert.error(error);
+            // alert.error(error);
             dispatch(clearError());
         }
         if(success){
-            alert.success("Password updated successfully");
+            // alert.success("Password updated successfully");
             navigate('/login')
         }
-    },[dispatch ,error,alert,success])
+    },[dispatch ,error,success])
     
    
     const reset_passwordsubmit = (e)=>{

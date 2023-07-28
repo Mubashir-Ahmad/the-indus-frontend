@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import "./productList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 import SideBar from "./Sidebar";
 import { deleteOrder, getAllOrders, clearError } from "../../actions/OrderAction";
@@ -10,7 +10,7 @@ import { deleteOrder, getAllOrders, clearError } from "../../actions/OrderAction
 const OrderList = ({ history }) => {
   const dispatch = useDispatch();
 
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const { error, orders } = useSelector((state) => state.allOrders);
   const { error: deleteError, isDeleted } = useSelector((state) => state.order);
@@ -21,22 +21,22 @@ const OrderList = ({ history }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch(clearError());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      // alert.error(deleteError);
       dispatch(clearError());
     }
 
     if (isDeleted) {
-      alert.success("Order Deleted Successfully");
+      // alert.success("Order Deleted Successfully");
       history.push("/admin/orders");
     }
 
     dispatch(getAllOrders());
-  }, [dispatch, alert, error, deleteError, history, isDeleted]);
+  }, [dispatch, error, deleteError, history, isDeleted]);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300 },

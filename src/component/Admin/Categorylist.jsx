@@ -3,7 +3,6 @@ import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearError, createProduct } from "../../actions/productAction";
 import { createcategory } from "../../actions/categoryAction";
-import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 // import AccountTreeIcon from "@material-ui/icons/AccountTree";
 // import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
@@ -13,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const NewProduct = ({ history }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const alert = useAlert();
+    
 
     const { loading, error, isupdated} = useSelector((state) => state.categorycreate);
     console.log(useSelector((state) => state.categorycreate));
@@ -28,11 +27,11 @@ const NewProduct = ({ history }) => {
         
 
         if (isupdated) {
-            alert.success("Product Category Created Successfully");
+            
             navigate("/admindashbord");
             dispatch({type:'CREATE_CATEGORY_RESET'})
         }
-    }, [dispatch, alert, error, history, isupdated]);
+    }, [dispatch, error, history, isupdated]);
 
     const createProductSubmitHandler = (e) => {
         e.preventDefault();

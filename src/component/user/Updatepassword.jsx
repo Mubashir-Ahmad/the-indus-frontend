@@ -4,11 +4,11 @@ import {useNavigate} from 'react-router-dom'
 import Metatitle from '../title/title'
 import {useSelector , useDispatch} from 'react-redux'
 import { clearError ,load_user,update_password} from '../../actions/UserAction'
-import {useAlert} from 'react-alert'
+// import {useAlert} from 'react-alert'
 import Loading from '../loading/Loading'
 function Updatepassword() {
     const navigate=useNavigate();
-    const alert = useAlert()
+    // const alert = useAlert()
     
     const dispatch = useDispatch();
     const {error,isUpdated,loading} = useSelector((state)=>state.profile)
@@ -17,17 +17,17 @@ function Updatepassword() {
     const [confirmpassword ,setconfirmpassword]=useState("");
     useEffect(()=>{
         if(error){
-            alert.error(error);
+            // alert.error(error);
             dispatch(clearError());
         }
         if(isUpdated){
-            alert.success("Password updated successfully");
+            // alert.success("Password updated successfully");
             navigate('/account')
             dispatch({
                 type:'updated_password_reset'
             });
         }
-    },[dispatch ,error,alert,isUpdated])
+    },[dispatch ,error,isUpdated])
     
    
     const update_passwordsubmit = (e)=>{

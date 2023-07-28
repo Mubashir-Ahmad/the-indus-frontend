@@ -2,18 +2,14 @@ import React, { Fragment, useEffect, useState } from "react";
 import "./newProduct.css";
 import { useSelector, useDispatch } from "react-redux";
 import { createcategory } from "../../actions/categoryAction";
-import { useAlert } from "react-alert";
 import Metatitle from "../title/title";
 import SideBar from "./Sidebar";
 import { useNavigate } from "react-router-dom";
 const NewProduct = ({ history }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const alert = useAlert();
-
     const { loading, error, isupdated} = useSelector((state) => state.categorycreate);
     console.log(useSelector((state) => state.categorycreate));
-
     const [sorting, setSorting] = useState(0);
     const [active, setCheckbox] = useState(false);
     const [category, setcategory] = useState("");
@@ -21,14 +17,11 @@ const NewProduct = ({ history }) => {
 
 
     useEffect(() => {
-        
-
         if (isupdated) {
-            alert.success("Product Category Created Successfully");
             navigate("/admindashbord");
             dispatch({type:'CREATE_CATEGORY_RESET'})
         }
-    }, [dispatch, alert, error, history, isupdated]);
+    }, [dispatch, error, history, isupdated]);
 
     const createProductSubmitHandler = (e) => {
         e.preventDefault();

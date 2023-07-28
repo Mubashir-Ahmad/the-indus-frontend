@@ -5,14 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Doughnut, Line } from 'react-chartjs-2';
 import Sidebar from '../Rider/Sidebar.js';
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import { riderearn } from '../../actions/OrderAction';
 function Riderearn() {
   const navigate = useNavigate();
   const { message, orders, totalEarnings, totalOrders } = useSelector((state) => state.riderearn);
   const { user } = useSelector((state) => state.user);
   console.log(useSelector((state) => state.riderearn));
-  const alert = useAlert();
+  // const alert = useAlert();
   const dispatch = useDispatch();
 
   useEffect(() => {
