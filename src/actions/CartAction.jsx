@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const addItem_tocart =(id,quantity) => async (dispatch,getState)=>{        
-        const {data}= await axios.get(`http://localhost:4000/api/v1/product/${id}`)
+        const {data}= await axios.get(`https://the-indus-beckend.vercel.app/api/v1/product/${id}`)
 
             console.log('rsssssses',data)
             dispatch({

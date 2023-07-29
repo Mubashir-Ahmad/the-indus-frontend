@@ -8,7 +8,7 @@ const createorder =(order)=>async(dispatch,getState)=>{
         const token = Cookies.get('token');
         dispatch({type:'CREATE_ORDER_REQUEST'})
         const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-        const data = await axios.post(`http://localhost:4000/api/v1/order/new`,order,config)
+        const data = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/order/new`,order,config)
         console.log(data)
         dispatch({type:'CREATE_ORDER_SUCCESS',payload:data})
     }
@@ -24,7 +24,7 @@ const myorders =(order)=>async(dispatch,getState)=>{
         const token = Cookies.get('token');
         dispatch({type:'MY_ORDER_REQUEST'})
         const config = { headers: { Authorization: `${token}`} };
-        const data = await axios.get(`http://localhost:4000/api/v1/orders/me`,config)
+        const data = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/orders/me`,config)
         console.log('dataaaa',data,data.data.order)
         dispatch({type:'MY_ORDER_SUCCESS',payload:data.data.order})
     }
@@ -39,7 +39,7 @@ const getAllOrders = () => async (dispatch) => {
     try {
       dispatch({ type: 'ALL_ORDERS_REQUEST' });
   
-      const { data } = await axios.get("http://localhost:4000/api/v1/admin/orders");
+      const { data } = await axios.get("https://the-indus-beckend.vercel.app/api/v1/admin/orders");
       dispatch({ type: 'ALL_ORDERS_SUCCESS', payload: data.orders });
     } catch (error) {
       dispatch({
@@ -52,7 +52,7 @@ const getadminAllOrders = () => async (dispatch) => {
     try {
       dispatch({ type: 'ALL_ORDERS_REQUEST' });
   
-      const { data } = await axios.get("http://localhost:4000/api/v1/admin/orders");
+      const { data } = await axios.get("https://the-indus-beckend.vercel.app/api/v1/admin/orders");
       dispatch({ type: 'ALL_ORDERS_SUCCESSS', payload: data });
     } catch (error) {
       dispatch({
@@ -66,7 +66,7 @@ const getsingleorder = (id) => async (dispatch) => {
       console.log('wertyuiuytrertyui',id)
       dispatch({ type: 'SINGLE_ORDER_REQUEST' });
   
-      const { data } = await axios.get(`http://localhost:4000/api/v1/order/${id}`)
+      const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/order/${id}`)
       .then(res => {
         console.log('res', res.data)
         dispatch({ type: 'SINGLE_ORDER_SUCCESS', payload: res.data });
@@ -88,7 +88,7 @@ const pickorder = (id) => async (dispatch) => {
       const token = Cookies.get('token');
       dispatch({ type: 'PICK_ORDER_REQUEST' });
       const config = { headers: { Authorization: `${token}`} };
-      const { data } = await axios.put(`http://localhost:4000/api/v1/rider/order/pick/${id}`,config)
+      const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/rider/order/pick/${id}`,config)
       .then(res => {
         console.log('res', res.data.message)
         dispatch({ type: 'PICK_ORDER_SUCCESS', payload: res.data.message });
@@ -111,7 +111,7 @@ const riderearn = (id) => async (dispatch) => {
       const token = Cookies.get('token');
       dispatch({ type: 'RIDER_EARN_REQUEST' });
       const config = { headers: { Authorization: `${token}`} };
-      const { data } = await axios.get(`http://localhost:4000/api/v1/rider/earn/order`,config)
+      const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/rider/earn/order`,config)
       .then(res => {
         console.log('res', res.data)
         dispatch({ type: 'RIDER_EARN_SUCCESS', payload: res.data });
@@ -135,7 +135,7 @@ const riderearn = (id) => async (dispatch) => {
     dispatch({ type: 'UPDATE_ORDER_REQUEST' });
     const token = Cookies.get('token');
     const config = { headers: { Authorization: `${token}`, "Content-Type": "application/json" } };
-    const { data } = await axios.put(`http://localhost:4000/api/v1/admin/orders/${id}`,order,config);
+    const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/admin/orders/${id}`,order,config);
 
     dispatch({ type: 'UPDATE_ORDER_SUCCESS', payload: data.success });
   } catch (error) {
@@ -151,7 +151,7 @@ const riderearn = (id) => async (dispatch) => {
     dispatch({ type: 'DELETE_ORDER_REQUEST' });
     const token = Cookies.get('token');
     const config = { headers: { Authorization: `${token}`, "Content-Type": "application/json" } };
-    const { data } = await axios.delete(`http://localhost:4000/api/v1/admin/order/${id}`,config);
+    const { data } = await axios.delete(`https://the-indus-beckend.vercel.app/api/v1/admin/order/${id}`,config);
 
     dispatch({ type: 'DELETE_ORDER_SUCCESS', payload: data.success });
   } catch (error) {
@@ -167,7 +167,7 @@ const riderearn = (id) => async (dispatch) => {
     dispatch({ type: 'SALE_ORDER_REQUEST' });
     const token = Cookies.get('token');
     const config = { headers: { Authorization: `${token}`, "Content-Type": "application/json" } };
-    const { data } = await axios.get('http://localhost:4000/api/v1/admin/sale/order',config);
+    const { data } = await axios.get('https://the-indus-beckend.vercel.app/api/v1/admin/sale/order',config);
     console.log('dataa',data)
     dispatch({ type: 'SALE_ORDER_SUCCESS', payload: data });
   } catch (error) {

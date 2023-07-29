@@ -5,10 +5,10 @@ const getproduct = (keyword="",currentpage=1,price=[0,12000],category,ratings=0)
     dispatch({ type: 'product_request' });
     try {
         // console.log('dddd',price,currentpage,keyword)
-        let link = `http://localhost:4000/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
+        let link = `https://the-indus-beckend.vercel.app/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
         
         if(category){
-             link =`http://localhost:4000/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`
+             link =`https://the-indus-beckend.vercel.app/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`
         }
         const { data } = await axios.get(link)
         dispatch({

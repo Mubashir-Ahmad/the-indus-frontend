@@ -5,10 +5,10 @@ const getproduct = (keyword = "", currentpage = 1, price = [0, 12000], category,
     dispatch({ type: 'product_request' });
     try {
         // console.log('dddd',price,currentpage,keyword)
-        let link = `http://localhost:4000/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
+        let link = `https://the-indus-beckend.vercel.app/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`
 
         if (category) {
-            link = `http://localhost:4000/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`
+            link = `https://the-indus-beckend.vercel.app/api/v1/product?keyword=${keyword}&page=${currentpage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`
         }
         const { data } = await axios.get(link)
         dispatch({
@@ -34,7 +34,7 @@ const productdetail = (id) => async (dispatch) => {
     dispatch({ type: 'product_detail_request' });
     try {
         console.log('ee', id.id)
-        const { product } = await axios.get(`http://localhost:4000/api/v1/product/${id.id}`)
+        const { product } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/product/${id.id}`)
             .then(res => {
                 console.log('res', res.data.product)
                 dispatch({
@@ -68,7 +68,7 @@ const getallcategory = () => async (dispatch) => {
     try {
         dispatch({ type: 'ALL_CATEGORY_REQUEST' });
 
-        const { data } = await axios.get("http://localhost:4000/api/v1/category/get");
+        const { data } = await axios.get("https://the-indus-beckend.vercel.app/api/v1/category/get");
         
             console.log("Data_category",data)
         dispatch({
@@ -87,7 +87,7 @@ const getAdminProduct = () => async (dispatch) => {
     try {
         dispatch({ type: 'ADMIN_PRODUCT_REQUEST' });
 
-        const { data } = await axios.get("http://localhost:4000/api/v1/admin/products");
+        const { data } = await axios.get("https://the-indus-beckend.vercel.app/api/v1/admin/products");
         console.log(data)
         dispatch({
             type: 'ADMIN_PRODUCT_SUCCESS',
@@ -110,7 +110,7 @@ const getAdminProduct = () => async (dispatch) => {
       const token = Cookies.get('token');
       const config = { headers: { Authorization: `${token}` } };
   
-      const { data } = await axios.post(`http://localhost:4000/api/v1/admin/product/new`,productData,config);
+      const { data } = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/admin/product/new`,productData,config);
       console.log('product',data)
       dispatch({
         type: 'NEW_PRODUCT_SUCCESS',
@@ -131,7 +131,7 @@ const getAdminProduct = () => async (dispatch) => {
       dispatch({ type: 'UPDATE_PRODUCT_REQUEST' });
       const token = Cookies.get('token');
       const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-      const { data } = await axios.put(`http://localhost:4000/api/v1/update/product/${id}`,productData,config);
+      const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/update/product/${id}`,productData,config);
   
       dispatch({
         type: 'UPDATE_PRODUCT_SUCCESS',
@@ -150,7 +150,7 @@ const getAdminProduct = () => async (dispatch) => {
     try {
       dispatch({ type: 'DELETE_PRODUCT_REQUEST' });
   
-      const { data } = await axios.delete(`http://localhost:4000/api/v1/admin/product/${id}`);
+      const { data } = await axios.delete(`https://the-indus-beckend.vercel.app/api/v1/admin/product/${id}`);
   console.log("data",data)
       dispatch({
         type: 'DELETE_PRODUCT_SUCCESS',

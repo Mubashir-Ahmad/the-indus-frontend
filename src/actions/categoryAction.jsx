@@ -6,7 +6,7 @@ const createcategory =(form)=>async(dispatch,getState)=>{
         const token = Cookies.get('token');
         dispatch({type:'CREATE_CATEGORY_REQUEST'})
         const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-        const data = await axios.post(`http://localhost:4000/api/v1/category/new`,form,config)
+        const data = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/category/new`,form,config)
         console.log(data.data.success)
         dispatch({type:'CREATE_CATEGORY_SUCCESS',payload:data.data.result,success:data.data.success})
     }
@@ -22,7 +22,7 @@ const getcategory =(form)=>async(dispatch,getState)=>{
         const token = Cookies.get('token');
         dispatch({type:'GET_CATEGORY_REQUEST'})
         const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-        const data = await axios.get('http://localhost:4000/api/v1/category/get')
+        const data = await axios.get('https://the-indus-beckend.vercel.app/api/v1/category/get')
         console.log(data.data.category)
         dispatch({type:'GET_CATEGORY_SUCCESS',payload:data.data.category})
     }
@@ -38,7 +38,7 @@ const updatetcategory =(id,form)=>async(dispatch,getState)=>{
         const token = Cookies.get('token');
         dispatch({type:'UPDATE_CATEGORY_REQUEST'})
         const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-        const data = await axios.put(`http://localhost:4000/api/v1/category/update/${id}`,form)
+        const data = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/category/update/${id}`,form)
         console.log(data.data.category)
         dispatch({type:'UPDATE_CATEGORY_SUCCESS',payload:data.data.category})
     }
@@ -54,7 +54,7 @@ const deletecategory =(id,form)=>async(dispatch,getState)=>{
         const token = Cookies.get('token');
         dispatch({type:'DELETE_CATEGORY_REQUEST'})
         const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-        const data = await axios.delete(`http://localhost:4000/api/v1/category/delete/${id}`,form)
+        const data = await axios.delete(`https://the-indus-beckend.vercel.app/api/v1/category/delete/${id}`,form)
         console.log(data.data.category)
         dispatch({type:'DELETE_CATEGORY_SUCCESS',payload:data.data.category})
     }

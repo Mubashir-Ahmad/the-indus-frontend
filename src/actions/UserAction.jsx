@@ -31,7 +31,7 @@ const register = (userData) => async (dispatch) => {
         };
 
         console.log('ddddd', userData)
-        const { data } = await axios.post(`http://localhost:4000/api/v1/register`, userData, config)
+        const { data } = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/register`, userData, config)
             .then((res) => {
                 console.log('resss', res)
                 dispatch({ type: 'register_success', payload: res.data })
@@ -54,7 +54,7 @@ const adminregister = (userData) => async (dispatch) => {
         };
 
         console.log('ddddd', userData)
-        const { data } = await axios.post(`http://localhost:4000/api/v1/admin/register`, userData, config)
+        const { data } = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/admin/register`, userData, config)
             .then((res) => {
                 console.log('resss', res)
                 dispatch({ type: 'register_success', payload: res.data })
@@ -77,7 +77,7 @@ const load_user = () => async (dispatch) => {
         const token = Cookies.get('token');
         const config = { headers: { Authorization: `${token}` } };
         console.log('first', config)
-        const { data } = await axios.get(`http://localhost:4000/api/v1/me`, config);
+        const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/me`, config);
         console.log('sa', data)
         dispatch({ type: 'load_user_success', payload: data });
     } catch (error) {
@@ -89,7 +89,7 @@ const load_user = () => async (dispatch) => {
 //   Logout user
 const logout_user = () => async (dispatch) => {
     try {
-        const { data } = await axios.get(`http://localhost:4000/api/v1/logout`);
+        const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/logout`);
         dispatch({ type: 'logout_success', payload: data });
     } catch (error) {
         console.log(error);
@@ -103,7 +103,7 @@ const update_profile = (userData) => async (dispatch) => {
         dispatch({ type: 'update_profile_request' })
         const token = Cookies.get('token');
         const config = { headers: { Authorization: `${token}`, "Content-Type": "multipart/form-data" } };
-        const { data } = await axios.put(`http://localhost:4000/api/v1/me/update`, userData, config)
+        const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/me/update`, userData, config)
             .then((res) => {
                 console.log('res', res.data.user)
                 dispatch({ type: 'updated_profile_success', payload: res.data.success })
@@ -124,7 +124,7 @@ const update_password = (password) => async (dispatch) => {
         dispatch({ type: 'update_password_request' })
         const token = Cookies.get('token');
         const config = { headers: { Authorization: `${token}`, "Content-Type": "application/json" } };
-        const { data } = await axios.put(`http://localhost:4000/api/v1/password/update`, password, config)
+        const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/password/update`, password, config)
             .then((res) => {
                 console.log('res', res.data.user)
                 dispatch({ type: 'updated_password_success', payload: res.data.success })
@@ -143,7 +143,7 @@ const forget_password = (email) => async (dispatch) => {
     try {
         dispatch({ type: 'forget_password_request' })
         const config = { headers: { "Content-Type": "application/json" } }
-        const { data } = await axios.post(`http://localhost:4000/api/v1/password/forget`, email, config)
+        const { data } = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/password/forget`, email, config)
             .then((res) => {
                 console.log('res', res.data.user)
                 dispatch({ type: 'forget_password_success', payload: res.data.message })
@@ -163,7 +163,7 @@ const reset_password = (token, passwords) => async (dispatch) => {
         dispatch({ type: 'reset_password_request' })
         const config = { headers: { "Content-Type": "application/json" } }
         console.log(passwords)
-        const { data } = await axios.put(`http://localhost:4000/api/v1/password/reset/${token}`, passwords, config)
+        const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/password/reset/${token}`, passwords, config)
             .then((res) => {
                 console.log('res', res.data)
                 dispatch({ type: 'reset_password_success', payload: res.data.success })
@@ -180,7 +180,7 @@ const reset_password = (token, passwords) => async (dispatch) => {
 const getAllUsers = () => async (dispatch) => {
     try {
         dispatch({ type: 'ALL_USERS_REQUEST' });
-        const { data } = await axios.get(`http://localhost:4000/api/v1/admin/user`);
+        const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/admin/user`);
         dispatch({ type: 'ALL_USERS_SUCCESS', payload: data.users });
     } catch (error) {
         dispatch({
@@ -193,7 +193,7 @@ const getAllUsers = () => async (dispatch) => {
 const getUserDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: 'USER_DETAILS_REQUEST' });
-        const { data } = await axios.get(`http://localhost:4000/api/v1/admin/user/${id}`);
+        const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/admin/user/${id}`);
 
         dispatch({ type: 'USER_DETAILS_SUCCESS', payload: data.user });
     } catch (error) {
@@ -208,7 +208,7 @@ const getUserDetails = (id) => async (dispatch) => {
         
       const config = { headers: { "Content-Type": "application/json" } };
   
-      const { data } = await axios.put(`http://localhost:4000/api/v1/update/user/${id}`, userData);
+      const { data } = await axios.put(`https://the-indus-beckend.vercel.app/api/v1/update/user/${id}`, userData);
 
         console.log('data',data)
       dispatch({ type: 'updated_profile_success', payload: data.success });
@@ -225,7 +225,7 @@ const getUserDetails = (id) => async (dispatch) => {
     try {
       dispatch({ type: 'DELETE_USER_REQUEST' });
   
-      const { data } = await axios.delete(`http://localhost:4000/api/v1/admin/user/${id}`);
+      const { data } = await axios.delete(`https://the-indus-beckend.vercel.app/api/v1/admin/user/${id}`);
   console.log(data)
       dispatch({ type: 'DELETE_USER_SUCCESS', 
       payload: data.message,
