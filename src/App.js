@@ -87,7 +87,7 @@ function App() {
       }
     });
     // store.dispatch(load_user());
-    getstripeapikey();
+    // getstripeapikey();
   }, []);
   return (
     <div className="App">
