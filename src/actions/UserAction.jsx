@@ -7,12 +7,12 @@ const login = (email, password) => async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } }
         const { data } = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/login`, { email, password }, config)
             .then((res) => {
-                console.log('ress', res)
-                // dispatch({ type: 'login_success', payload: res.data })
+                console.log('ress',data, res)
+                dispatch({ type: 'login_success', payload: res.data })
                 const token = res.data.token;
                 Cookies.set('token', token);
             }).catch((err) => {
-                console.log('sss', err.response.data.message,err)
+                console.log('sss', err.response.data.message)
                 dispatch({
                     type: 'login_fail',
                     payload: err.response.data.message
