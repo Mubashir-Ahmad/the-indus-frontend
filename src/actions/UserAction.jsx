@@ -75,13 +75,14 @@ const load_user = () => async (dispatch) => {
     try {
         dispatch({ type: 'load_user_request' });
         const token = Cookies.get('token');
+        console.log('load-user-token',token)
         const config = { headers: { Authorization: `${token}` } };
         console.log('first', config)
         const { data } = await axios.get(`https://the-indus-beckend.vercel.app/api/v1/me`, config);
         console.log('sa', data)
         dispatch({ type: 'load_user_success', payload: data });
     } catch (error) {
-        console.log(error);
+        console.log('load-user-error',error);
         dispatch({ type: 'load_user_fail' });
     }
 };
