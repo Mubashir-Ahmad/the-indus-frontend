@@ -21,7 +21,7 @@ const store = configureStore({
       adminproduct:AdminproductReducer,
       cart: cartReducer,
       productdetail: productDetailReducer,
-      user: userReducer,
+      user: userReducer, 
       profile: ProfileReducer,
       forgetPassword: ForgetPasswordReducer,
       order: OrderReducer,
