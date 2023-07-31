@@ -16,6 +16,7 @@ const Sidebar = () => {
       </Link>
       <Link to="/admin/products">
         <p>
+        <i class="fa-duotone fa-box-open-full"></i>
        Products
         </p>
       </Link>
@@ -24,7 +25,7 @@ const Sidebar = () => {
 
     <Link to="/admin/product">
       <p>
-    
+      <i class="fa-solid fa-box-tissue"></i>
     Create Product
     </p>
     </Link>
@@ -32,25 +33,25 @@ const Sidebar = () => {
  
       <Link to="/admin/orders">
         <p>
-    
+        <i class="fa-solid fa-circle-nodes"></i>
           Orders
         </p>
       </Link>
       <Link to="/admin/users">
         <p>
-          
+        <i class="fa-solid fa-user-gear"></i>
            Users
         </p>
       </Link>
       <Link to="/user/create">
       <p>
-    
+      <i class="fa-solid fa-user-plus"></i>
     Create User
     </p>
     </Link>
       <Link to="/create/category">
       <p>
-    
+      <i class="fa-solid fa-flask-gear"></i>
     Create Category
     </p>
     </Link>
