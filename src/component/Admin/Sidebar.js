@@ -6,10 +6,11 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <Link to="/">
-        {/* <img src={logo} alt="Ecommerce" /> */}
       </Link>
       <Link to="/admindashbord">
+   
         <p>
+        <i class="fa-solid fa-table-columns"></i>
        Dashboard
         </p>
       </Link>
