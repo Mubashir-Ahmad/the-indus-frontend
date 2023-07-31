@@ -40,7 +40,7 @@ function Useroption({user}) {
     if(user.user.role=== 'admin'){
         option.unshift({
             // icon:<DasboardIcon/>,
-            icon:<i className ="icon-dashboard"></i>,
+            icon:<i class="fa-solid fa-table-columns"></i>,
             name:"Dashboad",
             function:dashboard
         })
