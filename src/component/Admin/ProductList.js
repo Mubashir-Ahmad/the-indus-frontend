@@ -67,7 +67,7 @@ console.log(useSelector((state) => state.adminproduct))
                 deleteProductHandler(item._id)
               }
             >
-              <i class="fa-sharp fa-regular fa-trash"></i>
+              <i class="fa-sharp fa-solid fa-trash"></i>
             </Link>
           </td>
         </tr>
