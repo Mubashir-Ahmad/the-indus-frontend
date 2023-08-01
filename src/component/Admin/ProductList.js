@@ -114,7 +114,6 @@ console.log(useSelector((state) => state.adminproduct))
       <tr className="tableheading">
         <th style={({width:'26%'})}><h5>Product Id</h5></th>
         <td><h5>Name</h5></td>
-        <td><h5>active</h5></td>
         <td><h5>Status</h5></td>
         <td><h5>Price</h5></td>
         <td><h5>Action</h5></td>
@@ -123,7 +122,7 @@ console.log(useSelector((state) => state.adminproduct))
         <tr key={item._id}>
           <td className="tablecell">{item._id}</td>
           <td className="tablecell">{item.name}</td>
-          <td className="tablecell">{item.active}</td>
+          <td className="tablecell">{item.active ? 'Active' : 'Inactive'}</td>
           <td className="tablecell">{item.price}</td>
           <td className="tablecell">
             <Link to={`/manager/product/${item._id}`}>
