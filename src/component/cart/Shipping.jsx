@@ -70,7 +70,7 @@ function Shipping() {
             console.log(user)
             const token = Cookies.get('token');
             const config = { headers: { Authorization: `${token}` ,"Content-Type":"application/json" } };
-            const {data} = await axios.post(`http://localhost:4000/api/v1/payment/process`,paymentdata,config);
+            const {data} = await axios.post(`https://the-indus-beckend.vercel.app/api/v1/payment/process`,paymentdata,config);
             const client_secret = data.client_secret;
 
             if(!stripe || !elements) return;
