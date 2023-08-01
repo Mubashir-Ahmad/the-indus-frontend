@@ -34,18 +34,6 @@ console.log(useSelector((state) => state.adminproduct))
     dispatch(getAdminProduct());
   }, [dispatch, error, isDeleted,navigate]);
 
-
-
-  products &&
-    products.forEach((item) => {
-      rows.push({
-        id: item._id,
-        active: item.active,
-        price: item.price,
-        name: item.name,
-      });
-    });
-
   return (
     <Fragment>
       <Metatitle title={`ALL PRODUCTS - Admin`} />
