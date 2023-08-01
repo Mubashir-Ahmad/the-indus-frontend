@@ -1,8 +1,8 @@
 .dashboard {
   width: 100vw;
   max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 5fr;
+  display: flex;
+  /* grid-template-columns: 1fr 5fr; */
   /* position: absolute; */
 }
 .dataa {
@@ -48,7 +48,7 @@
   height: 100%;
 }
 
-.dashboardContainer > h1 {
+.dashboardContainer > h6 {
   color: rgba(0, 0, 0, 0.733);
   font: 300 2rem "Roboto";
   text-align: center;

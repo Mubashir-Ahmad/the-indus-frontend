@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   padding: 4rem 0;
-  width: 326px;
+  width: 326px !important;
 }
 
 .sidebar > a:first-child {
