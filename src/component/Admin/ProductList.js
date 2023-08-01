@@ -62,13 +62,13 @@ console.log(useSelector((state) => state.adminproduct))
             <Link to={`/manager/product/${item._id}`}>
               <i class="fas fa-edit"></i>
             </Link>
-            <button
+            <Link
               onClick={() =>
                 deleteProductHandler(item._id)
               }
             >
               <i class="fa-sharp fa-regular fa-trash"></i>
-            </button>
+            </Link>
           </td>
         </tr>
       ))}
