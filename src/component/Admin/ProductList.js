@@ -34,61 +34,7 @@ console.log(useSelector((state) => state.adminproduct))
     dispatch(getAdminProduct());
   }, [dispatch, error, isDeleted,navigate]);
 
-  const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, 
-    // flex: 0.5
-   },
 
-    {
-      field: "name",
-      headerName: "Name",
-      minWidth:150,
-      // flex: 1,
-    },
-    {
-      field: "active",
-      headerName: "active",
-      type: "boolean",
-      minWidth: 200,
-      // flex: 0.3,
-    },
-
-    {
-      field: "price",
-      headerName: "Price",
-      type: "number",
-      minWidth: 270,
-      // flex: 3,
-    },
-
-    {
-      field: "actions",
-      flex: 0.3,
-      headerName: "Actions",
-      minWidth: 150,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Fragment>
-            <Link to={`/admin/product/${params.getValue(params.id, "id")}`}>
-            <i class="fa-solid fa-gears"></i>
-            </Link>
-
-          <button
-              onClick={() =>
-                deleteProductHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <i class="fa-sharp fa-regular fa-trash"></i>
-            </button>
-          </Fragment>
-        );
-      },
-    },
-  ];
-
-  const rows = [];
 
   products &&
     products.forEach((item) => {
@@ -130,7 +76,7 @@ console.log(useSelector((state) => state.adminproduct))
             </Link>
             <button
               onClick={() =>
-                deleteProductHandler(params.getValue(params.id, "id"))
+                deleteProductHandler(item._id)
               }
             >
               <i class="fa-sharp fa-regular fa-trash"></i>
