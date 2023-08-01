@@ -32,7 +32,7 @@
 .sidebar a > P {
   display: flex;
   align-items: center;
-  font: 300 1.4vmax "Roboto";
+  font: 300 1.1vmax "Roboto";
 }
 .sidebar a > p > i {
   margin-right: 0.5rem;
