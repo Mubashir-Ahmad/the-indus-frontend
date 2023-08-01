@@ -67,6 +67,7 @@ function Navbar() {
           </div>
           <div className='buttonn'>
             <Link className='linnk' onClick={togglePopupp}>
+            <i class="fa-solid fa-cart-shopping" style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }}></i>
               {/* <ShoppingCartIcon style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }} /> */}
               <span>{`(${cartitems.length})`}</span>
             </Link>
