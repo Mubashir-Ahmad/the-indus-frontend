@@ -5,7 +5,7 @@ import { clearError, load_user, login, register } from '../../actions/UserAction
 // import { useAlert } from 'react-alert';
 import './login.css';
 
-function Login({ location }) {
+function Login({ location ,user}) {
   const navigate = useNavigate();
   // const alert = useAlert();
   const dispatch = useDispatch();
@@ -58,21 +58,21 @@ dispatch(load_user())
     console.log('login authentication' ,isAuthenticated ,user.user.role)
     dispatch(login(loginEmail, loginPassword));
     // Check if the login was successful and user is authenticated
-    console.log('1  login authentication' ,isAuthenticated ,user)
-    if (isAuthenticated) {
-      // Redirect based on the user's role
-      if (user.role === 'admin') {
-        navigate('/admindashboard');
-      } else if (user.role === 'manager') {
-        navigate('/managerdashboard');
-      } else if (user.role === 'user') {
-        navigate('/');
-      } else if (user.role === 'rider') {
-        navigate('/riderdash');
-      } 
-    }
+   
   };
-
+  console.log('1  login authentication',user)
+  if (user) {
+    // Redirect based on the user's role
+    if (user.role === 'admin') {
+      navigate('/admindashboard');
+    } else if (user.role === 'manager') {
+      navigate('/managerdashboard');
+    } else if (user.role === 'user') {
+      navigate('/');
+    } else if (user.role === 'rider') {
+      navigate('/riderdash');
+    } 
+  }
   const registerSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
