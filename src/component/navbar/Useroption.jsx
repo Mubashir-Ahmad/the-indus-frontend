@@ -70,16 +70,6 @@ function Useroption({ user }) {
    function logoutUser() {
  
       document.cookie = 'token=; Max-Age=-99999999';
-      
-      userReducer.logout_success = (state, action) => {
-        return {
-          ...state, // Preserve the existing state properties if needed
-          loading: false,
-          user: null,
-          isAuthenticated: false,
-          iscreated: false,
-        };
-      };
       dispatch(logout_user())
       console.log('userrrrrrrrrrrrrrrrr',isAuthenticated)
         navigate('/login');

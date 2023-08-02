@@ -35,7 +35,7 @@ function Login({ location }) {
     }
 console.log('login authentication' ,isAuthenticated)
    
-  }, [dispatch, error, isAuthenticated, navigate, user]);
+  }, [dispatch, error]);
 
   const switchtab = (e, tab) => {
     if (tab === 'login') {
