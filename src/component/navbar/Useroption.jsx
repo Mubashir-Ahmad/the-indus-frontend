@@ -67,11 +67,11 @@ function Useroption({ user }) {
     navigate('/cart')
   }
   function logoutUser() {
-    // document.cookie = 'token=; Max-Age=-99999999;';
+    document.cookie = 'token=; Max-Age=-99999999';
 
     dispatch(logout_user());
     // alert.success("Logout successfully");
-    navigate('/login')
+    // navigate('/login')
   }
 
   function dashboard() {
