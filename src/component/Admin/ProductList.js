@@ -59,7 +59,7 @@ console.log(useSelector((state) => state.adminproduct))
           <td className="tablecell">{item.active ? 'Active' : 'Inactive'}</td>
           <td className="tablecell">{item.price}</td>
           <td className="tablecell">
-            <Link to={`/manager/product/${item._id}`}>
+            <Link to={`/admin/product/${item._id}`}>
               <i class="fas fa-edit"></i>
             </Link>
             <Link
@@ -75,14 +75,6 @@ console.log(useSelector((state) => state.adminproduct))
     </tbody>
   </table>
 )}
-          {/* <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-            className="productListTable"
-            autoHeight
-          /> */}
         </div>
       </div>
     </Fragment>

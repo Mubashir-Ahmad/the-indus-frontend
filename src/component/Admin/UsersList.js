@@ -44,74 +44,6 @@ const UsersList = ({ history }) => {
     dispatch(getAllUsers());
   }, [dispatch, error, deleteError, history, isDeleted, message]);
 
-  const columns = [
-    { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
-
-    {
-      field: "email",
-      headerName: "Email",
-      minWidth: 200,
-      flex: 1,
-    },
-    {
-      field: "name",
-      headerName: "Name",
-      minWidth: 150,
-      flex: 0.5,
-    },
-
-    {
-      field: "role",
-      headerName: "Role",
-      type: "number",
-      minWidth: 150,
-      flex: 0.3,
-      cellClassName: (params) => {
-        return params.getValue(params.id, "role") === "admin"
-          ? "greenColor"
-          : "redColor";
-      },
-    },
-
-    {
-      field: "actions",
-      flex: 0.3,
-      headerName: "Actions",
-      minWidth: 150,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Fragment>
-            <Link to={`/admin/update/user/${params.getValue(params.id, "id")}`}>
-            <i class="fa-solid fa-gears"></i>
-            </Link>
-
-            <button
-              onClick={() =>
-                deleteUserHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <i class="fa-sharp fa-regular fa-trash"></i>
-            </button>
-          </Fragment>
-        );
-      },
-    },
-  ];
-
-  const rows = [];
-
-  users &&
-    users.forEach((item) => {
-      rows.push({
-        id: item._id,
-        role: item.role,
-        email: item.email,
-        name: item.name,
-      });
-    });
-
   return (
     <Fragment>
       <Metatitle title={`ALL USERS - Admin`} />
@@ -138,8 +70,15 @@ const UsersList = ({ history }) => {
           <td className="tablecell">{item.email}</td>
           <td className="tablecell">{item.role}</td>
           <td className="tablecell">
-            <Link to={`/manager/product/${item._id}`}>
-            <i class="fa-solid fa-gears"></i>
+            <Link to={`/admin/update/user/${item._id}`}>
+              <i class="fas fa-edit"></i>
+            </Link>
+            <Link
+              onClick={() =>
+                deleteUserHandler(item._id)
+              }
+            >
+              <i class="fa-sharp fa-solid fa-trash"></i>
             </Link>
           </td>
         </tr>

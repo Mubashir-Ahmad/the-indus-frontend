@@ -35,85 +35,6 @@ console.log(userName);
     dispatch(getAllOrders());
   }, [dispatch,  isdeleted]);
 
-  const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, 
-    // flex: 0.4 
-  },
-    {
-      field: "user",
-      headerName: "user",
-      type: "number",
-      minWidth: 300,
-      // flex: 0.4,
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      minWidth: 150,
-      // flex: 0.4,
-      cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
-      },
-    },
-    {
-      field: "itemsQty",
-      headerName: "Items Qty",
-      type: "number",
-      minWidth: 200,
-      // flex: 0.4,
-    },
-   
-
-    {
-      field: "amount",
-      headerName: "Amount",
-      type: "number",
-      minWidth: 270,
-      flex: 0.5,
-    },
-
-    {
-      field: "actions",
-      flex: 0.3,
-      headerName: "Actions",
-      minWidth: 150,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Fragment>
-            <Link to={`/admin/order/${params.getValue(params.id, "id")}`}>
-            <i class="fa-solid fa-gears"></i>
-            </Link>
-            <button
-              onClick={() =>
-                deleteOrderHandler(params.getValue(params.id, "id"))
-              }
-            >
-              <i class="fa-sharp fa-regular fa-trash"></i>
-            </button>
-          </Fragment>
-        );
-      },
-    },
-  ];
-
-  const rows = [];
-
-  orders &&
-    orders.forEach((item) => {
-      console.log(item.user.name)
-      rows.push({
-        
-        id: item._id,
-        user:item.user.name,
-        itemsQty: item.orderItem.length,
-        amount: item.totalPrice,
-        status: item.orderStatus,
-      });
-    });
 
   return (
     <Fragment>
@@ -143,8 +64,15 @@ console.log(userName);
           <td className="tablecell">{item.totalPrice}</td>
           <td className="tablecell">{item.orderStatus}</td>
           <td className="tablecell">
-            <Link to={`/manager/product/${item._id}`}>
+            <Link to={`/admin/order/${item._id}`}>
               <i class="fas fa-edit"></i>
+            </Link>
+            <Link
+              onClick={() =>
+                deleteOrderHandler(item._id)
+              }
+            >
+              <i class="fa-sharp fa-solid fa-trash"></i>
             </Link>
           </td>
         </tr>
