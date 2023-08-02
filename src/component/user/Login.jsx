@@ -59,7 +59,7 @@ function Login({ location}) {
     // Check if the login was successful and user is authenticated
    
   };
-  console.log('1  login authentication',user.role ,'sa',useSelector((state) => state.user))
+  console.log('1  login authentication',user ,'sa',useSelector((state) => state.user))
   if (user) {
     // Redirect based on the user's role
     if (user.user.role === 'admin') {
