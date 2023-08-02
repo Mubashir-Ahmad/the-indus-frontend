@@ -28,13 +28,13 @@ function Login({ location }) {
   const redirect = id.state ? '/shipping' : '/';
 
   useEffect(() => {
-    dispatch(load_user())
+    
     if (error) {
       // alert.error(error);
       dispatch(clearError());
     }
-    console.log('login authentication', isAuthenticated)
 
+dispatch(load_user())
   }, [dispatch, error]);
 
   const switchtab = (e, tab) => {
@@ -57,118 +57,114 @@ function Login({ location }) {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
     // Check if the login was successful and user is authenticated
-  };
-  const renderDashboard = () => {
+    console.log('login authentication' ,isAuthenticated)
     if (isAuthenticated) {
+      // Redirect based on the user's role
       if (user.role === 'admin') {
-        navigate("/admindashboard");
+        navigate('/admindashboard');
       } else if (user.role === 'manager') {
-        // return <Redirect to="/managerdashboard" />;
-        navigate("/managerdashboard")
+        navigate('/managerdashboard');
       } else if (user.role === 'user') {
-        // return <Redirect to="/" />;
-        navigate("/")
+        navigate('/');
       } else if (user.role === 'rider') {
-        // return <Redirect to="/riderdash" />;
-        navigate("/riderdash")
-      }
+        navigate('/riderdash');
+      } 
     }
-  }
-    const registerSubmit = (e) => {
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('password', password);
-      formData.append('avatar', avatar);
-      dispatch(register(formData));
-    };
+  };
 
-    const registerDateChange = (e) => {
-      setFileData(e.target.files[0]);
-    };
+  const registerSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('password', password);
+    formData.append('avatar', avatar);
+    dispatch(register(formData));
+  };
 
-    return (
-      <>
-        <div className="Login-container">
-          <div className="Login-box">
-            <div>
-              <div className="login-toggle">
-                <p onClick={(e) => switchtab(e, 'login')}>LOGIN</p>
-                <p onClick={(e) => switchtab(e, 'register')}>REGISTER</p>
-              </div>
-              <button ref={switchTab}></button>
+  const registerDateChange = (e) => {
+    setFileData(e.target.files[0]);
+  };
+
+  return (
+    <>
+      <div className="Login-container">
+        <div className="Login-box">
+          <div>
+            <div className="login-toggle">
+              <p onClick={(e) => switchtab(e, 'login')}>LOGIN</p>
+              <p onClick={(e) => switchtab(e, 'register')}>REGISTER</p>
             </div>
-            <form className="loginform" ref={loginTab} onSubmit={loginSubmit}>
-              <div className="loginEmail">
-                {/* <MailOutlineIcon /> */}
-                <input
-                  type="email"
-                  placeholder="Email"
-                  required
-                  value={loginEmail}
-                  onChange={(e) => setLoginEmail(e.target.value)}
-                />
-              </div>
-              <div className="loginPassword">
-                {/* <LockOpenIcon /> */}
-                <input
-                  type="password"
-                  placeholder="Password"
-                  required
-                  value={loginPassword}
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                />
-              </div>
-              <Link to="/password/forget">Forget Password</Link>
-              <input type="submit" value="Login" className="loginbtn" />
-            </form>
-            <form className="signupform" ref={registerTab} onSubmit={registerSubmit} enctype="multipart/form-data">
-              <div className="signupname">
-                {/* <FaceIcon /> */}
-                <input
-                  type="text"
-                  // name="name"
-                  value={name}
-                  placeholder="Name"
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-              <div className="signupemail">
-                {/* <MailOutlineIcon /> */}
-                <input
-                  type="email"
-                  placeholder="Email"
-                  required
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="signupassword">
-                {/* <LockOpenIcon /> */}
-                <input
-                  type="password"
-                  name="password"
-                  value={password}
-                  placeholder="Password"
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <div id="registerimage">
-                <img src={avatarPreview} alt="Avatar Preview" />
-                <input type="file" name="avatar" />
-              </div>
-              <input type="submit" value="register" className="siginbtn" />
-            </form>
+            <button ref={switchTab}></button>
           </div>
+          <form className="loginform" ref={loginTab} onSubmit={loginSubmit}>
+                        <div className="loginEmail">
+                            {/* <MailOutlineIcon /> */}
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                required
+                                value={loginEmail}
+                                onChange={(e) => setLoginEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="loginPassword">
+                            {/* <LockOpenIcon /> */}
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                required
+                                value={loginPassword}
+                                onChange={(e) => setLoginPassword(e.target.value)}
+                            />
+                        </div>
+                        <Link to="/password/forget">Forget Password</Link>
+                        <input type="submit" value="Login" className="loginbtn" />
+                    </form>
+          <form className="signupform" ref={registerTab} onSubmit={registerSubmit} enctype="multipart/form-data">
+                        <div className="signupname">
+                            {/* <FaceIcon /> */}
+                            <input
+                                type="text"
+                                // name="name"
+                                value={name}
+                                placeholder="Name"
+                                required
+                                onChange={(e)=>setName(e.target.value)}
+                            />
+                        </div>
+                        <div className="signupemail">
+                            {/* <MailOutlineIcon /> */}
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                required
+                                name="email"
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="signupassword">
+                            {/* <LockOpenIcon /> */}
+                            <input
+                                type="password"
+                                name="password"
+                                value={password}
+                                placeholder="Password"
+                                required
+                                onChange={(e)=>setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div id="registerimage">
+                            <img src={avatarPreview} alt="Avatar Preview" />
+                            <input type="file" name="avatar"  />
+                        </div>
+                        <input type="submit" value="register" className="siginbtn" />
+                    </form>
         </div>
-      </>
+      </div>
+    </>
+  );
+}
 
-    );
-    return renderDashboard();
-  }
-
-  export default Login;
+export default Login;
