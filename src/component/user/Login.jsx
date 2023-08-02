@@ -61,13 +61,16 @@ function Login({ location }) {
   const renderDashboard = () => {
     if (isAuthenticated) {
       if (user.role === 'admin') {
-        return <Redirect to="/admindashboard" />;
+        navigate("/admindashboard");
       } else if (user.role === 'manager') {
-        return <Redirect to="/managerdashboard" />;
+        // return <Redirect to="/managerdashboard" />;
+        navigate("/managerdashboard")
       } else if (user.role === 'user') {
-        return <Redirect to="/" />;
+        // return <Redirect to="/" />;
+        navigate("/")
       } else if (user.role === 'rider') {
-        return <Redirect to="/riderdash" />;
+        // return <Redirect to="/riderdash" />;
+        navigate("/riderdash")
       }
     }
   }
