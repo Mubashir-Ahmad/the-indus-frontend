@@ -55,7 +55,7 @@ dispatch(load_user())
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    console.log('login authentication' ,isAuthenticated ,user)
+    console.log('login authentication' ,isAuthenticated ,user.user.role)
     dispatch(login(loginEmail, loginPassword));
     // Check if the login was successful and user is authenticated
     console.log('1  login authentication' ,isAuthenticated ,user)
