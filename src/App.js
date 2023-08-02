@@ -88,7 +88,7 @@ function App() {
         families: ['Roboto', 'Droid Sans', 'chilanka']
       }
     });
-    dispatch(load_user());
+    store.dispatch(load_user());
     getstripeapikey();
   }, []);
   return (
