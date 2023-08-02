@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearError, login, register } from '../../actions/UserAction';
+import { clearError, load_user, login, register } from '../../actions/UserAction';
 // import { useAlert } from 'react-alert';
 import './login.css';
 
@@ -28,6 +28,7 @@ function Login({ location }) {
   const redirect = id.state ? '/shipping' : '/';
 
   useEffect(() => {
+    dispatch(load_user())
     if (error) {
       // alert.error(error);
       dispatch(clearError());
