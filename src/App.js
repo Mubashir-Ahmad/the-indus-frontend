@@ -97,7 +97,7 @@ function App() {
               <Navbar/>
               {isAuthenticated && <Useroption user={user} />}
               <Routes>
-              <Route path="*" element={<Login />} exact />  
+              {/* <Route path="*" element={<Login />} exact />   */}
               <Route path="/" element={<Home />} exact />
               <Route path="/login" element={<Login />} exact />
               <Route path="/password/forget" element={<Forgetpassword />} exact />
