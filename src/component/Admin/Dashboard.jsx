@@ -11,6 +11,7 @@ import Metatitle from "../title/title.jsx";
 import { getproduct, clearError, getproducts } from '../../actions/Action';
 import { getcategory } from "../../actions/categoryAction.jsx";
 import Login from "../user/Login.jsx";
+import { load_user } from "../../actions/UserAction.jsx";
 const Dashboard = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
