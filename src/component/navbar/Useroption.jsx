@@ -73,14 +73,15 @@ function Useroption({ user }) {
         expires: new Date(Date.now()),
         httpOnly: true,
       });
-      userReducer.logout_success = (state,action)=>{
-        return{
-            loading:false,
-            user:null,
-            isAuthenticated:false,
-            iscreated:false,
-        }
-    },
+      userReducer.logout_success = (state, action) => {
+        return {
+          ...state, // Preserve the existing state properties if needed
+          loading: false,
+          user: null,
+          isAuthenticated: false,
+          iscreated: false,
+        };
+      };
         navigate('/login');
   }
 
