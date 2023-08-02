@@ -15,7 +15,6 @@ import { load_user } from "../../actions/UserAction.jsx";
 const Dashboard = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
-  const { isAuthenticated, user } = useSelector((state) => state.user);
   const { loading, error, products } = useSelector(
     (state) => state.products
   )
@@ -39,13 +38,7 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-    // dispatch(load_user());
-    console.log('lahoreeee',isAuthenticated)
-    if (isAuthenticated == false) {
-      console.log('banadaaaa',isAuthenticated)
-      // Redirect to login page if not authenticated
-     navigate("/login");
-    } else {
+    
       dispatch(salesOrder());
       dispatch(getproduct());
       dispatch(getproducts());
@@ -53,9 +46,9 @@ const Dashboard = () => {
       dispatch(getAllOrders());
       dispatch(getAllUsers());
       dispatch(getadminAllOrders());
-    }
+    
    
-  }, [dispatch , navigate]);
+  }, [dispatch]);
 
   let totalAmount = 0;
   orders &&
@@ -73,11 +66,6 @@ const Dashboard = () => {
         <h6 component="h1">Dashboard</h6>
 
         <div className="dashboardSummary">
-          {/* <div>
-            <p>
-              Total Amount <br />{totalAmount}
-            </p>
-          </div> */}
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
               <p>Product</p>
