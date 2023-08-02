@@ -39,7 +39,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (isAuthenticated == false) {
-      console.log(isAuthenticated)
+      console.log('banadaaaa',isAuthenticated)
       // Redirect to login page if not authenticated
      navigate("/login");
     } else {
