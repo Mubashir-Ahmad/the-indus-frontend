@@ -82,6 +82,7 @@ function Useroption({ user }) {
           iscreated: false,
         };
       };
+      console.log('userrrrrrrrrrrrrrrrr',isAuthenticated)
         navigate('/login');
   }
 
