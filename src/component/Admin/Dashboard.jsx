@@ -38,6 +38,7 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
+    dispatch(load_user());
     console.log('lahoreeee',isAuthenticated)
     if (isAuthenticated == false) {
       console.log('banadaaaa',isAuthenticated)
@@ -52,7 +53,8 @@ const Dashboard = () => {
       dispatch(getAllUsers());
       dispatch(getadminAllOrders());
     }
-  }, [dispatch]);
+   
+  }, [dispatch , navigate]);
 
   let totalAmount = 0;
   orders &&
