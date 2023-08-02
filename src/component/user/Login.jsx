@@ -63,7 +63,7 @@ function Login({ location}) {
   if (user && user.user ) {
     // Redirect based on the user's role
     if (user.user.role === 'admin') {
-      navigate('/admindashboard');
+      navigate('/admindashbord');
     } else if (user.role === 'manager') {
       navigate('/managerdashboard');
     } else if (user.role === 'user') {
