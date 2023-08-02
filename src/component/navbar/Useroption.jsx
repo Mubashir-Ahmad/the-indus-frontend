@@ -71,7 +71,7 @@ function Useroption({ user }) {
 
     dispatch(logout_user());
     // alert.success("Logout successfully");
-    // navigate('/login')
+    // navigate('/login') 
   }
 
   function dashboard() {
