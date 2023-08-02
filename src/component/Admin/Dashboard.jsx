@@ -39,7 +39,7 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-    dispatch(load_user());
+    // dispatch(load_user());
     console.log('lahoreeee',isAuthenticated)
     if (isAuthenticated == false) {
       console.log('banadaaaa',isAuthenticated)
