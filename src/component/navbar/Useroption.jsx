@@ -74,7 +74,10 @@ function Useroption({ user }) {
     });
     // dispatch(logout_user());
     // alert.success("Logout successfully");
-    navigate('/login') 
+    if( !isAuthenticated){
+      navigate('/login') 
+    }
+    
   }
 
   function dashboard() {
