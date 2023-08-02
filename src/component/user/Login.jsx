@@ -5,7 +5,7 @@ import { clearError, load_user, login, register } from '../../actions/UserAction
 // import { useAlert } from 'react-alert';
 import './login.css';
 
-function Login({ location ,user}) {
+function Login({ location}) {
   const navigate = useNavigate();
   // const alert = useAlert();
   const dispatch = useDispatch();
