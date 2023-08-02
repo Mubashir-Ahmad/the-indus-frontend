@@ -8,7 +8,7 @@ import { SpeedDial, SpeedDialAction } from '@mui/material'; // Import from @mui/
 // import ListAltIcon from '@mui/icons-material/ListAlt'; // Import from @mui/icons-material
 // import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; // Import from @mui/icons-material
 import { useDispatch, useSelector } from 'react-redux';
-import { logout_user } from '../../actions/UserAction';
+import { userReducer } from '../../reducer/UserReducer';
 import Backdrop from '@mui/material/Backdrop'; // Import from @mui/material
 function Useroption({ user }) {
   console.log('user', user)
@@ -66,26 +66,22 @@ function Useroption({ user }) {
   function cart() {
     navigate('/cart')
   }
-  async function logoutUser() {
-    try {
+   function logoutUser() {
+ 
       document.cookie = 'token=; Max-Age=-99999999';
       document.cookie("token", null, {
         expires: new Date(Date.now()),
         httpOnly: true,
       });
-      
-      dispatch(logout_user());
-      // alert.success("Logout successfully");
-      
-      // Now, navigate after the asynchronous operation is complete
-      if (isAuthenticated == false) {
-        console.log('useroption',isAuthenticated)
+      userReducer.logout_success = (state,action)=>{
+        return{
+            loading:false,
+            user:null,
+            isAuthenticated:false,
+            iscreated:false,
+        }
+    },
         navigate('/login');
-      }
-    } catch (error) {
-      console.log(error);
-      // Handle any errors here if needed
-    }
   }
 
   function dashboard() {
