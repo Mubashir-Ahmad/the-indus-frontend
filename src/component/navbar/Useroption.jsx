@@ -68,7 +68,7 @@ function Useroption({ user }) {
   }
   function logoutUser() {
     document.cookie = 'token=; Max-Age=-99999999';
-    res.cookie("token", null, {
+    document.cookie("token", null, {
       expires: new Date(Date.now()),
       httpOnly: true,
     });
