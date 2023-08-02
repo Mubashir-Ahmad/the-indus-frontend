@@ -99,7 +99,7 @@ function App() {
               <Routes>
               {/* <Route path="*" element={<Login />} exact />   */}
               <Route path="/" element={<Home />} exact />
-              <Route path="/login" element={<Login />} exact  user={user}/>
+              <Route path="/login" element={<Login />} exact />
               <Route path="/password/forget" element={<Forgetpassword />} exact />
               <Route path='/password/reset/:token' element={<Resetpassword/>} />
               {/* {isAuthenticated && <Route path='/admindashbord' element={<Dashbord/>} /> : navigate('/login') } */}
