@@ -32,7 +32,7 @@ function Login({ location }) {
       // alert.error(error);
       dispatch(clearError());
     }
-
+console.log('login authentication' ,isAuthenticated)
     if (isAuthenticated) {
       if (user.user.role === 'admin') {
         navigate('/admindashbord');
