@@ -66,7 +66,7 @@ function Useroption({ user }) {
   function cart() {
     navigate('/cart')
   }
-  function logoutUser() {
+  function logoutUser () {
     document.cookie = 'token=; Max-Age=-99999999';
     document.cookie("token", null, {
       expires: new Date(Date.now()),
@@ -74,7 +74,7 @@ function Useroption({ user }) {
     });
     // dispatch(logout_user());
     // alert.success("Logout successfully");
-    if( !isAuthenticated){
+    if(! isAuthenticated){
       navigate('/login') 
     }
     
