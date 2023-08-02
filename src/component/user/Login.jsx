@@ -64,8 +64,8 @@ function Login({ location}) {
     // Redirect based on the user's role
     if (user.user.role === 'admin') {
       navigate('/admindashbord');
-    } else if (user.role === 'manager') {
-      navigate('/managerdashboard');
+    } else if (user.user.role === 'manager') {
+      navigate('/managerdashbord');
     } else if (user.role === 'user') {
       navigate('/');
     } else if (user.role === 'rider') {
