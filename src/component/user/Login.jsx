@@ -62,7 +62,7 @@ function Login({ location}) {
   console.log('1  login authentication',user)
   if (user) {
     // Redirect based on the user's role
-    if (user.user.role === 'admin') {
+    if (user === 'admin') {
       navigate('/admindashboard');
     } else if (user.role === 'manager') {
       navigate('/managerdashboard');
