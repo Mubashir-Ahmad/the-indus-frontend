@@ -97,12 +97,13 @@ function App() {
               <Navbar/>
               {isAuthenticated && <Useroption user={user} />}
               <Routes>
+              <Route path="*" element={<Login />} exact />  
               <Route path="/" element={<Home />} exact />
               <Route path="/login" element={<Login />} exact />
               <Route path="/password/forget" element={<Forgetpassword />} exact />
               <Route path='/password/reset/:token' element={<Resetpassword/>} />
               {/* {isAuthenticated && <Route path='/admindashbord' element={<Dashbord/>} /> : navigate('/login') } */}
-             <Route path='/admindashbord' element={<Dashbord />} />  
+            { isAuthenticated &&  <Route path='/admindashbord' element={<Dashbord />} />  }
             
               <Route path='/admin/orders' element={<OrderList/>} />
               <Route path='/admin/products' element={<ProductList/>} />
