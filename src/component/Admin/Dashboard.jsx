@@ -38,7 +38,8 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (isAuthenticated == false) {
+      console.log(isAuthenticated)
       // Redirect to login page if not authenticated
      navigate("/login");
     } else {

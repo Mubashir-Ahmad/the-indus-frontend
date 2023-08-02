@@ -100,8 +100,7 @@ function App() {
               <Route path="/password/forget" element={<Forgetpassword />} exact />
               <Route path='/password/reset/:token' element={<Resetpassword/>} />
               {/* {isAuthenticated && <Route path='/admindashbord' element={<Dashbord/>} /> : navigate('/login') } */}
-              {isAuthenticated && console.log('first',isAuthenticated) && <Route path='/admindashbord' element={<Dashbord />} exact/>}
-
+            {isAuthenticated  &&  <Route path='/admindashbord' element={<Dashbord />} exact/>}
             
               <Route path='/admin/orders' element={<OrderList/>} />
               <Route path='/admin/products' element={<ProductList/>} />
