@@ -57,7 +57,7 @@ dispatch(load_user())
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
     // Check if the login was successful and user is authenticated
-    console.log('login authentication' ,isAuthenticated)
+    console.log('login authentication' ,isAuthenticated ,user)
     if (isAuthenticated) {
       // Redirect based on the user's role
       if (user.role === 'admin') {
