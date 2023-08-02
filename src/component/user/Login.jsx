@@ -34,17 +34,7 @@ function Login({ location }) {
       dispatch(clearError());
     }
 console.log('login authentication' ,isAuthenticated)
-    if (isAuthenticated) {
-      if (user.user.role === 'admin') {
-        navigate('/admindashbord');
-      } else if (user.user.role === 'manger') {
-        navigate('/mangerdashbord');
-      } else if (user.user.role === 'user') {
-        navigate('/');
-      } else if (user.user.role === 'rider') {
-        navigate('/riderdash');
-      }
-    }
+   
   }, [dispatch, error, isAuthenticated, navigate, user]);
 
   const switchtab = (e, tab) => {
@@ -66,6 +56,19 @@ console.log('login authentication' ,isAuthenticated)
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
+    // Check if the login was successful and user is authenticated
+    if (isAuthenticated) {
+      // Redirect based on the user's role
+      if (user.role === 'admin') {
+        navigate('/admindashboard');
+      } else if (user.role === 'manager') {
+        navigate('/managerdashboard');
+      } else if (user.role === 'user') {
+        navigate('/');
+      } else if (user.role === 'rider') {
+        navigate('/riderdash');
+      } 
+    }
   };
 
   const registerSubmit = (e) => {
