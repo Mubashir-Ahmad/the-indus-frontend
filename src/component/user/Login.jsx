@@ -34,7 +34,7 @@ function Login({ location}) {
       dispatch(clearError());
     }
 
-dispatch(load_user())
+
   }, [dispatch, error]);
 
   const switchtab = (e, tab) => {
@@ -59,7 +59,7 @@ dispatch(load_user())
     // Check if the login was successful and user is authenticated
    
   };
-  console.log('1  login authentication',user)
+  console.log('1  login authentication',user,'sa',useSelector((state) => state.user))
   if (user) {
     // Redirect based on the user's role
     if (user.role === 'admin') {
