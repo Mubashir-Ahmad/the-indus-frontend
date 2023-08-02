@@ -58,7 +58,7 @@ import MyOrders from './component/user/Myorders';
 import NewUser from './component/Manager/Newuser';
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  console.log('appp',state.user)
+  console.log('appp' ,useSelector((state) => state.user))
   const [stripeapikey,setstripeapikey]= useState(" ");
   const getstripeapikey = async () => {
     try {
