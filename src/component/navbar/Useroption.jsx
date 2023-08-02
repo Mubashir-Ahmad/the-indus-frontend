@@ -66,18 +66,26 @@ function Useroption({ user }) {
   function cart() {
     navigate('/cart')
   }
-  function logoutUser () {
-    document.cookie = 'token=; Max-Age=-99999999';
-    document.cookie("token", null, {
-      expires: new Date(Date.now()),
-      httpOnly: true,
-    });
-    // dispatch(logout_user());
-    // alert.success("Logout successfully");
-    if(! isAuthenticated){
-      navigate('/login') 
+  async function logoutUser() {
+    try {
+      document.cookie = 'token=; Max-Age=-99999999';
+      document.cookie("token", null, {
+        expires: new Date(Date.now()),
+        httpOnly: true,
+      });
+      
+      // Assuming logout_user() is an asynchronous function, use await here
+      await dispatch(logout_user());
+      // alert.success("Logout successfully");
+      
+      // Now, navigate after the asynchronous operation is complete
+      if (isAuthenticated == false) {
+        navigate('/login');
+      }
+    } catch (error) {
+      console.log(error);
+      // Handle any errors here if needed
     }
-    
   }
 
   function dashboard() {
