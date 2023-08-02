@@ -74,12 +74,12 @@ function Useroption({ user }) {
         httpOnly: true,
       });
       
-      // Assuming logout_user() is an asynchronous function, use await here
-      await dispatch(logout_user());
+      dispatch(logout_user());
       // alert.success("Logout successfully");
       
       // Now, navigate after the asynchronous operation is complete
       if (isAuthenticated == false) {
+        console.log('useroption',isAuthenticated)
         navigate('/login');
       }
     } catch (error) {
