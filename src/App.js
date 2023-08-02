@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import './css/global.css'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import Navbar from './component/navbar/Navbar'
 import Home from "./component/home/Home";
 import Footer from "./component/footer/Footer";
@@ -57,6 +57,8 @@ import Homeproduct from "./component/home/Homeproduct"
 import MyOrders from './component/user/Myorders';
 import NewUser from './component/Manager/Newuser';
 function App() {
+  
+  const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
   const [stripeapikey,setstripeapikey]= useState(" ");
@@ -86,7 +88,7 @@ function App() {
         families: ['Roboto', 'Droid Sans', 'chilanka']
       }
     });
-    store.dispatch(load_user());
+    dispatch(load_user());
     getstripeapikey();
   }, []);
   return (
