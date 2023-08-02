@@ -10,6 +10,7 @@ import { SpeedDial, SpeedDialAction } from '@mui/material'; // Import from @mui/
 import { useDispatch, useSelector } from 'react-redux';
 import { userReducer } from '../../reducer/UserReducer';
 import Backdrop from '@mui/material/Backdrop'; // Import from @mui/material
+import { logout_user } from '../../actions/UserAction';
 function Useroption({ user }) {
   console.log('user', user)
   const navigate = useNavigate();
@@ -69,10 +70,7 @@ function Useroption({ user }) {
    function logoutUser() {
  
       document.cookie = 'token=; Max-Age=-99999999';
-      document.cookie("token", null, {
-        expires: new Date(Date.now()),
-        httpOnly: true,
-      });
+      
       userReducer.logout_success = (state, action) => {
         return {
           ...state, // Preserve the existing state properties if needed
@@ -82,6 +80,7 @@ function Useroption({ user }) {
           iscreated: false,
         };
       };
+      dispatch(logout_user())
       console.log('userrrrrrrrrrrrrrrrr',isAuthenticated)
         navigate('/login');
   }
