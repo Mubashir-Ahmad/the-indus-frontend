@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Sidebar from "./Sidebar.js";
 import "./dashboard.css";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 // import { Doughnut, Line, CategoryScale } from "react-chartjs-2";
 import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction.jsx";
@@ -10,10 +10,11 @@ import { getAllUsers } from "../../actions/UserAction.jsx";
 import Metatitle from "../title/title.jsx";
 import { getproduct, clearError, getproducts } from '../../actions/Action';
 import { getcategory } from "../../actions/categoryAction.jsx";
+import Login from "../user/Login.jsx";
 const Dashboard = () => {
-
+  const navigate =useNavigate();
   const dispatch = useDispatch();
-
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const { loading, error, products } = useSelector(
     (state) => state.products
   )
@@ -37,13 +38,18 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-    dispatch(salesOrder());
-    dispatch(getproduct());
-    dispatch(getproducts());
-    dispatch(getcategory());
-    dispatch(getAllOrders());
-    dispatch(getAllUsers());
-    dispatch(getadminAllOrders());
+    if (!isAuthenticated) {
+      // Redirect to login page if not authenticated
+     navigate("/login");
+    } else {
+      dispatch(salesOrder());
+      dispatch(getproduct());
+      dispatch(getproducts());
+      dispatch(getcategory());
+      dispatch(getAllOrders());
+      dispatch(getAllUsers());
+      dispatch(getadminAllOrders());
+    }
   }, [dispatch]);
 
   let totalAmount = 0;
