@@ -5,7 +5,7 @@ import pic1 from '../../image/116.jpg'
 import { getproducts, clearError } from '../../actions/Action';
 import { useSelector, useDispatch } from 'react-redux'
 import Product from '../product/Product';
-import { load_user } from '../../actions/UserAction';
+import {load_user} from '../../actions/UserAction'
 function Home() {
     const [showInfo, setShowInfo] = useState(false);
     const { isAuthenticated, user } = useSelector((state) => state.user);
