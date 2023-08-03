@@ -95,9 +95,11 @@ function Navbar(history) {
             </Link>
           </div>
           <div className='buttonn'>
+          <div className='buttoon'>
             <IconButton onClick={toggleDrawer('right', true)}>
               <i className='fa-solid fa-cart-shopping'></i>
             </IconButton>
+            </div>
             {isAuthenticated ? null : (
               <Link to='/login' className='linnk'>
                 Sign in
