@@ -51,9 +51,6 @@ function Navbar() {
     transition: "transform 0.6s ease", // Add transition property for smooth transformation
   };
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
     right: false,
   });
 
@@ -135,7 +132,7 @@ function Navbar() {
                 </div>
               </div>
             )}
-             {['left', 'right', 'top', 'bottom'].map((anchor) => (
+             {[<i class="fa-solid fa-cart-shopping"></i>].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
