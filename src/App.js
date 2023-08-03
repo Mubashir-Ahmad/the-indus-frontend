@@ -102,12 +102,8 @@ function App() {
     // if (!isAuthenticated) {
     //   navigate('/login');
     // }
-    if (isAuthenticated !== undefined) {
-      setIsLoading(false); // Set loading to false when authentication status is determined
-      if (!isAuthenticated) {
-        // Redirect non-authenticated users to the login page
-        navigate('/login');
-      }
+    if (typeof isAuthenticated === 'undefined' || !isAuthenticated) {
+      navigate('/login');
     }
     WebFont.load({
       google: {
