@@ -15,29 +15,40 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
-function Navbar(history) {
+function Navbar() {
   const { isAuthenticated } = useSelector((state) => state.user);
   const [isActive, setIsActive] = useState(false);
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     right: false,
   });
-  const [keywords, setkeywords] = useState('');
+  const [keywords, setKeywords] = useState('');
 
-  const togglePopupp = () => {
+  const togglePopup = () => {
     setIsActive(!isActive);
   };
 
-  const submithandler = (e) => {
+  const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (keywords.trim()) {
-      history(`/products/${keywords}`);
+      // Handle the search logic here or navigate to the search results page
     } else {
-      history('/products');
+      // Handle the case when no keywords are entered
     }
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+
+    // Check if the event target is part of the drawer content
+    if (
+      event.target &&
+      event.target.closest('.MuiDrawer-paper')
+    ) {
       return;
     }
 
@@ -87,18 +98,18 @@ function Navbar(history) {
               <input
                 type='text'
                 placeholder='Search in the Indus'
-                onChange={(e) => setkeywords(e.target.value)}
+                onChange={(e) => setKeywords(e.target.value)}
               />
             </div>
-            <Link onClick={submithandler} className='linkk'>
+            <Link onClick={handleSearchSubmit} className='linkk'>
               <i className='fa-solid fa-magnifying-glass' style={{ color: 'white' }}></i>
             </Link>
           </div>
           <div className='buttonn'>
-          <div className='buttoon'>
-            <IconButton onClick={toggleDrawer('right', true)}>
-              <i className='fa-solid fa-cart-shopping'></i>
-            </IconButton>
+            <div className='buttoon'>
+              <IconButton onClick={toggleDrawer('right', true)}>
+                <i className='fa-solid fa-cart-shopping'></i>
+              </IconButton>
             </div>
             {isAuthenticated ? null : (
               <Link to='/login' className='linnk'>
