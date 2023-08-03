@@ -36,6 +36,7 @@ const Popup = (props) => {
         <Cartt />
         {props.content}
       </div>
+      <i className="fa-solid fa-xmark close-icon" onClick={togglePopup}></i>
     </div>
   );
 };
