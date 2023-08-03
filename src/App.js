@@ -100,6 +100,10 @@ function App() {
     // if (!isAuthenticated) {
     //   navigate('/login');
     // }
+    if (isAuthenticated === undefined) {
+      // If the authentication state is undefined, do nothing and wait for the update
+      return;
+    }
     WebFont.load({
       google: {
         families: ['Roboto', 'Droid Sans', 'chilanka']
