@@ -62,8 +62,6 @@ function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
   const [stripeapikey,setstripeapikey]= useState(" ");
-  const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
   const getstripeapikey = async () => {
     try {
       console.log('hello1')
@@ -102,9 +100,6 @@ function App() {
     // if (!isAuthenticated) {
     //   navigate('/login');
     // }
-    if (typeof isAuthenticated === 'undefined' || !isAuthenticated) {
-      navigate('/login');
-    }
     WebFont.load({
       google: {
         families: ['Roboto', 'Droid Sans', 'chilanka']
@@ -114,11 +109,7 @@ function App() {
     getstripeapikey();
     console.log('useeefeect1212',isAuthenticated)
     
-  }, [isAuthenticated,navigate]);
-   // Display loading indicator while loading
-   if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  }, []);
   return (
     <div className="App">
             <Router>

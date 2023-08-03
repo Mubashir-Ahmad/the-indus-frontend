@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Product from '../product/Product';
 function Home() {
     const [showInfo, setShowInfo] = useState(false);
-
+    const { isAuthenticated, user } = useSelector((state) => state.user);
     const handleClick = () => {
         setShowInfo(!showInfo); // Toggle the state value
     };
@@ -19,9 +19,11 @@ function Home() {
     )
     console.log(useSelector((state) => state.productts))
     useEffect(() => {
+        console.log('homee-authenticated',isAuthenticated)
         if (error) {
             dispatch(clearError)
         }
+        dispatch(load_user());
         dispatch(getproducts());
     }, [dispatch, error])
     return (
