@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react';
-import { BrowserRouter as Router, Routes, Route ,useNavigate} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route ,useHistory} from "react-router-dom";
 import './App.css';
 import './css/global.css'
 import { useSelector,useDispatch } from 'react-redux';
@@ -57,7 +57,7 @@ import Homeproduct from "./component/home/Homeproduct"
 import MyOrders from './component/user/Myorders';
 import NewUser from './component/Manager/Newuser';
 function App() {
-  const navigate = useNavigate()
+  const history = useHistory(); // Use the useHistory hook
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
@@ -95,10 +95,11 @@ function App() {
     store.dispatch(load_user());
     getstripeapikey();
   }, []);
-   if (!isAuthenticated) {
-      navigate('/login');
-      return null;
-    }
+  if (!isAuthenticated) {
+    // Redirect to login page if not authenticated
+    history.push('/login');
+    return null; // Return null to prevent rendering the rest of the components
+  }
   return (
     <div className="App">
             <Router>
