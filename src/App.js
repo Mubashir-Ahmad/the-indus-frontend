@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react';
-import { BrowserRouter as Router, Routes, Route ,useNavigate} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import './css/global.css'
 import { useSelector,useDispatch } from 'react-redux';
