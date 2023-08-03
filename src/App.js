@@ -62,6 +62,7 @@ function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
   const [stripeapikey,setstripeapikey]= useState(" ");
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const getstripeapikey = async () => {
     try {
@@ -118,6 +119,10 @@ function App() {
     console.log('useeefeect1212',isAuthenticated)
     
   }, [isAuthenticated,navigate]);
+   // Display loading indicator while loading
+   if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="App">
             <Router>
