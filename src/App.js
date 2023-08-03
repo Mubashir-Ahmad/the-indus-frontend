@@ -82,6 +82,19 @@ function App() {
       console.error(error);
     }
   };
+  // useEffect(() => {
+  //   console.log('useeefeect',isAuthenticated)
+  //   // if (!isAuthenticated) {
+  //   //   navigate('/login');
+  //   // }
+  //   WebFont.load({
+  //     google: {
+  //       families: ['Roboto', 'Droid Sans', 'chilanka']
+  //     }
+  //   });
+  //   store.dispatch(load_user());
+  //   getstripeapikey();
+  // }, []);
   useEffect(() => {
     console.log('useeefeect',isAuthenticated)
     // if (!isAuthenticated) {
@@ -94,8 +107,7 @@ function App() {
     });
     store.dispatch(load_user());
     getstripeapikey();
-  }, []);
-  useEffect(() => {
+    console.log('useeefeect1212',isAuthenticated)
     if (!isAuthenticated) {
      <Router>
       <Routes>
