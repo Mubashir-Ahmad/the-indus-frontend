@@ -57,7 +57,7 @@ import Homeproduct from "./component/home/Homeproduct"
 import MyOrders from './component/user/Myorders';
 import NewUser from './component/Manager/Newuser';
 function App() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
@@ -94,7 +94,7 @@ function App() {
     });
     store.dispatch(load_user());
     getstripeapikey();
-  }, [navigate]);
+  }, []);
   return (
     <div className="App">
             <Router>
