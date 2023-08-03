@@ -58,7 +58,6 @@ import Homeproduct from "./component/home/Homeproduct"
 import MyOrders from './component/user/Myorders';
 import NewUser from './component/Manager/Newuser';
 function App() {
-  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
@@ -98,9 +97,13 @@ function App() {
   }, []);
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/login');
+     <Router>
+      <Routes>
+      <Route path="/login" element={<Login />} exact />
+      </Routes>
+     </Router>
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated,Router,Routes,Route]);
   return (
     <div className="App">
             <Router>
