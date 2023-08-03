@@ -15,6 +15,7 @@ import { load_user } from "../../actions/UserAction.jsx";
 const Dashboard = () => {
   const navigate =useNavigate();
   const dispatch = useDispatch();
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const { loading, error, products } = useSelector(
     (state) => state.products
   )
@@ -38,7 +39,11 @@ const Dashboard = () => {
     });
 
   useEffect(() => {
-    
+    if(!isAuthenticated)
+    {
+      navigate('/login')
+    }
+      dispatch(load_user());
       dispatch(salesOrder());
       dispatch(getproduct());
       dispatch(getproducts());
