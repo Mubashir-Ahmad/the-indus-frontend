@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import './navbar.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import pic2 from '../../image/117.png';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Cartt from '../cart/Cartt';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -16,10 +16,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
 function Navbar() {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
-  const { cartitems } = useSelector((state) => state.cart);
+  const { isAuthenticated } = useSelector((state) => state.user);
   const [isActive, setIsActive] = useState(false);
-  const history = useNavigate();
+  const [state, setState] = React.useState({
+    right: false,
+  });
+  const [keywords, setkeywords] = useState('');
 
   const togglePopupp = () => {
     setIsActive(!isActive);
@@ -33,32 +35,7 @@ function Navbar() {
       history('/products');
     }
   };
-  const popupStyle = {
-    position: "fixed",
-    width: "45vw",
-    margin: "auto",
-    marginTop: "auto",
-    height: "100%",
-    maxHeight: "100%",
-    marginTop: "calc(86vh - 85vh - 20px)",
-    background: "#fff",
-    borderRadius: "4px",
-    padding: "20px",
-    border: "1px solid #999",
-    overflow: "auto",
-    transform: `translateX(${isActive ? "0%" : "100%"})`, // Apply the transform style based on isActive
-    right: 0,
-    transition: "transform 0.6s ease", // Add transition property for smooth transformation
-  };
-  const [state, setState] = React.useState({
-    right: false,
-  });
 
-
-
-
-  const [keywords, setkeywords] = useState('');
-  
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -78,7 +55,6 @@ function Navbar() {
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
-             
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -89,7 +65,6 @@ function Navbar() {
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
-             
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -97,6 +72,7 @@ function Navbar() {
       </List>
     </Box>
   );
+
   return (
     <>
       <div className='main-container' style={{ backgroundColor: '#ce1710' }}>
@@ -119,31 +95,9 @@ function Navbar() {
             </Link>
           </div>
           <div className='buttonn'>
-            <Link className='linnk' onClick={togglePopupp}>
-              {/* <ShoppingCartIcon style={{ color: cartitems.length > 0 ? 'tomato' : 'unset' }} /> */}
-              <span>{`(${cartitems.length})`}</span>
-            </Link>
-            {isActive && (
-              <div className='pppp' onClick={togglePopupp} >
-                <div className='boxxx ' style={popupStyle}>
-                  <i className='fa-solid fa-xmark close-icon' onClick={togglePopupp}></i>
-                  <b className='pop-heading'>THE INDUS</b>
-                  <Cartt />
-                </div>
-              </div>
-            )}
-             {[<i class="fa-solid fa-cart-shopping"></i>].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
+            <IconButton onClick={toggleDrawer('right', true)}>
+              <i className='fa-solid fa-cart-shopping'></i>
+            </IconButton>
             {isAuthenticated ? null : (
               <Link to='/login' className='linnk'>
                 Sign in
@@ -162,6 +116,13 @@ function Navbar() {
           </div>
         </div>
       </div>
+      <Drawer
+        anchor="right"
+        open={state.right}
+        onClose={toggleDrawer('right', false)}
+      >
+        {list('right')}
+      </Drawer>
     </>
   );
 }
