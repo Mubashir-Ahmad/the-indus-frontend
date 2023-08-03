@@ -84,9 +84,9 @@ function App() {
   };
   useEffect(() => {
     console.log('useeefeect',isAuthenticated)
-    if (!isAuthenticated) {
-      navigate('/login');
-    }
+    // if (!isAuthenticated) {
+    //   navigate('/login');
+    // }
     WebFont.load({
       google: {
         families: ['Roboto', 'Droid Sans', 'chilanka']
