@@ -121,8 +121,12 @@ function App() {
               <Route path="/password/forget" element={<Forgetpassword />} exact />
               <Route path='/password/reset/:token' element={<Resetpassword/>} />
               {/* {isAuthenticated && <Route path='/admindashbord' element={<Dashbord/>} /> : navigate('/login') } */}
-              
-              {isAuthenticated === true  ? (<Route path='/admindashbord' element={<Dashbord />} />) : (<Route path="/login" element={<Login />}/>)  }
+              if(isAuthenticated === true){
+                <Route path='/admindashbord' element={<Dashbord />} />
+              }else{
+                <Route path="/login" element={<Login />} exact />
+              }
+              {/* {isAuthenticated === true  ? (<Route path='/admindashbord' element={<Dashbord />} />) : (<Route path="/login" element={<Login />}/>)  } */}
               <Route path='/admin/orders' element={<OrderList/>} />
               <Route path='/admin/products' element={<ProductList/>} />
               <Route path='/admin/users' element={<UserList/>} />
