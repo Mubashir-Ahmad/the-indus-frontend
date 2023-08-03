@@ -94,6 +94,7 @@ function App() {
   return (
     <div className="App">
             <Router>
+              isAuthenticated ?(
               <Navbar/>
               {isAuthenticated && <Useroption user={user} />}
               <Routes>
@@ -103,11 +104,13 @@ function App() {
               <Route path="/password/forget" element={<Forgetpassword />} exact />
               <Route path='/password/reset/:token' element={<Resetpassword/>} />
               {/* {isAuthenticated && <Route path='/admindashbord' element={<Dashbord/>} /> : navigate('/login') } */}
+              
               {isAuthenticated &&  <Route path='/admindashbord' element={<Dashbord />} />  }
-            
               <Route path='/admin/orders' element={<OrderList/>} />
               <Route path='/admin/products' element={<ProductList/>} />
               <Route path='/admin/users' element={<UserList/>} />
+              {isAuthenticated &&<Route path="/admin/product/:id" element={<UpdateProduct/>} />}
+              {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
               <Route path="/riderdash" element={<Dashhbord />} exact />
               <Route path='/mangerdashbord' element={<Managerdasboard />} />
               <Route path="/products/:keyword" element={<Homeproduct />} />
@@ -119,8 +122,7 @@ function App() {
               {isAuthenticated &&<Route path="/create/category" element={<Categorylist/>} />}
               {isAuthenticated &&<Route path="/admin/category" element={<Allcategorylist/>} />}
               {isAuthenticated &&<Route path="/admin/update/category/:id" element={<Updatecategory/>} />}
-              {isAuthenticated &&<Route path="/admin/product/:id" element={<UpdateProduct/>} />}
-              {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
+              
               {/* Manager links */}
               {isAuthenticated &&<Route path="/manager/product" element={<ProductListt/>} />}
               {isAuthenticated &&<Route path="/manager/user/create" element={<NewUser/>} />}
@@ -146,6 +148,11 @@ function App() {
               {isAuthenticated && stripeapikey && <Route path='/shipping' element={<Elements stripe={loadStripe(stripeapikey)}><Shipping/></Elements>} /> }
               </Routes>
               <Footer/>
+              )
+:(
+  <Route path="/login" element={<Login />} exact />
+)
+
             </Router>
     </div>
   );
