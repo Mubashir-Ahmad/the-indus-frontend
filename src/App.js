@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route ,useNavigate} from "react-router-dom";
 import './App.css';
 import './css/global.css'
 import { useSelector,useDispatch } from 'react-redux';
@@ -57,7 +57,7 @@ import Homeproduct from "./component/home/Homeproduct"
 import MyOrders from './component/user/Myorders';
 import NewUser from './component/Manager/Newuser';
 function App() {
-  
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
@@ -83,6 +83,9 @@ function App() {
     }
   };
   useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+    }
     WebFont.load({
       google: {
         families: ['Roboto', 'Droid Sans', 'chilanka']
@@ -90,11 +93,10 @@ function App() {
     });
     store.dispatch(load_user());
     getstripeapikey();
-  }, []);
+  }, [navigate]);
   return (
     <div className="App">
             <Router>
-              isAuthenticated ?(
               <Navbar/>
               {isAuthenticated && <Useroption user={user} />}
               <Routes>
@@ -109,8 +111,7 @@ function App() {
               <Route path='/admin/orders' element={<OrderList/>} />
               <Route path='/admin/products' element={<ProductList/>} />
               <Route path='/admin/users' element={<UserList/>} />
-              {isAuthenticated &&<Route path="/admin/product/:id" element={<UpdateProduct/>} />}
-              {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
+              
               <Route path="/riderdash" element={<Dashhbord />} exact />
               <Route path='/mangerdashbord' element={<Managerdasboard />} />
               <Route path="/products/:keyword" element={<Homeproduct />} />
@@ -122,7 +123,9 @@ function App() {
               {isAuthenticated &&<Route path="/create/category" element={<Categorylist/>} />}
               {isAuthenticated &&<Route path="/admin/category" element={<Allcategorylist/>} />}
               {isAuthenticated &&<Route path="/admin/update/category/:id" element={<Updatecategory/>} />}
-              
+              {isAuthenticated &&<Route path="/admin/product/:id" element={<UpdateProduct/>} />}
+              {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
+              {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
               {/* Manager links */}
               {isAuthenticated &&<Route path="/manager/product" element={<ProductListt/>} />}
               {isAuthenticated &&<Route path="/manager/user/create" element={<NewUser/>} />}
@@ -136,7 +139,7 @@ function App() {
               {isAuthenticated &&<Route path="/manager/category" element={<Allcategorylistt/>} />}
               {isAuthenticated &&<Route path="/manager/create/category" element={<Categorylistt/>} />}
               {isAuthenticated &&<Route path="/manager/update/user/:id" element={<UpdateUserr/>} />}
-              {isAuthenticated &&<Route path="/admin/update/user/:id" element={<UpdateUser/>} />}
+             
               {isAuthenticated &&<Route path='/rider/orders' element={<Riderorderlist/>} />}
               {isAuthenticated &&<Route path='/user/create' element={<Newuser/>} />}
               {isAuthenticated &&<Route path='/orderdetail/:id' element={<Orderdetail/>} />}
@@ -148,11 +151,6 @@ function App() {
               {isAuthenticated && stripeapikey && <Route path='/shipping' element={<Elements stripe={loadStripe(stripeapikey)}><Shipping/></Elements>} /> }
               </Routes>
               <Footer/>
-              )
-:(
-  <Route path="/login" element={<Login />} exact />
-)
-
             </Router>
     </div>
   );
