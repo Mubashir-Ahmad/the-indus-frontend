@@ -15,7 +15,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 
-function Navbar() {
+function Navbar(history) {
   const { isAuthenticated } = useSelector((state) => state.user);
   const [isActive, setIsActive] = useState(false);
   const [state, setState] = React.useState({
