@@ -62,6 +62,7 @@ function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   console.log('appp' ,useSelector((state) => state.user))
   const [stripeapikey,setstripeapikey]= useState(" ");
+  const navigate = useNavigate();
   const getstripeapikey = async () => {
     try {
       console.log('hello1')
@@ -100,9 +101,12 @@ function App() {
     // if (!isAuthenticated) {
     //   navigate('/login');
     // }
-    if (isAuthenticated === undefined) {
-      // If the authentication state is undefined, do nothing and wait for the update
-      return;
+    if (isAuthenticated !== undefined) {
+      setIsLoading(false); // Set loading to false when authentication status is determined
+      if (!isAuthenticated) {
+        // Redirect non-authenticated users to the login page
+        navigate('/login');
+      }
     }
     WebFont.load({
       google: {
@@ -112,14 +116,8 @@ function App() {
     store.dispatch(load_user());
     getstripeapikey();
     console.log('useeefeect1212',isAuthenticated)
-    if (!isAuthenticated) {
-     <Router>
-      <Routes>
-      <Route path="/login" element={<Login />} exact />
-      </Routes>
-     </Router>
-    }
-  }, [isAuthenticated,Router,Routes,Route]);
+    
+  }, [isAuthenticated,navigate]);
   return (
     <div className="App">
             <Router>
